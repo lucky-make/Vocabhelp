@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chaos in Berlin — Vocabulary</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0d0d0d;--paper:#f7f3ec;--cream:#ede8df;--gold:#b8860b;--gold-light:#d4a017;
+  --green:#1a5c2a;--red:#8b1a1a;--grey:#6b6560;--line:#d4cfc7;
+  --l1:#2c4a6e;--l2:#5c2a6e;--l3:#2a6e4a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;min-height:100vh}
+
+/* MASTHEAD */
+.masthead{background:var(--ink);padding:32px 48px 24px;position:relative;overflow:hidden}
+.masthead::before{content:'VOKABELN';position:absolute;font-family:'Playfair Display',serif;font-size:9rem;font-weight:700;color:rgba(255,255,255,0.03);top:-10px;right:-10px;pointer-events:none;letter-spacing:-4px}
+.masthead-inner{position:relative;z-index:1;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px}
+.title-block h1{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--paper);letter-spacing:-1px;line-height:1}
+.title-block h1 em{font-style:italic;color:var(--gold-light)}
+.title-block p{font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:3px;color:#888;text-transform:uppercase;margin-top:6px}
+.stats-row{display:flex;gap:24px;align-items:flex-end}
+.stat{text-align:right}
+.stat-num{font-family:'DM Mono',monospace;font-size:1.4rem;color:var(--gold-light);line-height:1}
+.stat-label{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:2px;color:#666;text-transform:uppercase}
+
+/* LAYER NAV */
+.layer-nav{background:var(--cream);border-bottom:1px solid var(--line);padding:0 48px;display:flex;gap:0}
+.layer-tab{font-family:'DM Mono',monospace;font-size:0.63rem;letter-spacing:2px;text-transform:uppercase;padding:14px 20px;border:none;background:transparent;color:var(--grey);cursor:pointer;border-bottom:2px solid transparent;transition:all 0.2s;white-space:nowrap}
+.layer-tab:hover{color:var(--ink)}
+.layer-tab.active{color:var(--ink);border-bottom-color:var(--gold);font-weight:500}
+.layer-tab .layer-pip{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:7px;vertical-align:middle}
+.l1-pip{background:var(--l1)}.l2-pip{background:var(--l2)}.l3-pip{background:var(--l3)}
+
+/* MAIN LAYOUT */
+.main{max-width:700px;margin:0 auto;padding:40px 48px 120px}
+
+/* SESSION INFO */
+.session-bar{display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;flex-wrap:wrap;gap:12px}
+.session-info{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--grey);letter-spacing:1px}
+.session-info span{color:var(--gold);font-weight:500}
+.session-controls{display:flex;gap:10px}
+.ctrl-btn{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;border:1px solid var(--line);background:transparent;color:var(--grey);cursor:pointer;transition:all 0.2s}
+.ctrl-btn:hover{border-color:var(--gold);color:var(--ink)}
+.ctrl-btn.primary{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.ctrl-btn.primary:hover{background:#222}
+
+/* PROGRESS BAR */
+.progress-wrap{margin-bottom:32px}
+.progress-track{height:2px;background:var(--line);margin-bottom:6px}
+.progress-fill{height:100%;background:var(--gold-light);transition:width 0.4s}
+.progress-label{font-family:'DM Mono',monospace;font-size:0.6rem;color:var(--grey);letter-spacing:1px;display:flex;justify-content:space-between}
+
+/* CARD */
+.card-wrap{perspective:1000px;margin-bottom:28px;min-height:280px}
+.card{position:relative;width:100%;min-height:280px;transform-style:preserve-3d;transition:transform 0.5s cubic-bezier(0.4,0,0.2,1);cursor:pointer}
+.card.flipped{transform:rotateY(180deg)}
+.card-face{position:absolute;width:100%;min-height:280px;backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:40px 32px;text-align:center}
+.card-front{background:var(--ink);border-left:4px solid var(--gold)}
+.card-back{background:var(--cream);border-left:4px solid var(--green);transform:rotateY(180deg)}
+.card-layer-tag{font-family:'DM Mono',monospace;font-size:0.58rem;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px;opacity:0.6}
+.card-front .card-layer-tag{color:var(--gold-light)}
+.card-back .card-layer-tag{color:var(--grey)}
+.card-word{font-family:'Playfair Display',serif;font-size:2.8rem;font-weight:700;line-height:1.1;margin-bottom:12px}
+.card-front .card-word{color:var(--paper)}
+.card-back .card-word{color:var(--ink)}
+.card-hint{font-family:'DM Mono',monospace;font-size:0.7rem;color:#666;letter-spacing:1px;margin-top:8px}
+.card-front .card-hint{color:#555}
+.card-translation{font-family:'DM Mono',monospace;font-size:0.9rem;color:var(--grey);letter-spacing:1px;margin-bottom:20px}
+.card-example-de{font-family:'Playfair Display',serif;font-style:italic;font-size:1rem;color:var(--ink);margin-bottom:6px;line-height:1.5}
+.card-example-en{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--grey);letter-spacing:0.5px}
+.flip-hint{font-family:'DM Mono',monospace;font-size:0.6rem;color:#555;letter-spacing:2px;text-transform:uppercase;margin-top:20px;opacity:0.7}
+.speak-btn-card{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid rgba(212,160,23,0.3);background:transparent;cursor:pointer;color:var(--gold);margin-top:16px;transition:all 0.15s;border-radius:2px}
+.speak-btn-card:hover{background:rgba(212,160,23,0.1)}
+.speak-btn-card.speaking{color:var(--gold-light);border-color:var(--gold-light);animation:pulse-speak 0.7s infinite alternate}
+.speak-btn-card svg{width:16px;height:16px;fill:currentColor}
+@keyframes pulse-speak{from{opacity:1}to{opacity:0.4}}
+
+/* ANSWER BUTTONS */
+.answer-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:4px}
+.ans-btn{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;padding:14px 8px;border:1px solid var(--line);background:transparent;cursor:pointer;transition:all 0.2s;color:var(--grey);display:flex;flex-direction:column;align-items:center;gap:4px}
+.ans-btn:hover{border-color:var(--gold);color:var(--ink)}
+.ans-btn .ans-icon{font-size:1.2rem}
+.ans-btn.again{border-color:var(--red);color:var(--red)}
+.ans-btn.again:hover{background:var(--red);color:white}
+.ans-btn.hard{border-color:#8B6914;color:#8B6914}
+.ans-btn.hard:hover{background:#8B6914;color:white}
+.ans-btn.good{border-color:var(--green);color:var(--green)}
+.ans-btn.good:hover{background:var(--green);color:white}
+.ans-btn .ans-interval{font-size:0.58rem;opacity:0.7}
+
+/* WORD LIST */
+.wordlist-wrap{margin-top:40px}
+.wordlist-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:12px}
+.wordlist-title{font-family:'DM Mono',monospace;font-size:0.62rem;letter-spacing:3px;text-transform:uppercase;color:var(--grey)}
+.wordlist-toggle{font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:1px;color:var(--gold);background:none;border:none;cursor:pointer;text-decoration:underline}
+.wordlist{display:none}
+.wordlist.open{display:block}
+.word-row{display:grid;grid-template-columns:1fr 1fr 20px;gap:8px;padding:10px 0;border-bottom:1px solid var(--line);align-items:center}
+.word-row:last-child{border-bottom:none}
+.word-de{font-family:'Playfair Display',serif;font-size:0.95rem;font-weight:700}
+.word-en{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--grey)}
+.word-status{width:8px;height:8px;border-radius:50%;border:1.5px solid var(--line);justify-self:center}
+.word-status.known{background:var(--green);border-color:var(--green)}
+.word-status.learning{background:var(--gold-light);border-color:var(--gold-light)}
+
+/* DONE SCREEN */
+.done-screen{display:none;text-align:center;padding:60px 0}
+.done-screen.show{display:block}
+.done-icon{font-size:3rem;margin-bottom:20px}
+.done-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;margin-bottom:12px}
+.done-sub{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--grey);letter-spacing:1px;line-height:1.8;margin-bottom:32px}
+
+/* EMPTY STATE */
+.empty-state{text-align:center;padding:60px 20px;color:var(--grey)}
+.empty-state p{font-family:'DM Mono',monospace;font-size:0.75rem;letter-spacing:1px;line-height:2}
+
+/* AUDIO BAR */
+.audio-bar{position:fixed;bottom:24px;right:24px;background:var(--ink);color:var(--paper);padding:10px 16px;display:flex;align-items:center;gap:12px;z-index:1000;font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:1px;border-left:3px solid var(--gold);opacity:0;pointer-events:none;transition:opacity 0.3s;max-width:280px}
+.audio-bar.visible{opacity:1;pointer-events:auto}
+.audio-bar-stop{background:none;border:1px solid #444;color:#aaa;cursor:pointer;font-family:'DM Mono',monospace;font-size:0.62rem;padding:3px 8px;letter-spacing:1px}
+.audio-bar-stop:hover{border-color:var(--gold);color:var(--gold)}
+
+/* SAVE DOT */
+.save-dot{width:6px;height:6px;border-radius:50%;background:var(--grey);display:inline-block;transition:background 0.3s;margin-left:6px}
+.save-dot.saved{background:var(--green)}.save-dot.saving{background:var(--gold-light)}
+
+@media(max-width:600px){
+  .masthead,.main{padding-left:20px;padding-right:20px}
+  .layer-nav{padding:0 20px}
+  .card-word{font-size:2rem}
+  .answer-row{grid-template-columns:1fr 1fr 1fr}
+  .stats-row{gap:12px}
+  .masthead-inner{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="masthead-inner">
+    <div class="title-block">
+      <h1>Chaos in <em>Berlin</em> — <em>Vokabeln</em></h1>
+      <p>300 Essential Words &nbsp;·&nbsp; 3 Layers &nbsp;·&nbsp; 14 Days to Foundation</p>
+    </div>
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-num" id="stat-known">0</div>
+        <div class="stat-label">Known</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" id="stat-learning">0</div>
+        <div class="stat-label">Learning</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" id="stat-due">0</div>
+        <div class="stat-label">Due Today<span class="save-dot" id="save-dot"></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="layer-nav">
+  <button class="layer-tab active" id="tab-study" onclick="setMode('study',this)">&#9654; Study Session</button>
+  <button class="layer-tab" id="tab-l1" onclick="setMode('l1',this)"><span class="layer-pip l1-pip"></span>Layer 1 — Skeleton</button>
+  <button class="layer-tab" id="tab-l2" onclick="setMode('l2',this)"><span class="layer-pip l2-pip"></span>Layer 2 — Verbs</button>
+  <button class="layer-tab" id="tab-l3" onclick="setMode('l3',this)"><span class="layer-pip l3-pip"></span>Layer 3 — Nouns</button>
+</div>
+
+<div class="main">
+
+  <!-- STUDY MODE -->
+  <div id="mode-study">
+    <div class="session-bar">
+      <div class="session-info">Session: <span id="session-count">0</span> reviewed &nbsp;·&nbsp; <span id="queue-count">0</span> remaining</div>
+      <div class="session-controls">
+        <button class="ctrl-btn" onclick="shuffleQueue()">Shuffle</button>
+        <button class="ctrl-btn primary" onclick="startSession()">New Session</button>
+      </div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="session-progress" style="width:0%"></div></div>
+      <div class="progress-label"><span id="prog-left">0 cards left</span><span id="prog-done">0 done</span></div>
+    </div>
+
+    <div id="study-area">
+      <div class="card-wrap" id="card-wrap">
+        <div class="card" id="main-card" onclick="flipCard()">
+          <div class="card-face card-front">
+            <div class="card-layer-tag" id="card-layer-tag">Layer 1 — Skeleton</div>
+            <div class="card-word" id="card-word">—</div>
+            <button class="speak-btn-card" id="speak-de-btn" title="Listen" onclick="event.stopPropagation();speakCurrent('de')">
+              <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+            </button>
+            <div class="flip-hint">Tap to reveal</div>
+          </div>
+          <div class="card-face card-back">
+            <div class="card-layer-tag" id="card-layer-tag-back">Layer 1</div>
+            <div class="card-word" id="card-back-word">—</div>
+            <div class="card-translation" id="card-translation">—</div>
+            <div class="card-example-de" id="card-example-de">—</div>
+            <div class="card-example-en" id="card-example-en">—</div>
+            <button class="speak-btn-card" id="speak-ex-btn" title="Listen to example" onclick="event.stopPropagation();speakCurrent('ex')">
+              <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="answer-row" id="answer-row" style="display:none">
+        <button class="ans-btn again" onclick="rateCard(0)">
+          <span class="ans-icon">✗</span>
+          <span>Again</span>
+          <span class="ans-interval">repeat now</span>
+        </button>
+        <button class="ans-btn hard" onclick="rateCard(1)">
+          <span class="ans-icon">~</span>
+          <span>Hard</span>
+          <span class="ans-interval" id="int-hard">+1 day</span>
+        </button>
+        <button class="ans-btn good" onclick="rateCard(2)">
+          <span class="ans-icon">✓</span>
+          <span>Good</span>
+          <span class="ans-interval" id="int-good">+3 days</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="done-screen" id="done-screen">
+      <div class="done-icon">🎯</div>
+      <div class="done-title">Session Complete</div>
+      <div class="done-sub" id="done-sub">—</div>
+      <button class="ctrl-btn primary" onclick="startSession()" style="margin:0 auto">Start Another</button>
+    </div>
+  </div>
+
+  <!-- LAYER BROWSE MODES -->
+  <div id="mode-browse" style="display:none">
+    <div class="wordlist-wrap">
+      <div class="wordlist-header">
+        <div class="wordlist-title" id="browse-title">Layer 1 — Skeleton (80 words)</div>
+        <button class="wordlist-toggle" onclick="toggleList()">Show all</button>
+      </div>
+      <div class="wordlist" id="wordlist"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- AUDIO BAR -->
+<div class="audio-bar" id="audio-bar">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="color:var(--gold);flex-shrink:0"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z"/></svg>
+  <span id="audio-bar-text" style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#aaa">—</span>
+  <button class="audio-bar-stop" onclick="stopSpeech()">&#9632;</button>
+</div>
+
+<script>
+// ── DATA ──────────────────────────────────────────────────────────────────
+const WORDS = [{"id": 0, "layer": 1, "de": "ich", "en": "I", "ex_de": "Ich lerne Deutsch.", "ex_en": "I am learning German."}, {"id": 1, "layer": 1, "de": "du", "en": "you (informal)", "ex_de": "Du sprichst gut Deutsch.", "ex_en": "You speak German well."}, {"id": 2, "layer": 1, "de": "er", "en": "he", "ex_de": "Er wohnt in Berlin.", "ex_en": "He lives in Berlin."}, {"id": 3, "layer": 1, "de": "sie", "en": "she / they / you (formal)", "ex_de": "Sie arbeitet viel.", "ex_en": "She works a lot."}, {"id": 4, "layer": 1, "de": "es", "en": "it", "ex_de": "Es regnet heute.", "ex_en": "It's raining today."}, {"id": 5, "layer": 1, "de": "wir", "en": "we", "ex_de": "Wir gehen zusammen.", "ex_en": "We go together."}, {"id": 6, "layer": 1, "de": "ihr", "en": "you all", "ex_de": "Ihr seid laut.", "ex_en": "You all are loud."}, {"id": 7, "layer": 1, "de": "mein", "en": "my", "ex_de": "Das ist mein Buch.", "ex_en": "That is my book."}, {"id": 8, "layer": 1, "de": "dein", "en": "your", "ex_de": "Dein Kaffee ist kalt.", "ex_en": "Your coffee is cold."}, {"id": 9, "layer": 1, "de": "sein", "en": "his / its", "ex_de": "Sein Name ist Felix.", "ex_en": "His name is Felix."}, {"id": 10, "layer": 1, "de": "ihr", "en": "her / their", "ex_de": "Ihr Auto ist neu.", "ex_en": "Her car is new."}, {"id": 11, "layer": 1, "de": "unser", "en": "our", "ex_de": "Unser Haus ist klein.", "ex_en": "Our house is small."}, {"id": 12, "layer": 1, "de": "sich", "en": "oneself / reflexive", "ex_de": "Er freut sich.", "ex_en": "He is happy."}, {"id": 13, "layer": 1, "de": "man", "en": "one / people", "ex_de": "Man lernt nie aus.", "ex_en": "One never stops learning."}, {"id": 14, "layer": 1, "de": "der", "en": "the (masc)", "ex_de": "Der Mann schläft.", "ex_en": "The man sleeps."}, {"id": 15, "layer": 1, "de": "die", "en": "the (fem/pl)", "ex_de": "Die Frau arbeitet.", "ex_en": "The woman works."}, {"id": 16, "layer": 1, "de": "das", "en": "the (neut)", "ex_de": "Das Kind spielt.", "ex_en": "The child plays."}, {"id": 17, "layer": 1, "de": "ein", "en": "a / an (masc/neut)", "ex_de": "Ein Mann steht dort.", "ex_en": "A man stands there."}, {"id": 18, "layer": 1, "de": "eine", "en": "a / an (fem)", "ex_de": "Eine Frau kommt.", "ex_en": "A woman is coming."}, {"id": 19, "layer": 1, "de": "kein", "en": "no / not a", "ex_de": "Kein Problem.", "ex_en": "No problem."}, {"id": 20, "layer": 1, "de": "dieser", "en": "this", "ex_de": "Dieser Tag ist schön.", "ex_en": "This day is beautiful."}, {"id": 21, "layer": 1, "de": "jeder", "en": "every / each", "ex_de": "Jeden Tag lerne ich.", "ex_en": "Every day I learn."}, {"id": 22, "layer": 1, "de": "alle", "en": "all", "ex_de": "Alle wissen das.", "ex_en": "Everyone knows that."}, {"id": 23, "layer": 1, "de": "viel", "en": "much / a lot", "ex_de": "Ich trinke viel Wasser.", "ex_en": "I drink a lot of water."}, {"id": 24, "layer": 1, "de": "wenig", "en": "little / few", "ex_de": "Ich habe wenig Zeit.", "ex_en": "I have little time."}, {"id": 25, "layer": 1, "de": "und", "en": "and", "ex_de": "Kaffee und Tee.", "ex_en": "Coffee and tea."}, {"id": 26, "layer": 1, "de": "aber", "en": "but", "ex_de": "Ich will, aber ich kann nicht.", "ex_en": "I want to but I can't."}, {"id": 27, "layer": 1, "de": "oder", "en": "or", "ex_de": "Kaffee oder Tee?", "ex_en": "Coffee or tea?"}, {"id": 28, "layer": 1, "de": "weil", "en": "because", "ex_de": "Ich lerne, weil ich muss.", "ex_en": "I'm learning because I have to."}, {"id": 29, "layer": 1, "de": "dass", "en": "that", "ex_de": "Ich weiß, dass du kommst.", "ex_en": "I know that you're coming."}, {"id": 30, "layer": 1, "de": "wenn", "en": "when / if", "ex_de": "Wenn ich Zeit habe.", "ex_en": "When I have time."}, {"id": 31, "layer": 1, "de": "ob", "en": "whether", "ex_de": "Ich frage, ob du kommst.", "ex_en": "I ask whether you're coming."}, {"id": 32, "layer": 1, "de": "obwohl", "en": "although", "ex_de": "Obwohl es schwer ist.", "ex_en": "Although it's hard."}, {"id": 33, "layer": 1, "de": "weil", "en": "because", "ex_de": "Er bleibt, weil er müde ist.", "ex_en": "He stays because he's tired."}, {"id": 34, "layer": 1, "de": "denn", "en": "because (coord)", "ex_de": "Ich bleibe, denn es regnet.", "ex_en": "I stay because it's raining."}, {"id": 35, "layer": 1, "de": "sondern", "en": "but rather", "ex_de": "Nicht er, sondern sie.", "ex_en": "Not him but rather her."}, {"id": 36, "layer": 1, "de": "also", "en": "so / therefore", "ex_de": "Also gehe ich.", "ex_en": "So I'm leaving."}, {"id": 37, "layer": 1, "de": "als", "en": "than / when (past)", "ex_de": "Besser als gestern.", "ex_en": "Better than yesterday."}, {"id": 38, "layer": 1, "de": "wie", "en": "how / as / like", "ex_de": "Wie geht es dir?", "ex_en": "How are you?"}, {"id": 39, "layer": 1, "de": "nachdem", "en": "after", "ex_de": "Nachdem er aß.", "ex_en": "After he ate."}, {"id": 40, "layer": 1, "de": "bevor", "en": "before", "ex_de": "Bevor du gehst.", "ex_en": "Before you leave."}, {"id": 41, "layer": 1, "de": "während", "en": "while / during", "ex_de": "Während der Arbeit.", "ex_en": "During work."}, {"id": 42, "layer": 1, "de": "damit", "en": "so that", "ex_de": "Damit du lernst.", "ex_en": "So that you learn."}, {"id": 43, "layer": 1, "de": "bis", "en": "until", "ex_de": "Bis morgen.", "ex_en": "Until tomorrow."}, {"id": 44, "layer": 1, "de": "seit", "en": "since", "ex_de": "Seit drei Jahren.", "ex_en": "For three years."}, {"id": 45, "layer": 1, "de": "in", "en": "in / into", "ex_de": "Ich bin in Berlin.", "ex_en": "I am in Berlin."}, {"id": 46, "layer": 1, "de": "an", "en": "at / on", "ex_de": "Am Tisch sitzen.", "ex_en": "Sit at the table."}, {"id": 47, "layer": 1, "de": "auf", "en": "on / onto", "ex_de": "Auf dem Tisch.", "ex_en": "On the table."}, {"id": 48, "layer": 1, "de": "mit", "en": "with", "ex_de": "Mit dem Bus fahren.", "ex_en": "Travel by bus."}, {"id": 49, "layer": 1, "de": "bei", "en": "at / near / with", "ex_de": "Bei mir zu Hause.", "ex_en": "At my place."}, {"id": 50, "layer": 1, "de": "von", "en": "from / of", "ex_de": "Von Berlin nach Hamburg.", "ex_en": "From Berlin to Hamburg."}, {"id": 51, "layer": 1, "de": "zu", "en": "to / at", "ex_de": "Zu Hause bleiben.", "ex_en": "Stay at home."}, {"id": 52, "layer": 1, "de": "aus", "en": "from / out of", "ex_de": "Aus Deutschland kommen.", "ex_en": "Come from Germany."}, {"id": 53, "layer": 1, "de": "nach", "en": "after / to (cities)", "ex_de": "Nach Berlin fahren.", "ex_en": "Travel to Berlin."}, {"id": 54, "layer": 1, "de": "für", "en": "for", "ex_de": "Das ist für dich.", "ex_en": "That is for you."}, {"id": 55, "layer": 1, "de": "über", "en": "over / about", "ex_de": "Über die Straße.", "ex_en": "Over the street."}, {"id": 56, "layer": 1, "de": "unter", "en": "under / below", "ex_de": "Unter dem Tisch.", "ex_en": "Under the table."}, {"id": 57, "layer": 1, "de": "vor", "en": "before / in front of", "ex_de": "Vor der Tür.", "ex_en": "In front of the door."}, {"id": 58, "layer": 1, "de": "hinter", "en": "behind", "ex_de": "Hinter dem Haus.", "ex_en": "Behind the house."}, {"id": 59, "layer": 1, "de": "durch", "en": "through", "ex_de": "Durch den Park gehen.", "ex_en": "Walk through the park."}, {"id": 60, "layer": 1, "de": "gegen", "en": "against / around (time)", "ex_de": "Gegen zehn Uhr.", "ex_en": "Around ten o'clock."}, {"id": 61, "layer": 1, "de": "ohne", "en": "without", "ex_de": "Ohne Zucker.", "ex_en": "Without sugar."}, {"id": 62, "layer": 1, "de": "um", "en": "around / at (time)", "ex_de": "Um acht Uhr.", "ex_en": "At eight o'clock."}, {"id": 63, "layer": 1, "de": "was", "en": "what", "ex_de": "Was machst du?", "ex_en": "What are you doing?"}, {"id": 64, "layer": 1, "de": "wer", "en": "who", "ex_de": "Wer bist du?", "ex_en": "Who are you?"}, {"id": 65, "layer": 1, "de": "wo", "en": "where", "ex_de": "Wo wohnst du?", "ex_en": "Where do you live?"}, {"id": 66, "layer": 1, "de": "wann", "en": "when", "ex_de": "Wann kommst du?", "ex_en": "When are you coming?"}, {"id": 67, "layer": 1, "de": "warum", "en": "why", "ex_de": "Warum lernst du Deutsch?", "ex_en": "Why are you learning German?"}, {"id": 68, "layer": 1, "de": "wie", "en": "how", "ex_de": "Wie heißt du?", "ex_en": "What is your name?"}, {"id": 69, "layer": 1, "de": "woher", "en": "where from", "ex_de": "Woher kommst du?", "ex_en": "Where are you from?"}, {"id": 70, "layer": 1, "de": "wohin", "en": "where to", "ex_de": "Wohin gehst du?", "ex_en": "Where are you going?"}, {"id": 71, "layer": 1, "de": "welcher", "en": "which", "ex_de": "Welcher Bus fährt?", "ex_en": "Which bus goes?"}, {"id": 72, "layer": 1, "de": "wieviel", "en": "how much", "ex_de": "Wieviel kostet das?", "ex_en": "How much does that cost?"}, {"id": 73, "layer": 1, "de": "nicht", "en": "not", "ex_de": "Ich verstehe nicht.", "ex_en": "I don't understand."}, {"id": 74, "layer": 1, "de": "noch", "en": "still / yet", "ex_de": "Ich bin noch hier.", "ex_en": "I'm still here."}, {"id": 75, "layer": 1, "de": "schon", "en": "already", "ex_de": "Ich bin schon fertig.", "ex_en": "I'm already done."}, {"id": 76, "layer": 1, "de": "auch", "en": "also / too", "ex_de": "Ich auch.", "ex_en": "Me too."}, {"id": 77, "layer": 1, "de": "nur", "en": "only", "ex_de": "Nur ein bisschen.", "ex_en": "Only a little."}, {"id": 78, "layer": 1, "de": "sehr", "en": "very", "ex_de": "Sehr gut.", "ex_en": "Very good."}, {"id": 79, "layer": 1, "de": "hier", "en": "here", "ex_de": "Ich bin hier.", "ex_en": "I'm here."}, {"id": 80, "layer": 1, "de": "dort", "en": "there", "ex_de": "Er ist dort.", "ex_en": "He is there."}, {"id": 81, "layer": 1, "de": "jetzt", "en": "now", "ex_de": "Jetzt lerne ich.", "ex_en": "Now I'm learning."}, {"id": 82, "layer": 1, "de": "dann", "en": "then", "ex_de": "Dann gehe ich.", "ex_en": "Then I leave."}, {"id": 83, "layer": 1, "de": "immer", "en": "always", "ex_de": "Ich lerne immer.", "ex_en": "I always learn."}, {"id": 84, "layer": 1, "de": "nie", "en": "never", "ex_de": "Ich vergesse nie.", "ex_en": "I never forget."}, {"id": 85, "layer": 1, "de": "oft", "en": "often", "ex_de": "Ich trinke oft Kaffee.", "ex_en": "I often drink coffee."}, {"id": 86, "layer": 1, "de": "vielleicht", "en": "maybe", "ex_de": "Vielleicht morgen.", "ex_en": "Maybe tomorrow."}, {"id": 87, "layer": 1, "de": "eigentlich", "en": "actually", "ex_de": "Eigentlich weiß ich es.", "ex_en": "Actually I know it."}, {"id": 88, "layer": 1, "de": "ungefähr", "en": "approximately", "ex_de": "Ungefähr zehn Minuten.", "ex_en": "Approximately ten minutes."}, {"id": 89, "layer": 1, "de": "leider", "en": "unfortunately", "ex_de": "Leider nein.", "ex_en": "Unfortunately no."}, {"id": 90, "layer": 1, "de": "natürlich", "en": "of course", "ex_de": "Natürlich!", "ex_en": "Of course!"}, {"id": 91, "layer": 1, "de": "trotzdem", "en": "nevertheless", "ex_de": "Trotzdem mache ich es.", "ex_en": "I'll do it nevertheless."}, {"id": 92, "layer": 1, "de": "zusammen", "en": "together", "ex_de": "Wir machen es zusammen.", "ex_en": "We do it together."}, {"id": 93, "layer": 1, "de": "doch", "en": "yes (contradicting no) / after all", "ex_de": "Doch, ich komme.", "ex_en": "Yes I am coming (contradicting)."}, {"id": 94, "layer": 1, "de": "mal", "en": "once / just", "ex_de": "Komm mal her.", "ex_en": "Just come here."}, {"id": 95, "layer": 1, "de": "einfach", "en": "simply / just / easy", "ex_de": "Das ist einfach.", "ex_en": "That is simple."}, {"id": 96, "layer": 2, "de": "sein", "en": "to be", "ex_de": "Ich bin müde.", "ex_en": "I am tired."}, {"id": 97, "layer": 2, "de": "haben", "en": "to have", "ex_de": "Ich habe Hunger.", "ex_en": "I am hungry."}, {"id": 98, "layer": 2, "de": "werden", "en": "to become / will", "ex_de": "Es wird kalt.", "ex_en": "It's getting cold."}, {"id": 99, "layer": 2, "de": "können", "en": "can / to be able to", "ex_de": "Ich kann Deutsch sprechen.", "ex_en": "I can speak German."}, {"id": 100, "layer": 2, "de": "müssen", "en": "must / to have to", "ex_de": "Ich muss arbeiten.", "ex_en": "I have to work."}, {"id": 101, "layer": 2, "de": "wollen", "en": "to want", "ex_de": "Ich will nach Deutschland.", "ex_en": "I want to go to Germany."}, {"id": 102, "layer": 2, "de": "sollen", "en": "should / supposed to", "ex_de": "Du sollst das lesen.", "ex_en": "You should read that."}, {"id": 103, "layer": 2, "de": "dürfen", "en": "may / to be allowed", "ex_de": "Darf ich fragen?", "ex_en": "May I ask?"}, {"id": 104, "layer": 2, "de": "möchten", "en": "would like", "ex_de": "Ich möchte Kaffee.", "ex_en": "I would like coffee."}, {"id": 105, "layer": 2, "de": "gehen", "en": "to go", "ex_de": "Ich gehe nach Hause.", "ex_en": "I'm going home."}, {"id": 106, "layer": 2, "de": "kommen", "en": "to come", "ex_de": "Er kommt morgen.", "ex_en": "He's coming tomorrow."}, {"id": 107, "layer": 2, "de": "machen", "en": "to make / do", "ex_de": "Was machst du?", "ex_en": "What are you doing?"}, {"id": 108, "layer": 2, "de": "sagen", "en": "to say", "ex_de": "Er sagt nichts.", "ex_en": "He says nothing."}, {"id": 109, "layer": 2, "de": "sehen", "en": "to see", "ex_de": "Ich sehe dich.", "ex_en": "I see you."}, {"id": 110, "layer": 2, "de": "wissen", "en": "to know (fact)", "ex_de": "Ich weiß das.", "ex_en": "I know that."}, {"id": 111, "layer": 2, "de": "kennen", "en": "to know (person/place)", "ex_de": "Ich kenne Berlin.", "ex_en": "I know Berlin."}, {"id": 112, "layer": 2, "de": "geben", "en": "to give", "ex_de": "Gib mir das.", "ex_en": "Give me that."}, {"id": 113, "layer": 2, "de": "nehmen", "en": "to take", "ex_de": "Ich nehme den Bus.", "ex_en": "I take the bus."}, {"id": 114, "layer": 2, "de": "finden", "en": "to find / think", "ex_de": "Ich finde es gut.", "ex_en": "I find it good."}, {"id": 115, "layer": 2, "de": "denken", "en": "to think", "ex_de": "Ich denke oft daran.", "ex_en": "I often think about it."}, {"id": 116, "layer": 2, "de": "glauben", "en": "to believe / think", "ex_de": "Ich glaube ja.", "ex_en": "I think so."}, {"id": 117, "layer": 2, "de": "heißen", "en": "to be called", "ex_de": "Ich heiße Leon.", "ex_en": "My name is Leon."}, {"id": 118, "layer": 2, "de": "bleiben", "en": "to stay", "ex_de": "Ich bleibe hier.", "ex_en": "I'm staying here."}, {"id": 119, "layer": 2, "de": "stehen", "en": "to stand", "ex_de": "Er steht vor der Tür.", "ex_en": "He stands at the door."}, {"id": 120, "layer": 2, "de": "liegen", "en": "to lie / be located", "ex_de": "Das Buch liegt dort.", "ex_en": "The book is there."}, {"id": 121, "layer": 2, "de": "laufen", "en": "to run / walk", "ex_de": "Ich laufe jeden Tag.", "ex_en": "I run every day."}, {"id": 122, "layer": 2, "de": "fahren", "en": "to drive / travel", "ex_de": "Ich fahre mit dem Zug.", "ex_en": "I travel by train."}, {"id": 123, "layer": 2, "de": "bringen", "en": "to bring", "ex_de": "Bring mir Kaffee.", "ex_en": "Bring me coffee."}, {"id": 124, "layer": 2, "de": "halten", "en": "to hold / stop", "ex_de": "Der Bus hält hier.", "ex_en": "The bus stops here."}, {"id": 125, "layer": 2, "de": "lassen", "en": "to let / leave", "ex_de": "Lass mich in Ruhe.", "ex_en": "Leave me alone."}, {"id": 126, "layer": 2, "de": "zeigen", "en": "to show", "ex_de": "Zeig mir das.", "ex_en": "Show me that."}, {"id": 127, "layer": 2, "de": "fragen", "en": "to ask", "ex_de": "Ich frage dich.", "ex_en": "I'm asking you."}, {"id": 128, "layer": 2, "de": "antworten", "en": "to answer", "ex_de": "Bitte antworte mir.", "ex_en": "Please answer me."}, {"id": 129, "layer": 2, "de": "verstehen", "en": "to understand", "ex_de": "Ich verstehe das nicht.", "ex_en": "I don't understand that."}, {"id": 130, "layer": 2, "de": "erklären", "en": "to explain", "ex_de": "Erkläre es mir.", "ex_en": "Explain it to me."}, {"id": 131, "layer": 2, "de": "lernen", "en": "to learn", "ex_de": "Ich lerne Deutsch.", "ex_en": "I'm learning German."}, {"id": 132, "layer": 2, "de": "arbeiten", "en": "to work", "ex_de": "Ich arbeite viel.", "ex_en": "I work a lot."}, {"id": 133, "layer": 2, "de": "brauchen", "en": "to need", "ex_de": "Ich brauche Hilfe.", "ex_en": "I need help."}, {"id": 134, "layer": 2, "de": "kaufen", "en": "to buy", "ex_de": "Ich kaufe Brot.", "ex_en": "I'm buying bread."}, {"id": 135, "layer": 2, "de": "kosten", "en": "to cost", "ex_de": "Was kostet das?", "ex_en": "How much does that cost?"}, {"id": 136, "layer": 2, "de": "zahlen", "en": "to pay", "ex_de": "Ich zahle bitte.", "ex_en": "I'll pay please."}, {"id": 137, "layer": 2, "de": "öffnen", "en": "to open", "ex_de": "Öffne die Tür.", "ex_en": "Open the door."}, {"id": 138, "layer": 2, "de": "schließen", "en": "to close", "ex_de": "Schließ das Fenster.", "ex_en": "Close the window."}, {"id": 139, "layer": 2, "de": "anfangen", "en": "to begin / start", "ex_de": "Wann fangen wir an?", "ex_en": "When do we start?"}, {"id": 140, "layer": 2, "de": "aufhören", "en": "to stop", "ex_de": "Hör auf!", "ex_en": "Stop it!"}, {"id": 141, "layer": 2, "de": "aufstehen", "en": "to get up", "ex_de": "Ich stehe früh auf.", "ex_en": "I get up early."}, {"id": 142, "layer": 2, "de": "ankommen", "en": "to arrive", "ex_de": "Wann kommen wir an?", "ex_en": "When do we arrive?"}, {"id": 143, "layer": 2, "de": "anrufen", "en": "to call (phone)", "ex_de": "Ich rufe dich an.", "ex_en": "I'll call you."}, {"id": 144, "layer": 2, "de": "aussehen", "en": "to look / appear", "ex_de": "Du siehst gut aus.", "ex_en": "You look good."}, {"id": 145, "layer": 2, "de": "vorstellen", "en": "to introduce / imagine", "ex_de": "Stell dich vor.", "ex_en": "Introduce yourself."}, {"id": 146, "layer": 2, "de": "wohnen", "en": "to live / reside", "ex_de": "Ich wohne in Berlin.", "ex_en": "I live in Berlin."}, {"id": 147, "layer": 2, "de": "leben", "en": "to live", "ex_de": "Ich lebe gern hier.", "ex_en": "I like living here."}, {"id": 148, "layer": 2, "de": "essen", "en": "to eat", "ex_de": "Ich esse gern Pasta.", "ex_en": "I like eating pasta."}, {"id": 149, "layer": 2, "de": "trinken", "en": "to drink", "ex_de": "Ich trinke Kaffee.", "ex_en": "I drink coffee."}, {"id": 150, "layer": 2, "de": "schlafen", "en": "to sleep", "ex_de": "Ich schlafe gut.", "ex_en": "I sleep well."}, {"id": 151, "layer": 2, "de": "lesen", "en": "to read", "ex_de": "Ich lese jeden Tag.", "ex_en": "I read every day."}, {"id": 152, "layer": 2, "de": "schreiben", "en": "to write", "ex_de": "Ich schreibe einen Brief.", "ex_en": "I'm writing a letter."}, {"id": 153, "layer": 2, "de": "hören", "en": "to hear / listen", "ex_de": "Ich höre Musik.", "ex_en": "I listen to music."}, {"id": 154, "layer": 2, "de": "sprechen", "en": "to speak", "ex_de": "Ich spreche Deutsch.", "ex_en": "I speak German."}, {"id": 155, "layer": 2, "de": "helfen", "en": "to help", "ex_de": "Kannst du mir helfen?", "ex_en": "Can you help me?"}, {"id": 156, "layer": 2, "de": "gefallen", "en": "to like / please", "ex_de": "Das gefällt mir.", "ex_en": "I like that."}, {"id": 157, "layer": 2, "de": "gehören", "en": "to belong to", "ex_de": "Das gehört mir.", "ex_en": "That belongs to me."}, {"id": 158, "layer": 2, "de": "bedeuten", "en": "to mean", "ex_de": "Was bedeutet das?", "ex_en": "What does that mean?"}, {"id": 159, "layer": 2, "de": "passieren", "en": "to happen", "ex_de": "Was ist passiert?", "ex_en": "What happened?"}, {"id": 160, "layer": 2, "de": "suchen", "en": "to search / look for", "ex_de": "Ich suche Arbeit.", "ex_en": "I'm looking for work."}, {"id": 161, "layer": 2, "de": "finden", "en": "to find", "ex_de": "Ich habe es gefunden.", "ex_en": "I found it."}, {"id": 162, "layer": 2, "de": "ändern", "en": "to change", "ex_de": "Das muss sich ändern.", "ex_en": "That has to change."}, {"id": 163, "layer": 2, "de": "versuchen", "en": "to try", "ex_de": "Ich versuche es.", "ex_en": "I'll try it."}, {"id": 164, "layer": 2, "de": "vergessen", "en": "to forget", "ex_de": "Ich vergesse alles.", "ex_en": "I forget everything."}, {"id": 165, "layer": 2, "de": "erinnern", "en": "to remember", "ex_de": "Ich erinnere mich.", "ex_en": "I remember."}, {"id": 166, "layer": 2, "de": "warten", "en": "to wait", "ex_de": "Ich warte auf dich.", "ex_en": "I'm waiting for you."}, {"id": 167, "layer": 2, "de": "hoffen", "en": "to hope", "ex_de": "Ich hoffe es.", "ex_en": "I hope so."}, {"id": 168, "layer": 2, "de": "meinen", "en": "to mean / think", "ex_de": "Was meinst du?", "ex_en": "What do you mean?"}, {"id": 169, "layer": 2, "de": "stimmen", "en": "to be correct", "ex_de": "Das stimmt.", "ex_en": "That's correct."}, {"id": 170, "layer": 2, "de": "reichen", "en": "to be enough", "ex_de": "Das reicht.", "ex_en": "That's enough."}, {"id": 171, "layer": 2, "de": "fehlen", "en": "to be missing / miss", "ex_de": "Du fehlst mir.", "ex_en": "I miss you."}, {"id": 172, "layer": 2, "de": "kennenlernen", "en": "to get to know", "ex_de": "Schön, Sie kennenzulernen.", "ex_en": "Nice to meet you."}, {"id": 173, "layer": 2, "de": "vorhaben", "en": "to plan / intend", "ex_de": "Was hast du vor?", "ex_en": "What are you planning?"}, {"id": 174, "layer": 2, "de": "weitermachen", "en": "to continue", "ex_de": "Mach weiter!", "ex_en": "Keep going!"}, {"id": 175, "layer": 2, "de": "nachdenken", "en": "to think about / reflect", "ex_de": "Ich denke nach.", "ex_en": "I'm thinking it over."}, {"id": 176, "layer": 2, "de": "aufpassen", "en": "to pay attention / be careful", "ex_de": "Pass auf!", "ex_en": "Watch out!"}, {"id": 177, "layer": 2, "de": "sich freuen", "en": "to be happy / look forward", "ex_de": "Ich freue mich.", "ex_en": "I'm happy about it."}, {"id": 178, "layer": 2, "de": "sich vorstellen", "en": "to imagine / introduce oneself", "ex_de": "Ich stelle mir vor.", "ex_en": "I imagine."}, {"id": 179, "layer": 2, "de": "losfahren", "en": "to set off / depart", "ex_de": "Wir fahren um acht los.", "ex_en": "We set off at eight."}, {"id": 180, "layer": 2, "de": "zuhören", "en": "to listen (attentively)", "ex_de": "Hör zu!", "ex_en": "Listen!"}, {"id": 181, "layer": 2, "de": "mitkommen", "en": "to come along", "ex_de": "Kommst du mit?", "ex_en": "Are you coming along?"}, {"id": 182, "layer": 2, "de": "weitergehen", "en": "to continue / move on", "ex_de": "Es geht weiter.", "ex_en": "It continues."}, {"id": 183, "layer": 2, "de": "aussehen", "en": "to look like", "ex_de": "Wie sieht es aus?", "ex_en": "What does it look like?"}, {"id": 184, "layer": 2, "de": "umziehen", "en": "to move (house)", "ex_de": "Ich ziehe nach Berlin um.", "ex_en": "I'm moving to Berlin."}, {"id": 185, "layer": 2, "de": "bewerben", "en": "to apply", "ex_de": "Ich bewerbe mich.", "ex_en": "I'm applying."}, {"id": 186, "layer": 2, "de": "klappen", "en": "to work out", "ex_de": "Das klappt.", "ex_en": "That works out."}, {"id": 187, "layer": 2, "de": "schaffen", "en": "to manage / create", "ex_de": "Ich schaffe das.", "ex_en": "I can manage that."}, {"id": 188, "layer": 2, "de": "probieren", "en": "to try / taste", "ex_de": "Probier mal!", "ex_en": "Give it a try!"}, {"id": 189, "layer": 2, "de": "empfehlen", "en": "to recommend", "ex_de": "Ich empfehle das.", "ex_en": "I recommend that."}, {"id": 190, "layer": 2, "de": "beschreiben", "en": "to describe", "ex_de": "Beschreib das mal.", "ex_en": "Describe that."}, {"id": 191, "layer": 2, "de": "mitbringen", "en": "to bring along", "ex_de": "Bring etwas mit.", "ex_en": "Bring something along."}, {"id": 192, "layer": 2, "de": "ausgehen", "en": "to go out", "ex_de": "Wir gehen aus.", "ex_en": "We're going out."}, {"id": 193, "layer": 2, "de": "funktionieren", "en": "to work / function", "ex_de": "Das funktioniert nicht.", "ex_en": "That doesn't work."}, {"id": 194, "layer": 2, "de": "organisieren", "en": "to organise", "ex_de": "Ich organisiere alles.", "ex_en": "I'm organising everything."}, {"id": 195, "layer": 2, "de": "kontaktieren", "en": "to contact", "ex_de": "Kontaktiere mich.", "ex_en": "Contact me."}, {"id": 196, "layer": 3, "de": "die Zeit", "en": "time", "ex_de": "Ich habe keine Zeit.", "ex_en": "I have no time."}, {"id": 197, "layer": 3, "de": "der Tag", "en": "day", "ex_de": "Guten Tag!", "ex_en": "Good day!"}, {"id": 198, "layer": 3, "de": "die Woche", "en": "week", "ex_de": "Diese Woche arbeite ich viel.", "ex_en": "This week I work a lot."}, {"id": 199, "layer": 3, "de": "der Monat", "en": "month", "ex_de": "Im nächsten Monat.", "ex_en": "Next month."}, {"id": 200, "layer": 3, "de": "das Jahr", "en": "year", "ex_de": "Dieses Jahr lerne ich Deutsch.", "ex_en": "This year I'm learning German."}, {"id": 201, "layer": 3, "de": "die Stunde", "en": "hour", "ex_de": "In einer Stunde.", "ex_en": "In an hour."}, {"id": 202, "layer": 3, "de": "die Minute", "en": "minute", "ex_de": "Fünf Minuten bitte.", "ex_en": "Five minutes please."}, {"id": 203, "layer": 3, "de": "morgen", "en": "tomorrow", "ex_de": "Bis morgen.", "ex_en": "Until tomorrow."}, {"id": 204, "layer": 3, "de": "heute", "en": "today", "ex_de": "Heute lerne ich.", "ex_en": "Today I'm learning."}, {"id": 205, "layer": 3, "de": "gestern", "en": "yesterday", "ex_de": "Gestern war es gut.", "ex_en": "Yesterday it was good."}, {"id": 206, "layer": 3, "de": "früh", "en": "early", "ex_de": "Ich stehe früh auf.", "ex_en": "I get up early."}, {"id": 207, "layer": 3, "de": "spät", "en": "late", "ex_de": "Es ist spät.", "ex_en": "It's late."}, {"id": 208, "layer": 3, "de": "der Mensch", "en": "person / human", "ex_de": "Der Mensch ist interessant.", "ex_en": "The person is interesting."}, {"id": 209, "layer": 3, "de": "die Frau", "en": "woman / wife", "ex_de": "Die Frau arbeitet.", "ex_en": "The woman works."}, {"id": 210, "layer": 3, "de": "der Mann", "en": "man / husband", "ex_de": "Der Mann schläft.", "ex_en": "The man sleeps."}, {"id": 211, "layer": 3, "de": "das Kind", "en": "child", "ex_de": "Das Kind spielt.", "ex_en": "The child plays."}, {"id": 212, "layer": 3, "de": "der Freund", "en": "friend / boyfriend", "ex_de": "Mein Freund heißt Felix.", "ex_en": "My friend is called Felix."}, {"id": 213, "layer": 3, "de": "die Familie", "en": "family", "ex_de": "Meine Familie ist groß.", "ex_en": "My family is big."}, {"id": 214, "layer": 3, "de": "der Kollege", "en": "colleague", "ex_de": "Mein Kollege ist nett.", "ex_en": "My colleague is nice."}, {"id": 215, "layer": 3, "de": "der Chef", "en": "boss", "ex_de": "Der Chef kommt morgen.", "ex_en": "The boss comes tomorrow."}, {"id": 216, "layer": 3, "de": "der Nachbar", "en": "neighbour", "ex_de": "Mein Nachbar ist laut.", "ex_en": "My neighbour is loud."}, {"id": 217, "layer": 3, "de": "das Haus", "en": "house", "ex_de": "Ich bin zu Hause.", "ex_en": "I'm at home."}, {"id": 218, "layer": 3, "de": "die Wohnung", "en": "apartment", "ex_de": "Ich suche eine Wohnung.", "ex_en": "I'm looking for an apartment."}, {"id": 219, "layer": 3, "de": "die Stadt", "en": "city", "ex_de": "Berlin ist eine große Stadt.", "ex_en": "Berlin is a big city."}, {"id": 220, "layer": 3, "de": "das Land", "en": "country / countryside", "ex_de": "Ich komme aus Nigeria.", "ex_en": "I come from Nigeria."}, {"id": 221, "layer": 3, "de": "die Straße", "en": "street", "ex_de": "Die Straße ist lang.", "ex_en": "The street is long."}, {"id": 222, "layer": 3, "de": "der Bahnhof", "en": "train station", "ex_de": "Am Bahnhof warten.", "ex_en": "Wait at the train station."}, {"id": 223, "layer": 3, "de": "die U-Bahn", "en": "underground / metro", "ex_de": "Ich fahre mit der U-Bahn.", "ex_en": "I take the metro."}, {"id": 224, "layer": 3, "de": "das Büro", "en": "office", "ex_de": "Ich gehe ins Büro.", "ex_en": "I'm going to the office."}, {"id": 225, "layer": 3, "de": "die Schule", "en": "school", "ex_de": "Ich gehe zur Schule.", "ex_en": "I go to school."}, {"id": 226, "layer": 3, "de": "der Supermarkt", "en": "supermarket", "ex_de": "Ich gehe in den Supermarkt.", "ex_en": "I go to the supermarket."}, {"id": 227, "layer": 3, "de": "die Arbeit", "en": "work", "ex_de": "Ich gehe zur Arbeit.", "ex_en": "I go to work."}, {"id": 228, "layer": 3, "de": "der Beruf", "en": "profession / job", "ex_de": "Was ist dein Beruf?", "ex_en": "What is your profession?"}, {"id": 229, "layer": 3, "de": "die Ausbildung", "en": "vocational training", "ex_de": "Ich mache eine Ausbildung.", "ex_en": "I'm doing vocational training."}, {"id": 230, "layer": 3, "de": "das Unternehmen", "en": "company", "ex_de": "Das Unternehmen ist groß.", "ex_en": "The company is big."}, {"id": 231, "layer": 3, "de": "die Bewerbung", "en": "job application", "ex_de": "Ich schreibe eine Bewerbung.", "ex_en": "I'm writing a job application."}, {"id": 232, "layer": 3, "de": "das Gespräch", "en": "conversation", "ex_de": "Das Gespräch war gut.", "ex_en": "The conversation was good."}, {"id": 233, "layer": 3, "de": "die Frage", "en": "question", "ex_de": "Ich habe eine Frage.", "ex_en": "I have a question."}, {"id": 234, "layer": 3, "de": "die Antwort", "en": "answer", "ex_de": "Die Antwort ist ja.", "ex_en": "The answer is yes."}, {"id": 235, "layer": 3, "de": "das Problem", "en": "problem", "ex_de": "Kein Problem!", "ex_en": "No problem!"}, {"id": 236, "layer": 3, "de": "die Lösung", "en": "solution", "ex_de": "Ich suche eine Lösung.", "ex_en": "I'm looking for a solution."}, {"id": 237, "layer": 3, "de": "das Geld", "en": "money", "ex_de": "Ich habe kein Geld.", "ex_en": "I have no money."}, {"id": 238, "layer": 3, "de": "der Schlüssel", "en": "key", "ex_de": "Ich habe den Schlüssel.", "ex_en": "I have the key."}, {"id": 239, "layer": 3, "de": "das Handy", "en": "mobile phone", "ex_de": "Mein Handy ist kaputt.", "ex_en": "My phone is broken."}, {"id": 240, "layer": 3, "de": "der Computer", "en": "computer", "ex_de": "Mein Computer ist neu.", "ex_en": "My computer is new."}, {"id": 241, "layer": 3, "de": "das Essen", "en": "food", "ex_de": "Das Essen ist gut.", "ex_en": "The food is good."}, {"id": 242, "layer": 3, "de": "das Wasser", "en": "water", "ex_de": "Ich trinke Wasser.", "ex_en": "I drink water."}, {"id": 243, "layer": 3, "de": "der Kaffee", "en": "coffee", "ex_de": "Ich trinke Kaffee.", "ex_en": "I drink coffee."}, {"id": 244, "layer": 3, "de": "der Zug", "en": "train", "ex_de": "Der Zug fährt pünktlich.", "ex_en": "The train runs on time."}, {"id": 245, "layer": 3, "de": "die Tasche", "en": "bag", "ex_de": "Meine Tasche ist schwer.", "ex_en": "My bag is heavy."}, {"id": 246, "layer": 3, "de": "das Buch", "en": "book", "ex_de": "Ich lese ein Buch.", "ex_en": "I'm reading a book."}, {"id": 247, "layer": 3, "de": "das Leben", "en": "life", "ex_de": "Das Leben ist schön.", "ex_en": "Life is beautiful."}, {"id": 248, "layer": 3, "de": "die Welt", "en": "world", "ex_de": "Die Welt ist groß.", "ex_en": "The world is big."}, {"id": 249, "layer": 3, "de": "die Möglichkeit", "en": "possibility", "ex_de": "Es gibt eine Möglichkeit.", "ex_en": "There is a possibility."}, {"id": 250, "layer": 3, "de": "der Grund", "en": "reason", "ex_de": "Was ist der Grund?", "ex_en": "What is the reason?"}, {"id": 251, "layer": 3, "de": "die Hilfe", "en": "help", "ex_de": "Ich brauche Hilfe.", "ex_en": "I need help."}, {"id": 252, "layer": 3, "de": "die Chance", "en": "chance / opportunity", "ex_de": "Das ist eine Chance.", "ex_en": "That is an opportunity."}, {"id": 253, "layer": 3, "de": "das Ziel", "en": "goal", "ex_de": "Was ist dein Ziel?", "ex_en": "What is your goal?"}, {"id": 254, "layer": 3, "de": "der Anfang", "en": "beginning", "ex_de": "Das ist der Anfang.", "ex_en": "This is the beginning."}, {"id": 255, "layer": 3, "de": "das Ende", "en": "end", "ex_de": "Das Ende ist gut.", "ex_en": "The end is good."}, {"id": 256, "layer": 3, "de": "der Unterschied", "en": "difference", "ex_de": "Was ist der Unterschied?", "ex_en": "What is the difference?"}, {"id": 257, "layer": 3, "de": "das Beispiel", "en": "example", "ex_de": "Zum Beispiel...", "ex_en": "For example..."}, {"id": 258, "layer": 3, "de": "die Erfahrung", "en": "experience", "ex_de": "Ich habe Erfahrung.", "ex_en": "I have experience."}, {"id": 259, "layer": 3, "de": "die Sprache", "en": "language", "ex_de": "Ich lerne die Sprache.", "ex_en": "I'm learning the language."}, {"id": 260, "layer": 3, "de": "das Wort", "en": "word", "ex_de": "Ich kenne das Wort nicht.", "ex_en": "I don't know the word."}, {"id": 261, "layer": 3, "de": "der Satz", "en": "sentence", "ex_de": "Ich schreibe einen Satz.", "ex_en": "I write a sentence."}, {"id": 262, "layer": 3, "de": "die Information", "en": "information", "ex_de": "Das ist wichtige Information.", "ex_en": "That is important information."}, {"id": 263, "layer": 3, "de": "die Nachricht", "en": "message / news", "ex_de": "Ich schreibe eine Nachricht.", "ex_en": "I'm writing a message."}, {"id": 264, "layer": 3, "de": "der Termin", "en": "appointment", "ex_de": "Ich habe einen Termin.", "ex_en": "I have an appointment."}, {"id": 265, "layer": 3, "de": "die Adresse", "en": "address", "ex_de": "Was ist deine Adresse?", "ex_en": "What is your address?"}, {"id": 266, "layer": 3, "de": "das Formular", "en": "form", "ex_de": "Ich fülle das Formular aus.", "ex_en": "I'm filling out the form."}, {"id": 267, "layer": 3, "de": "gut", "en": "good", "ex_de": "Das ist gut.", "ex_en": "That is good."}, {"id": 268, "layer": 3, "de": "schlecht", "en": "bad", "ex_de": "Das ist schlecht.", "ex_en": "That is bad."}, {"id": 269, "layer": 3, "de": "groß", "en": "big / tall", "ex_de": "Die Stadt ist groß.", "ex_en": "The city is big."}, {"id": 270, "layer": 3, "de": "klein", "en": "small", "ex_de": "Das Kind ist klein.", "ex_en": "The child is small."}, {"id": 271, "layer": 3, "de": "neu", "en": "new", "ex_de": "Mein Handy ist neu.", "ex_en": "My phone is new."}, {"id": 272, "layer": 3, "de": "alt", "en": "old", "ex_de": "Das Haus ist alt.", "ex_en": "The house is old."}, {"id": 273, "layer": 3, "de": "wichtig", "en": "important", "ex_de": "Das ist wichtig.", "ex_en": "That is important."}, {"id": 274, "layer": 3, "de": "möglich", "en": "possible", "ex_de": "Ist das möglich?", "ex_en": "Is that possible?"}, {"id": 275, "layer": 3, "de": "schwer", "en": "hard / heavy", "ex_de": "Das ist schwer.", "ex_en": "That is hard."}, {"id": 276, "layer": 3, "de": "einfach", "en": "easy / simple", "ex_de": "Das ist einfach.", "ex_en": "That is easy."}, {"id": 277, "layer": 3, "de": "schnell", "en": "fast", "ex_de": "Der Zug fährt schnell.", "ex_en": "The train goes fast."}, {"id": 278, "layer": 3, "de": "langsam", "en": "slow", "ex_de": "Sprich langsam bitte.", "ex_en": "Please speak slowly."}, {"id": 279, "layer": 3, "de": "richtig", "en": "correct / right", "ex_de": "Das ist richtig.", "ex_en": "That is correct."}, {"id": 280, "layer": 3, "de": "falsch", "en": "wrong", "ex_de": "Das ist falsch.", "ex_en": "That is wrong."}, {"id": 281, "layer": 3, "de": "fertig", "en": "ready / done", "ex_de": "Ich bin fertig.", "ex_en": "I'm done."}, {"id": 282, "layer": 3, "de": "gleich", "en": "same / in a moment", "ex_de": "Das ist gleich.", "ex_en": "That is the same."}, {"id": 283, "layer": 3, "de": "nett", "en": "nice / kind", "ex_de": "Du bist nett.", "ex_en": "You are nice."}, {"id": 284, "layer": 3, "de": "interessant", "en": "interesting", "ex_de": "Das ist interessant.", "ex_en": "That is interesting."}, {"id": 285, "layer": 3, "de": "müde", "en": "tired", "ex_de": "Ich bin müde.", "ex_en": "I am tired."}, {"id": 286, "layer": 3, "de": "krank", "en": "sick", "ex_de": "Ich bin krank.", "ex_en": "I am sick."}, {"id": 287, "layer": 3, "de": "kostenlos", "en": "free of charge", "ex_de": "Das ist kostenlos.", "ex_en": "That is free."}, {"id": 288, "layer": 3, "de": "pünktlich", "en": "punctual / on time", "ex_de": "Der Zug ist pünktlich.", "ex_en": "The train is on time."}, {"id": 289, "layer": 3, "de": "ehrlich", "en": "honest", "ex_de": "Sei ehrlich.", "ex_en": "Be honest."}, {"id": 290, "layer": 3, "de": "ruhig", "en": "calm / quiet", "ex_de": "Bleib ruhig.", "ex_en": "Stay calm."}, {"id": 291, "layer": 3, "de": "laut", "en": "loud", "ex_de": "Er ist laut.", "ex_en": "He is loud."}, {"id": 292, "layer": 3, "de": "leise", "en": "quiet / soft", "ex_de": "Bitte leise.", "ex_en": "Please be quiet."}, {"id": 293, "layer": 3, "de": "warm", "en": "warm", "ex_de": "Das Essen ist warm.", "ex_en": "The food is warm."}, {"id": 294, "layer": 3, "de": "kalt", "en": "cold", "ex_de": "Das Wasser ist kalt.", "ex_en": "The water is cold."}, {"id": 295, "layer": 3, "de": "offen", "en": "open", "ex_de": "Das Geschäft ist offen.", "ex_en": "The shop is open."}, {"id": 296, "layer": 3, "de": "geschlossen", "en": "closed", "ex_de": "Es ist geschlossen.", "ex_en": "It is closed."}, {"id": 297, "layer": 3, "de": "kostenlos", "en": "free", "ex_de": "Das ist kostenlos.", "ex_en": "That is free of charge."}, {"id": 298, "layer": 3, "de": "selbst", "en": "self / even", "ex_de": "Ich mache es selbst.", "ex_en": "I'll do it myself."}];
+
+// ── STATE ─────────────────────────────────────────────────────────────────
+const SAVE_KEY = 'cib_vocab_v2';
+const LAYER_NAMES = {1:'Layer 1 — Skeleton', 2:'Layer 2 — Verbs', 3:'Layer 3 — Nouns & Adjectives'};
+const LAYER_COUNTS = {1:96, 2:100, 3:103};
+
+let state = {};  // id -> {interval, due, seen, correct}
+let queue = [];
+let currentIdx = 0;
+let currentWord = null;
+let flipped = false;
+let sessionDone = 0;
+let sessionTotal = 0;
+let currentMode = 'study';
+let saveTimer = null;
+
+// ── INIT ──────────────────────────────────────────────────────────────────
+function initState() {
+  WORDS.forEach(w => {
+    if (!state[w.id]) state[w.id] = {interval:0, due:0, seen:false, correct:0, total:0};
+  });
+}
+
+function loadSave() {
+  try {
+    const raw = localStorage.getItem(SAVE_KEY);
+    if (raw) state = JSON.parse(raw);
+  } catch(e) {}
+  initState();
+  updateStats();
+}
+
+function scheduleSave() {
+  const dot = document.getElementById('save-dot');
+  if(dot) dot.className = 'save-dot saving';
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => {
+    try { localStorage.setItem(SAVE_KEY, JSON.stringify(state)); } catch(e) {}
+    const dot = document.getElementById('save-dot');
+    if(dot) { dot.className = 'save-dot saved'; setTimeout(()=>{if(dot)dot.className='save-dot';},2000); }
+  }, 600);
+}
+
+// ── SRS LOGIC ─────────────────────────────────────────────────────────────
+function isDue(id) {
+  const s = state[id];
+  if (!s.seen) return true;
+  return Date.now() >= s.due;
+}
+
+function getInterval(current, rating) {
+  if (rating === 0) return 0;  // again — immediate
+  if (!current || current === 0) return rating === 1 ? 1 : 3;
+  const next = rating === 1 ? Math.max(1, Math.floor(current * 1.3)) : Math.floor(current * 2.5);
+  return Math.min(next, 180);
+}
+
+function rateCard(rating) {
+  if (!currentWord) return;
+  const s = state[currentWord.id];
+  const newInterval = getInterval(s.interval, rating);
+  s.seen = true;
+  s.interval = newInterval;
+  s.total = (s.total||0) + 1;
+  if (rating >= 1) s.correct = (s.correct||0) + 1;
+  if (rating === 0) {
+    // push back into queue
+    queue.push(currentWord);
+  } else {
+    s.due = Date.now() + newInterval * 86400000;
+  }
+  sessionDone++;
+  scheduleSave();
+  nextCard();
+}
+
+// ── SESSION ───────────────────────────────────────────────────────────────
+function buildQueue(layerFilter) {
+  let pool = WORDS.filter(w => layerFilter ? w.layer === layerFilter : true);
+  // Due first, then unseen
+  let due = pool.filter(w => isDue(w.id));
+  // Limit session to 15 cards max for ADHD sanity
+  queue = due.slice(0, 15);
+  // Shuffle
+  for (let i = queue.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i+1));
+    [queue[i], queue[j]] = [queue[j], queue[i]];
+  }
+  currentIdx = 0;
+  sessionDone = 0;
+  sessionTotal = queue.length;
+}
+
+function startSession(layerFilter) {
+  buildQueue(layerFilter);
+  document.getElementById('done-screen').classList.remove('show');
+  document.getElementById('study-area').style.display = '';
+  updateSessionProgress();
+  if (queue.length === 0) {
+    showDoneScreen(true);
+    return;
+  }
+  loadCard(queue[currentIdx]);
+}
+
+function shuffleQueue() {
+  for (let i = queue.slice(currentIdx).length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i+1));
+    const a = currentIdx + i, b = currentIdx + j;
+    [queue[a], queue[b]] = [queue[b], queue[a]];
+  }
+  if (queue[currentIdx]) loadCard(queue[currentIdx]);
+}
+
+function nextCard() {
+  currentIdx++;
+  updateSessionProgress();
+  if (currentIdx >= queue.length) {
+    showDoneScreen(false);
+    return;
+  }
+  loadCard(queue[currentIdx]);
+}
+
+function showDoneScreen(empty) {
+  document.getElementById('study-area').style.display = 'none';
+  const screen = document.getElementById('done-screen');
+  screen.classList.add('show');
+  const known = WORDS.filter(w => state[w.id] && state[w.id].seen && state[w.id].interval > 3).length;
+  document.getElementById('done-sub').innerHTML =
+    (empty ? 'No cards due right now. Come back later or browse the layers.<br><br>' : '') +
+    sessionDone + ' cards reviewed this session.<br>' +
+    known + ' words with interval > 3 days.<br>' +
+    WORDS.filter(w => state[w.id]?.seen).length + ' / ' + WORDS.length + ' words seen.';
+  updateStats();
+}
+
+// ── CARD DISPLAY ──────────────────────────────────────────────────────────
+function loadCard(word) {
+  currentWord = word;
+  flipped = false;
+  const card = document.getElementById('main-card');
+  card.classList.remove('flipped');
+  document.getElementById('answer-row').style.display = 'none';
+
+  const layerNames = {1:'Layer 1 — Skeleton', 2:'Layer 2 — Verbs', 3:'Layer 3 — Nouns & Adjectives'};
+  document.getElementById('card-layer-tag').textContent = layerNames[word.layer];
+  document.getElementById('card-layer-tag-back').textContent = layerNames[word.layer];
+  document.getElementById('card-word').textContent = word.de;
+  document.getElementById('card-back-word').textContent = word.de;
+  document.getElementById('card-translation').textContent = word.en;
+  document.getElementById('card-example-de').textContent = word.ex_de;
+  document.getElementById('card-example-en').textContent = word.ex_en;
+
+  // Interval hints
+  const s = state[word.id];
+  const curr = s.interval || 0;
+  document.getElementById('int-hard').textContent = '+' + getInterval(curr,1) + 'd';
+  document.getElementById('int-good').textContent = '+' + getInterval(curr,2) + 'd';
+  document.getElementById('speak-de-btn').classList.remove('speaking');
+  document.getElementById('speak-ex-btn').classList.remove('speaking');
+}
+
+function flipCard() {
+  if (!currentWord) return;
+  flipped = !flipped;
+  document.getElementById('main-card').classList.toggle('flipped', flipped);
+  document.getElementById('answer-row').style.display = flipped ? 'grid' : 'none';
+  if (flipped) speakCurrent('de');
+}
+
+// ── STATS ─────────────────────────────────────────────────────────────────
+function updateStats() {
+  const known = WORDS.filter(w => state[w.id]?.seen && state[w.id]?.interval > 3).length;
+  const learning = WORDS.filter(w => state[w.id]?.seen && (state[w.id]?.interval||0) <= 3).length;
+  const due = WORDS.filter(w => isDue(w.id)).length;
+  document.getElementById('stat-known').textContent = known;
+  document.getElementById('stat-learning').textContent = learning;
+  document.getElementById('stat-due').textContent = due;
+}
+
+function updateSessionProgress() {
+  const left = queue.length - currentIdx;
+  const done = sessionDone;
+  const total = sessionTotal || 1;
+  const pct = Math.round((done / total) * 100);
+  document.getElementById('session-progress').style.width = pct + '%';
+  document.getElementById('prog-left').textContent = left + ' cards left';
+  document.getElementById('prog-done').textContent = done + ' done';
+  document.getElementById('session-count').textContent = sessionDone;
+  document.getElementById('queue-count').textContent = Math.max(0, queue.length - currentIdx);
+}
+
+// ── MODE SWITCHING ─────────────────────────────────────────────────────────
+function setMode(mode, tab) {
+  document.querySelectorAll('.layer-tab').forEach(t => t.classList.remove('active'));
+  tab.classList.add('active');
+  currentMode = mode;
+  document.getElementById('mode-study').style.display = mode === 'study' ? '' : 'none';
+  document.getElementById('mode-browse').style.display = mode !== 'study' ? '' : 'none';
+  if (mode === 'study') {
+    startSession();
+  } else {
+    const layerNum = parseInt(mode.replace('l',''));
+    showBrowse(layerNum);
+  }
+}
+
+function showBrowse(layer) {
+  const words = WORDS.filter(w => w.layer === layer);
+  const counts = {1:'96',2:'100',3:'103'};
+  document.getElementById('browse-title').textContent = LAYER_NAMES[layer] + ' (' + words.length + ' words)';
+  const list = document.getElementById('wordlist');
+  list.innerHTML = words.map(w => {
+    const s = state[w.id];
+    const statusClass = !s?.seen ? '' : s.interval > 3 ? 'known' : 'learning';
+    return `<div class="word-row">
+      <div class="word-de">${w.de}</div>
+      <div class="word-en">${w.en}</div>
+      <div class="word-status ${statusClass}"></div>
+    </div>`;
+  }).join('');
+}
+
+function toggleList() {
+  const list = document.getElementById('wordlist');
+  const btn = document.querySelector('.wordlist-toggle');
+  list.classList.toggle('open');
+  btn.textContent = list.classList.contains('open') ? 'Hide' : 'Show all';
+}
+
+// ── AUDIO ──────────────────────────────────────────────────────────────────
+let deVoice = null;
+let currentSpeakBtn = null;
+function loadVoices() {
+  const v = window.speechSynthesis ? window.speechSynthesis.getVoices() : [];
+  deVoice = v.find(x=>x.lang==='de-DE'&&/female|anna|petra|marlene/i.test(x.name))||v.find(x=>x.lang==='de-DE')||v.find(x=>x.lang.startsWith('de'));
+}
+if(window.speechSynthesis){loadVoices();window.speechSynthesis.onvoiceschanged=loadVoices;}
+
+function stopSpeech() {
+  if(window.speechSynthesis)window.speechSynthesis.cancel();
+  if(currentSpeakBtn){currentSpeakBtn.classList.remove('speaking');currentSpeakBtn=null;}
+  document.getElementById('audio-bar').classList.remove('visible');
+}
+
+function speakText(text, btn) {
+  if(!window.speechSynthesis)return;
+  stopSpeech();
+  const utt = new SpeechSynthesisUtterance(text);
+  utt.lang='de-DE';utt.rate=0.8;utt.pitch=1.0;
+  if(deVoice)utt.voice=deVoice;
+  utt.onstart=()=>{
+    currentSpeakBtn=btn;btn.classList.add('speaking');
+    document.getElementById('audio-bar-text').textContent=text.length>35?text.slice(0,35)+'...':text;
+    document.getElementById('audio-bar').classList.add('visible');
+  };
+  utt.onend=utt.onerror=()=>{
+    btn.classList.remove('speaking');currentSpeakBtn=null;
+    document.getElementById('audio-bar').classList.remove('visible');
+  };
+  window.speechSynthesis.speak(utt);
+}
+
+function speakCurrent(which) {
+  if(!currentWord)return;
+  const text = which==='ex' ? currentWord.ex_de : currentWord.de;
+  const btn = which==='ex' ? document.getElementById('speak-ex-btn') : document.getElementById('speak-de-btn');
+  speakText(text, btn);
+}
+
+// ── KEYBOARD ──────────────────────────────────────────────────────────────
+document.addEventListener('keydown', e => {
+  if(currentMode !== 'study') return;
+  if(e.key === ' ' || e.key === 'Enter') { e.preventDefault(); flipCard(); }
+  if(flipped) {
+    if(e.key==='1') rateCard(0);
+    if(e.key==='2') rateCard(1);
+    if(e.key==='3') rateCard(2);
+  }
+});
+
+// ── CLEAR PROGRESS ────────────────────────────────────────────────────────
+window.clearVocabProgress = function() {
+  if(confirm('Reset all vocab progress?')) { localStorage.removeItem(SAVE_KEY); location.reload(); }
+};
+
+// ── BOOT ──────────────────────────────────────────────────────────────────
+loadSave();
+startSession();
+</script>
+</body>
+</html>
