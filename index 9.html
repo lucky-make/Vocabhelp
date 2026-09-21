@@ -1,0 +1,2978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sprachstand — German Level Self-Check (A1–B2)</title>
+<meta name="description" content="A free 88-item German level self-check: five skills, CEFR-tagged items, confidence ranges on every result, and a study plan built from your own mistakes.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231c2321'/%3E%3Ctext x='50' y='70' font-size='56' text-anchor='middle' fill='%23f6f3ec' font-family='Georgia,serif'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1c2321;
+    --paper: #f6f3ec;
+    --paper-raised: #ffffff;
+    --paper-sunk: #faf8f2;
+    --slate: #3d4b47;
+    --slate-soft: #6b7a75;
+    --moss: #4a5d52;
+    --rust: #a8542e;
+    --rust-deep: #8a4022;
+    --gold: #b8934a;
+    --line: #d8d1c0;
+    --line-soft: #e8e3d6;
+    --correct: #3f6e4a;
+    --correct-bg: #eef4ee;
+    --wrong: #a8342e;
+    --wrong-bg: #fbeeed;
+    --radius: 2px;
+    --serif: 'Fraunces', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    --sans: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ---------- STICKY TEST BAR ---------- */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: rgba(246, 243, 236, 0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar[hidden] { display: none; }
+  .topbar-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 10px 24px 0;
+  }
+  .topbar-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    color: var(--slate);
+    text-transform: uppercase;
+    padding-bottom: 8px;
+  }
+  .topbar-meta .now { color: var(--rust); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .progress-rail {
+    height: 3px;
+    background: var(--line-soft);
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    width: 0;
+    background: var(--rust);
+    transition: width 0.35s ease;
+  }
+
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 96px;
+  }
+
+  /* ---------- MASTHEAD ---------- */
+  .masthead {
+    border-bottom: 3px solid var(--ink);
+    padding-bottom: 18px;
+    margin-bottom: 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 16px;
+  }
+  .masthead h1 {
+    font-family: var(--serif);
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+  }
+  .masthead .tagline {
+    font-size: 0.9rem;
+    color: var(--slate-soft);
+    margin-top: 6px;
+  }
+  .masthead .sub {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--slate);
+    text-align: right;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  /* ---------- CARDS ---------- */
+  .card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    padding: 32px;
+  }
+  .card + .card { margin-top: 16px; }
+  .card h2 {
+    font-family: var(--serif);
+    font-size: 1.45rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .card h3 {
+    font-family: var(--serif);
+    font-size: 1.08rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+  }
+  .card p {
+    color: var(--slate);
+    font-size: 0.96rem;
+    margin-bottom: 14px;
+  }
+  .card p:last-child { margin-bottom: 0; }
+
+  .intro-list { list-style: none; margin: 22px 0 18px; }
+  .intro-list li {
+    padding: 11px 0 11px 30px;
+    border-bottom: 1px solid var(--line-soft);
+    position: relative;
+    font-size: 0.93rem;
+    color: var(--slate);
+  }
+  .intro-list li:last-child { border-bottom: none; }
+  .intro-list li::before {
+    content: attr(data-mark);
+    position: absolute;
+    left: 0;
+    top: 12px;
+    font-family: var(--mono);
+    color: var(--rust);
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+
+  /* section picker */
+  .picker { margin: 20px 0 6px; }
+  .picker-title {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 12px;
+  }
+  .picker-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 8px;
+  }
+  .pick {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    border: 1.5px solid var(--line);
+    padding: 12px 14px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    background: var(--paper);
+    transition: border-color 0.15s, background 0.15s;
+    user-select: none;
+    min-height: 60px;
+  }
+  .pick:hover { border-color: var(--slate-soft); }
+  .pick.on { border-color: var(--moss); background: #f1f4f0; }
+  .pick input { accent-color: var(--rust); width: 16px; height: 16px; flex-shrink: 0; margin-top: 3px; }
+  .pick .pick-meta {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    color: var(--slate-soft);
+    letter-spacing: 0.02em;
+    margin-top: 2px;
+  }
+
+  .note {
+    border-left: 3px solid var(--gold);
+    background: #fbf7ee;
+    padding: 14px 16px;
+    font-size: 0.87rem;
+    color: var(--slate);
+    margin-top: 18px;
+  }
+  .note strong { color: var(--ink); }
+
+  /* ---------- QUESTION ---------- */
+  .section-tag {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 6px;
+  }
+  .q-counter {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--slate-soft);
+    margin-bottom: 20px;
+  }
+
+  .q-card {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    padding: 32px;
+    margin-bottom: 18px;
+    animation: rise 0.3s ease both;
+  }
+  @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .q-card { animation: none; }
+    html { scroll-behavior: auto; }
+    .progress-fill { transition: none; }
+  }
+
+  .q-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .q-level-chip {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.06em;
+    padding: 3px 9px;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+  .q-level-chip[data-level="A1"], .q-level-chip[data-level="A2"] { border-color: var(--moss); color: var(--moss); }
+  .q-level-chip[data-level="B2"] { border-color: var(--rust); color: var(--rust); }
+  .q-topic {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--slate-soft);
+    letter-spacing: 0.02em;
+    text-align: right;
+  }
+
+  .q-context {
+    font-size: 0.85rem;
+    color: var(--slate-soft);
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  .q-passage {
+    background: var(--paper-sunk);
+    border-left: 3px solid var(--moss);
+    padding: 16px 18px;
+    margin-bottom: 20px;
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+  .q-text {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 22px;
+    line-height: 1.5;
+  }
+  .q-text .blank {
+    display: inline-block;
+    min-width: 56px;
+    border-bottom: 2px solid var(--rust);
+  }
+  .q-hint {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    color: var(--slate-soft);
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 10px; }
+
+  .opt {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 15px 16px;
+    border: 1.5px solid var(--line);
+    background: var(--paper);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    font-size: 0.96rem;
+    font-family: inherit;
+    color: var(--ink);
+    text-align: left;
+    width: 100%;
+    line-height: 1.45;
+  }
+  .opt:hover { border-color: var(--slate); background: #fdfcf8; }
+  .opt.selected { border-color: var(--rust); background: #fbf0e9; }
+  .opt-letter {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--slate-soft);
+    width: 18px;
+    flex-shrink: 0;
+  }
+  .opt.selected .opt-letter { color: var(--rust); font-weight: 500; }
+  .opt.selected .opt-letter::after { content: ''; }
+
+  /* typing variant */
+  .text-input-row input {
+    width: 100%;
+    padding: 15px 16px;
+    border: 1.5px solid var(--line);
+    background: var(--paper);
+    font-size: 1rem;
+    font-family: var(--sans);
+    color: var(--ink);
+    border-radius: var(--radius);
+  }
+  .text-input-row input::placeholder { color: #9aa5a0; }
+  .text-input-row input:focus { outline: none; border-color: var(--rust); background: #fbf0e9; }
+
+  .umlaut-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    align-items: center;
+    margin-top: 10px;
+  }
+  .umlaut-row .lbl {
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    color: var(--slate-soft);
+    margin-right: 2px;
+  }
+  .umlaut {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    padding: 5px 10px;
+    border: 1px solid var(--line);
+    background: var(--paper-sunk);
+    color: var(--slate);
+    cursor: pointer;
+    line-height: 1;
+  }
+  .umlaut:hover { border-color: var(--slate); color: var(--ink); }
+
+  /* ---------- BUTTONS / NAV ---------- */
+  .nav-row {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 6px;
+  }
+  .nav-row .spacer { margin-right: auto; }
+
+  button {
+    font-family: var(--sans);
+    font-size: 0.92rem;
+    font-weight: 600;
+    padding: 13px 26px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, transform 0.1s, border-color 0.15s;
+  }
+  button:active:not(:disabled) { transform: scale(0.985); }
+  button:disabled { opacity: 0.32; cursor: not-allowed; }
+  .btn-primary { background: var(--ink); color: var(--paper); }
+  .btn-primary:hover:not(:disabled) { background: var(--rust-deep); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--slate);
+    border: 1.5px solid var(--line);
+  }
+  .btn-ghost:hover:not(:disabled) { border-color: var(--slate); color: var(--ink); }
+  .btn-small { padding: 9px 16px; font-size: 0.84rem; }
+
+  :focus-visible { outline: 2px solid var(--rust); outline-offset: 2px; }
+  .opt:focus-visible, button:focus-visible { outline: 2px solid var(--rust); outline-offset: 3px; }
+
+  kbd {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    border: 1px solid var(--line);
+    border-bottom-width: 2px;
+    padding: 1px 5px;
+    background: var(--paper-sunk);
+    color: var(--slate);
+    border-radius: 2px;
+  }
+  .keys-hint {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--slate-soft);
+    text-align: right;
+    margin-top: 14px;
+  }
+  @media (max-width: 640px) { .keys-hint { display: none; } }
+
+  /* ---------- RESULTS ---------- */
+  .result-hero {
+    text-align: center;
+    padding: 44px 24px 38px;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    margin-bottom: 16px;
+  }
+  .result-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--slate-soft);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .result-level {
+    font-family: var(--serif);
+    font-size: 4.4rem;
+    font-weight: 700;
+    color: var(--rust);
+    line-height: 1;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .result-level.long { font-size: 2.6rem; }
+  .result-sub {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--slate);
+    margin-bottom: 14px;
+    letter-spacing: 0.02em;
+    line-height: 1.7;
+  }
+  .result-label {
+    font-size: 1rem;
+    color: var(--slate);
+    max-width: 470px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .skill-row { margin-bottom: 20px; }
+  .skill-row:last-child { margin-bottom: 0; }
+  .skill-row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 7px;
+  }
+  .skill-name { color: var(--ink); font-weight: 600; }
+  .skill-score { font-family: var(--mono); font-size: 0.78rem; color: var(--slate); text-align: right; }
+  .skill-bar-track { height: 9px; background: var(--line-soft); position: relative; overflow: hidden; }
+  .skill-bar-fill { height: 100%; background: var(--moss); transition: width 0.6s ease; }
+  .skill-bar-fill.shaky { background: var(--gold); }
+  .skill-bar-fill.low { background: #b06a52; }
+  .status-chip {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 2px 6px;
+    border: 1px solid currentColor;
+    margin-left: 6px;
+    white-space: nowrap;
+  }
+  .status-chip.solid { color: var(--correct); }
+  .status-chip.shaky { color: var(--gold); }
+  .status-chip.gap { color: var(--wrong); }
+  .status-chip.top { color: var(--moss); border-style: dashed; }
+
+  table.matrix {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.86rem;
+  }
+  table.matrix th, table.matrix td {
+    text-align: left;
+    padding: 9px 8px;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  table.matrix th {
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--slate-soft);
+    font-weight: 500;
+  }
+  table.matrix td.lvl { font-family: var(--mono); font-weight: 500; width: 46px; }
+  table.matrix td.num { font-family: var(--mono); font-size: 0.78rem; color: var(--slate); white-space: nowrap; }
+  table.matrix td.bar { width: 42%; padding-right: 0; }
+  .mini-track { height: 7px; background: var(--line-soft); overflow: hidden; }
+  .mini-fill { height: 100%; background: var(--moss); }
+  .mini-fill.shaky { background: var(--gold); }
+  .mini-fill.low { background: #b06a52; }
+
+  .verdict {
+    background: #faf5ec;
+    border: 1px solid var(--gold);
+    padding: 26px 28px;
+    margin-top: 16px;
+  }
+  .verdict h3 { color: var(--rust-deep); }
+  .verdict p { font-size: 0.93rem; color: var(--slate); }
+  .verdict strong { color: var(--ink); }
+  .verdict .math {
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    background: #fff;
+    border: 1px solid var(--line);
+    padding: 12px 14px;
+    margin: 4px 0 14px;
+    color: var(--slate);
+    line-height: 1.7;
+  }
+  .verdict .math b { color: var(--ink); }
+
+  .plan { margin-top: 16px; }
+  .plan-item {
+    display: flex;
+    gap: 14px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--line-soft);
+    font-size: 0.88rem;
+    align-items: flex-start;
+  }
+  .plan-item:last-child { border-bottom: none; }
+  .plan-item .lvl-tag {
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    color: var(--rust);
+    flex-shrink: 0;
+    padding-top: 2px;
+    width: 26px;
+    letter-spacing: 0.02em;
+  }
+  .plan-item .desc { color: var(--slate); }
+  .plan-item .desc strong { color: var(--ink); }
+  .plan-item .fix {
+    display: block;
+    margin-top: 5px;
+    font-size: 0.83rem;
+    color: var(--slate-soft);
+  }
+  .plan-item .fix::before { content: '→ '; color: var(--rust); }
+
+  .review-toggle { text-align: center; margin: 30px 0 14px; }
+  .review-toggle button {
+    background: transparent;
+    color: var(--rust);
+    text-decoration: underline;
+    padding: 8px;
+    font-weight: 500;
+  }
+  .review-toggle button:hover { color: var(--rust-deep); }
+
+  .filter-row { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .filter-row button {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.03em;
+    padding: 7px 13px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--slate);
+    font-weight: 500;
+  }
+  .filter-row button.on { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+
+  .review-item {
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    padding: 20px 24px;
+    margin-bottom: 10px;
+  }
+  .review-item.wrong { border-left: 4px solid var(--wrong); }
+  .review-item.partial { border-left: 4px solid var(--gold); }
+  .review-item.right { border-left: 4px solid var(--correct); }
+  .review-head {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--slate-soft);
+    margin-bottom: 10px;
+  }
+  .review-q { font-family: var(--serif); font-size: 1.02rem; margin-bottom: 12px; line-height: 1.5; }
+  .review-answers { font-size: 0.85rem; font-family: var(--mono); line-height: 1.7; }
+  .review-answers .yours { color: var(--wrong); }
+  .review-item.right .review-answers .yours { color: var(--correct); }
+  .review-item.partial .review-answers .yours { color: #8a6a20; }
+  .review-answers .correct-ans { color: var(--correct); }
+  .review-explain {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--line);
+    font-size: 0.88rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+  .review-explain .lab {
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--slate-soft);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .result-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 26px 0 8px;
+  }
+  .copy-area { margin-top: 16px; }
+  .copy-area textarea {
+    width: 100%;
+    min-height: 150px;
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    line-height: 1.6;
+    padding: 14px;
+    border: 1px solid var(--line);
+    background: var(--paper-sunk);
+    color: var(--slate);
+    resize: vertical;
+  }
+  .toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+    transform: translateX(-50%) translateY(12px);
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 0.85rem;
+    padding: 12px 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s, transform 0.25s;
+    z-index: 60;
+    max-width: 90vw;
+    text-align: center;
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  .foot {
+    border-top: 1px solid var(--line);
+    margin-top: 40px;
+    padding-top: 18px;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    color: var(--slate-soft);
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+  }
+
+  @media (max-width: 600px) {
+    .masthead { flex-direction: column; align-items: flex-start; gap: 10px; }
+    .masthead .sub { text-align: left; }
+    .masthead h1 { font-size: 1.7rem; }
+    .wrap { padding: 32px 16px 72px; }
+    .topbar-inner { padding: 10px 16px 0; }
+    .card, .q-card { padding: 22px 18px; }
+    .result-level { font-size: 3.1rem; }
+    .q-text { font-size: 1.08rem; }
+    .nav-row { flex-wrap: wrap; }
+    .nav-row button { flex: 1 1 auto; }
+    table.matrix td.bar { display: none; }
+    .review-item { padding: 16px 18px; }
+    .verdict { padding: 22px 20px; }
+  }
+
+  /* ---------- PRINT ---------- */
+  @media print {
+    body { background: #fff; }
+    .topbar, .nav-row, .review-toggle, .result-actions, .copy-area, .toast, .foot, .filter-row { display: none !important; }
+    .wrap { padding: 0; max-width: none; }
+    .card, .result-hero, .review-item, .verdict { border: 1px solid #ccc; break-inside: avoid; page-break-inside: avoid; }
+    .verdict { background: #fff; }
+    .result-level { color: #000; }
+    .masthead { margin-bottom: 20px; }
+  }
+
+  /* ============================================================
+     v2 ADDITIONS — listening, bands, trust panel
+     ============================================================ */
+
+  /* ---------- voice preflight on the intro screen ---------- */
+  .voice-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.86rem;
+    line-height: 1.6;
+    padding: 14px 16px;
+    margin-top: 14px;
+    border: 1px solid var(--line);
+    background: var(--paper-sunk);
+    color: var(--slate);
+  }
+  .voice-check strong { color: var(--ink); }
+  .voice-check em { font-style: normal; color: var(--rust-deep); font-weight: 600; }
+  .voice-check.ok { border-left: 3px solid var(--moss); }
+  .voice-check.bad { border-left: 3px solid var(--gold); }
+  .voice-check .vc-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    margin-top: 7px; flex-shrink: 0;
+    background: var(--moss);
+  }
+  .voice-check.bad .vc-dot { background: var(--gold); }
+  .voice-check button { margin-left: auto; flex-shrink: 0; }
+  .pick.dropped { border-style: dashed; border-color: var(--gold); }
+  .pick.dropped .pick-meta { color: var(--rust-deep); }
+
+  @media (max-width: 600px) {
+    .voice-check { flex-wrap: wrap; }
+    .voice-check button { margin-left: 0; }
+  }
+
+  /* ---------- listening panel ---------- */
+  .listen-panel {
+    border: 1.5px solid var(--moss);
+    background: #f4f7f3;
+    padding: 18px 18px 14px;
+    margin-bottom: 22px;
+  }
+  .play-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--moss);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 15px 26px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    min-width: 168px;
+    justify-content: center;
+  }
+  .play-btn:hover { background: #3b4b42; }
+  .play-btn.playing { background: var(--rust); }
+  .play-icon { font-size: 0.85rem; line-height: 1; }
+  .listen-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    color: var(--slate);
+    margin-top: 12px;
+    letter-spacing: 0.02em;
+  }
+  .rate-toggle { display: inline-flex; border: 1px solid var(--line); background: #fff; }
+  .rate-btn {
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    letter-spacing: 0.03em;
+    padding: 6px 11px;
+    background: transparent;
+    border: none;
+    color: var(--slate-soft);
+    cursor: pointer;
+    font-weight: 500;
+  }
+  .rate-btn.on { background: var(--moss); color: #fff; }
+  .listen-help {
+    font-size: 0.8rem;
+    color: var(--slate-soft);
+    margin-top: 12px;
+    line-height: 1.6;
+    border-top: 1px dashed var(--line);
+    padding-top: 10px;
+  }
+  .linkish {
+    background: none; border: none; padding: 0;
+    font: inherit; color: var(--rust); text-decoration: underline;
+    cursor: pointer; font-weight: 500;
+  }
+  .transcript-box {
+    margin-top: 18px;
+    padding: 14px 16px;
+    background: var(--paper-sunk);
+    border-left: 3px solid var(--gold);
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: var(--slate);
+  }
+  .transcript-box .lab {
+    display: block;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--slate-soft);
+    margin-bottom: 7px;
+  }
+
+  /* ---------- bands & fine print ---------- */
+  .band-chip {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.03em;
+    border: 1px dashed var(--slate-soft);
+    color: var(--slate);
+    padding: 2px 5px;
+    margin-left: 5px;
+    white-space: nowrap;
+  }
+  .result-label strong { color: var(--rust-deep); }
+  .fine {
+    font-size: 0.79rem !important;
+    color: var(--slate-soft) !important;
+    line-height: 1.65;
+  }
+  .range-note {
+    font-size: 0.86rem !important;
+    border-top: 1px dashed var(--line);
+    padding-top: 12px;
+    margin-top: 14px !important;
+  }
+
+  /* ---------- trust panel ---------- */
+  .trust { border-color: var(--gold); background: #fffdf8; }
+  .trust-table { width: 100%; border-collapse: collapse; font-size: 0.86rem; }
+  .trust-table th {
+    text-align: left;
+    vertical-align: top;
+    font-family: var(--mono);
+    font-size: 0.63rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--slate-soft);
+    font-weight: 500;
+    padding: 11px 16px 11px 0;
+    width: 34%;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .trust-table td {
+    padding: 11px 0;
+    color: var(--slate);
+    line-height: 1.65;
+    border-bottom: 1px solid var(--line-soft);
+    vertical-align: top;
+  }
+  .trust-table tr:last-child th, .trust-table tr:last-child td { border-bottom: none; }
+  .blunt {
+    margin-top: 16px !important;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem !important;
+    color: var(--slate) !important;
+    line-height: 1.65;
+  }
+  .blunt strong { color: var(--rust-deep); }
+  @media (max-width: 600px) {
+    .trust-table th, .trust-table td { display: block; width: 100%; padding-right: 0; }
+    .trust-table th { border-bottom: none; padding-bottom: 2px; padding-top: 14px; }
+    .trust-table td { padding-top: 0; }
+  }
+
+  /* ---------- review additions ---------- */
+  .review-audio {
+    background: var(--paper-sunk);
+    border-left: 3px solid var(--moss);
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: var(--slate);
+  }
+  .review-audio .lab {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--slate-soft);
+    margin-bottom: 4px;
+  }
+  .review-flags {
+    margin-top: 10px;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.03em;
+    color: #8a6a20;
+    text-transform: uppercase;
+  }
+
+  @media print {
+    .listen-panel, .rate-toggle, .review-flags { display: none !important; }
+    .trust, .voice-check { background: #fff !important; }
+  }
+
+  .masthead .sub.reduced { color: var(--slate-soft); }
+</style>
+</head>
+<body>
+
+<header class="topbar" id="topbar" hidden>
+  <div class="topbar-inner">
+    <div class="topbar-meta">
+      <span class="now" id="barSection">—</span>
+      <span id="barCount">—</span>
+    </div>
+  </div>
+  <div class="progress-rail"><div class="progress-fill" id="progressFill"></div></div>
+</header>
+
+<main class="wrap">
+  <div class="masthead">
+    <div>
+      <h1>Sprachstand</h1>
+      <div class="tagline">German level self-check</div>
+    </div>
+    <div class="sub" id="mastheadSub">CEFR A1 &rarr; B2<br><span id="mastheadCount">5 skills &middot; 88 items</span></div>
+  </div>
+
+  <div id="app"></div>
+
+  <div class="foot" id="foot">
+    <div>An estimate from your own answers, with an explicit range &mdash; not a certified placement.</div>
+    <div>Answers never leave the browser: no accounts, no analytics, no network calls beyond the font stylesheet.</div>
+  </div>
+</main>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============================================================
+   SPRACHSTAND — ITEM BANK
+   ------------------------------------------------------------
+   84 items, 4 CEFR levels, balanced cells:
+     grammar      24  (6 per level)
+     vocabulary   24  (6 per level)
+     reading      12  (3 per level · six passages, two items each)
+     listening    12  (3 per level · one script each)
+     production   12  (3 per level · translation items)
+   ------------------------------------------------------------
+   Fields
+     level     'A1' | 'A2' | 'B1' | 'B2'
+     type      'mc' (multiple choice) | 'tc' (typed answer)
+     topic     groups items in the "what to fix" list — reuse a topic
+               to merge items into one study-plan entry
+     text      the question as displayed
+     options   mc only — shuffled at runtime; `correct` indexes this array
+     correct   mc only — index of the right option AS WRITTEN HERE
+     accepts   tc only — every phrasing a fair marker would allow,
+               lower-case, without punctuation (matching is umlaut- and
+               case-insensitive; add fronted variants too)
+     audio     listening only — the German text spoken aloud
+     passage   reading only — shown above the question
+     passageId reading only — items sharing an id share a passage, and
+               therefore share a source of error (noted in the trust panel)
+     explain   why the answer is right
+     fix       the concrete drill for that topic
+
+   Adding items: keep `level` honest, keep cells balanced (an uneven
+   cell is an uneven amount of evidence), and give every item an
+   explanation — the review is the part people actually learn from.
+   ============================================================ */
+const QUESTIONS = {
+
+  /* ---------------- GRAMMAR · 24 ---------------- */
+  grammar: [
+    /* A1 */
+    { level: 'A1', type: 'mc', topic: 'sein (to be)', context: 'Basic verb conjugation',
+      text: 'Ich ___ aus Nigeria.', options: ['bin', 'bist', 'ist', 'sind'], correct: 0,
+      explain: 'ich bin · du bist · er/sie/es ist · wir sind · ihr seid · sie/Sie sind.',
+      fix: 'Drill the present tense of sein and haben until it needs no thought.' },
+
+    { level: 'A1', type: 'mc', topic: 'Definite articles', context: 'Articles',
+      text: '___ Buch ist neu. (das Buch)', options: ['Der', 'Die', 'Das', 'Den'], correct: 2,
+      explain: 'das Buch is neuter, so the nominative article is das. Gender is part of the word — learn nouns with their article.',
+      fix: 'Always memorise nouns as der/die/das + noun, never as a bare word.' },
+
+    { level: 'A1', type: 'mc', topic: 'W-questions', context: 'Question words',
+      text: '___ heißt du?', options: ['Was', 'Wie', 'Wo', 'Wer'], correct: 1,
+      explain: 'German asks "Wie heißt du?" — literally "how are you called". Was = what, wo = where, wer = who.',
+      fix: 'Learn the W-question set as fixed phrases, not word-by-word translations.' },
+
+    { level: 'A1', type: 'mc', topic: 'W-questions', context: 'Where vs. where from',
+      text: '___ wohnst du? — In Lagos.', options: ['Wohin', 'Woher', 'Wo', 'Wer'], correct: 2,
+      explain: 'wo = where (location) · wohin = where to (direction) · woher = where from (origin).',
+      fix: 'Separate location (wo), direction (wohin) and origin (woher) — a classic A1 muddle.' },
+
+    { level: 'A1', type: 'mc', topic: 'sein (to be)', context: 'Plural verb forms',
+      text: 'Amir und Sara ___ Studenten.', options: ['ist', 'sind', 'seid', 'bin'], correct: 1,
+      explain: 'Two people = third person plural = sie sind. "seid" is for ihr (you, plural informal).',
+      fix: 'Say the full sein table aloud daily until the plural forms stick.' },
+
+    { level: 'A1', type: 'mc', topic: 'Accusative case', context: 'Accusative object',
+      text: 'Ich sehe ___ Mann dort. (der Mann)', options: ['der', 'den', 'dem', 'des'], correct: 1,
+      explain: 'The direct object takes the accusative. Only masculine changes: der → den. Die and das stay the same.',
+      fix: 'Learn the accusative as "only der becomes den", and drill simple subject–verb–object sentences.' },
+
+    /* A2 */
+    { level: 'A2', type: 'mc', topic: 'Modal verbs', context: 'Modal verbs',
+      text: 'Ich ___ heute nicht arbeiten, weil ich krank bin.', options: ['kann', 'kannst', 'könnt', 'können'], correct: 0,
+      explain: 'ich kann — first and third person singular of modals take no ending. The infinitive (arbeiten) goes to the end.',
+      fix: 'Memorise the modal table (kann, muss, will, darf, soll, mag) and the "modal + infinitive at the end" frame.' },
+
+    { level: 'A2', type: 'mc', topic: 'Perfect tense', context: 'Perfect tense',
+      text: 'Gestern ___ ich meinen Freund ___.', options: ['habe / besucht', 'bin / besucht', 'habe / besuchen', 'hatte / besuchen'], correct: 0,
+      explain: 'haben + past participle: "Ich habe meinen Freund besucht." Movement verbs (gehen, fahren, kommen) take sein instead.',
+      fix: 'Practise the Perfekt with participles: regular ge-…-t, strong verbs ge-…-en, and the haben/sein choice.' },
+
+    { level: 'A2', type: 'mc', topic: 'Dative case', context: 'Dative case',
+      text: 'Ich gebe ___ Mann das Geld. (der Mann)', options: ['den', 'dem', 'der', 'des'], correct: 1,
+      explain: 'geben takes a dative person and an accusative thing: dem Mann (dative) + das Geld (accusative).',
+      fix: 'Learn verbs that force the dative (geben, helfen, danken, gefallen) with their case.' },
+
+    { level: 'A2', type: 'mc', topic: 'Subordinate clauses', context: 'Subordinate clauses',
+      text: 'Ich komme später, ___ ich noch arbeiten muss.', options: ['denn', 'weil', 'deshalb', 'und'], correct: 1,
+      explain: 'weil sends the verb to the end (… ich noch arbeiten muss). denn keeps normal word order, deshalb reverses it, und just joins.',
+      fix: 'Sort your connectors by what they do to word order: because-words (weil, da) move the verb last.' },
+
+    { level: 'A2', type: 'mc', topic: 'Comparatives', context: 'Comparisons',
+      text: 'Berlin ist ___ als Bonn.', options: ['groß', 'größer', 'am größten', 'größte'], correct: 1,
+      explain: 'Comparison with als needs the comparative: größer als. The superlative (am größten) is for "the most of all".',
+      fix: 'Practise the three-step pattern: groß → größer → am größten, with als for the middle step.' },
+
+    { level: 'A2', type: 'mc', topic: 'Modal verbs', context: 'Permission',
+      text: '___ ich hier rauchen?', options: ['Darf', 'Darfst', 'Dürfen', 'Dürft'], correct: 0,
+      explain: 'ich darf — first person singular of dürfen has no ending: Darf ich …? (May I …?)',
+      fix: 'Ask permission questions aloud: Darf ich…? Kann ich…? Muss ich…?' },
+
+    /* B1 */
+    { level: 'B1', type: 'mc', topic: 'Indirect questions', context: 'Subordinate clauses',
+      text: 'Ich weiß nicht, ___ er heute kommt.', options: ['dass', 'ob', 'wenn', 'weil'], correct: 1,
+      explain: 'ob introduces an indirect yes/no question ("whether"). dass states a fact, wenn = if/when, weil = because.',
+      fix: 'Sort your connectors by function: dass (fact), ob (whether), weil (cause), wenn (condition), damit (purpose).' },
+
+    { level: 'B1', type: 'mc', topic: 'Genitive case', context: 'Genitive case',
+      text: 'Das ist das Auto ___ Nachbarn. (mein Nachbar)', options: ['meinem', 'meinen', 'meines', 'mein'], correct: 2,
+      explain: 'Masculine and neuter genitive = meines/des + -s on the noun: das Auto meines Nachbarn.',
+      fix: 'Drill the genitive: des/der/des/der, and the extra -s on masculine and neuter nouns.' },
+
+    { level: 'B1', type: 'mc', topic: 'Passive voice', context: 'Passive voice',
+      text: 'Das Haus ___ 1990 gebaut.', options: ['ist', 'wurde', 'hat', 'war'], correct: 1,
+      explain: 'Process passive in the past = wurde + participle: Das Haus wurde 1990 gebaut. "ist … gebaut" is the passive state (Zustandspassiv).',
+      fix: 'Compare Vorgangspassiv (wird/wurde + Partizip) with Zustandspassiv (ist/war + Partizip).' },
+
+    { level: 'B1', type: 'mc', topic: 'Relative clauses', context: 'Relative pronouns',
+      text: 'Der Mann, ___ dort steht, ist mein Chef.', options: ['der', 'den', 'dem', 'dessen'], correct: 0,
+      explain: 'The relative pronoun takes the case of its role in the relative clause. Here it is the subject of "steht", so der.',
+      fix: 'Work out the pronoun from its job inside the relative clause, not from the main clause.' },
+
+    { level: 'B1', type: 'mc', topic: 'Konjunktiv II', context: 'Hypotheticals',
+      text: 'Wenn ich mehr Zeit ___, ___ ich nach Deutschland reisen.', options: ['hätte / würde', 'habe / werde', 'hatte / würde', 'hätte / werde'], correct: 0,
+      explain: 'Unreal condition: Wenn + hätte (verb last in the subordinate clause), then würde + infinitive in the main clause.',
+      fix: 'Learn Konjunktiv II forms of haben, sein and the modals (hätte, wäre, könnte, müsste) as vocabulary.' },
+
+    { level: 'B1', type: 'mc', topic: 'Infinitive with zu', context: 'Infinitive clauses',
+      text: 'Er hat vor, im Sommer nach Wien ___ fahren.', options: ['zu', 'um zu', 'damit', 'dass'], correct: 0,
+      explain: 'vorhaben takes a zu-infinitive: Er hat vor, … zu fahren. "um zu" expresses purpose, damit/dass need a full clause with a subject.',
+      fix: 'Learn which verbs take zu + infinitive: vorhaben, versuchen, vergessen, anfangen, hoffen.' },
+
+    /* B2 */
+    { level: 'B2', type: 'mc', topic: 'Extended attributes', context: 'Extended participial attributes',
+      text: 'Der ___ Bewerber wurde eingeladen.', options: ['gestern angekommene', 'gestern ankommende', 'gestern angekommen', 'gestern kommende'], correct: 0,
+      explain: 'Participles can be stacked in front of the noun before the article: der gestern angekommene Bewerber. Perfect participle = completed action.',
+      fix: 'Practise nominal style: participial attributes (Partizipialattribute) are everywhere in B2/C1 texts.' },
+
+    { level: 'B2', type: 'mc', topic: 'Genitive prepositions', context: 'Prepositions with genitive',
+      text: 'Trotz ___ hat er die Prüfung bestanden. (die Krankheit)', options: ['der Krankheit', 'die Krankheit', 'dem Krankheit', 'des Krankheit'], correct: 0,
+      explain: 'trotz, wegen, während, statt take the genitive. Feminine genitive = der: trotz der Krankheit.',
+      fix: 'Memorise the genitive prepositions: trotz, wegen, während, statt, anstatt, innerhalb, aufgrund.' },
+
+    { level: 'B2', type: 'mc', topic: 'Two-part connectors', context: 'Concessive connectors',
+      text: 'Er hatte ___ wenig Zeit, ___ hat er die Aufgabe pünktlich fertiggestellt.', options: ['zwar / aber', 'obwohl / trotzdem', 'weil / deshalb', 'sowohl / als auch'], correct: 0,
+      explain: 'zwar … aber is a fixed pair inside two main clauses. obwohl would need the verb at the end of a subordinate clause ("obwohl er wenig Zeit hatte …"), and trotzdem cannot follow obwohl in the same sentence.',
+      fix: 'Separate coordinate connectors (aber, deshalb — normal word order) from subordinating ones (obwohl, weil — verb last).' },
+
+    { level: 'B2', type: 'mc', topic: 'Reported speech', context: 'Konjunktiv I (reported speech)',
+      text: 'Der Chef sagte, er ___ leider keine Zeit.', options: ['hat', 'habe', 'hätte', 'hatte'], correct: 1,
+      explain: 'Konjunktiv I marks reported speech: er habe keine Zeit. hätte is Konjunktiv II and implies you doubt the claim.',
+      fix: 'Learn the Konjunktiv I forms (habe, sei, könne, müsse, wolle) and use them when reporting what someone said.' },
+
+    { level: 'B2', type: 'mc', topic: 'n-Deklination', context: 'Weak masculine nouns',
+      text: 'Wir haben ___ gefragt. (der Student)', options: ['der Student', 'den Student', 'den Studenten', 'dem Student'], correct: 2,
+      explain: 'Weak masculine nouns add -en in every case except nominative: der Student → den/dem/des Studenten.',
+      fix: 'Collect the n-Deklination nouns: Student, Kollege, Nachbar, Kunde, Mensch, Herr, Junge.' },
+
+    { level: 'B2', type: 'mc', topic: 'Passive with modal verbs', context: 'Modal passive',
+      text: 'Der Antrag muss bis Freitag ___ werden.', options: ['einreichen', 'eingereicht', 'eingereichen', 'zu einreichen'], correct: 1,
+      explain: 'Modal + passive: muss … eingereicht werden (participle + werden at the end).',
+      fix: 'Practise the full passive stack: muss eingereicht werden, konnte nicht bearbeitet werden.' }
+  ],
+
+  /* ---------------- VOCABULARY · 24 ---------------- */
+  vocabulary: [
+    /* A1 */
+    { level: 'A1', type: 'mc', topic: 'Everyday nouns', context: 'Everyday vocabulary',
+      text: 'Was bedeutet "der Tisch"?', options: ['chair', 'table', 'door', 'window'], correct: 1,
+      explain: 'der Tisch = table. der Stuhl = chair.', fix: 'Build a labelled picture vocabulary of room objects.' },
+
+    { level: 'A1', type: 'mc', topic: 'Telling the time', context: 'Numbers and time',
+      text: '"Um wie viel Uhr?" fragt nach…', options: ['the place', 'the time', 'the price', 'the name'], correct: 1,
+      explain: '"Um wie viel Uhr?" = at what time. Question words map onto the kind of answer they expect.',
+      fix: 'Learn question words and their matching answer type together.' },
+
+    { level: 'A1', type: 'mc', topic: 'Household nouns', context: 'Everyday vocabulary',
+      text: 'Was bedeutet "der Kühlschrank"?', options: ['the oven', 'the sink', 'the fridge', 'the cupboard'], correct: 2,
+      explain: 'der Kühlschrank = fridge (kühl = cool, der Schrank = cupboard). der Ofen = oven, das Spülbecken = sink.',
+      fix: 'Break compound nouns into their parts — that is how German builds most new words.' },
+
+    { level: 'A1', type: 'mc', topic: 'Everyday nouns', context: 'Places in town',
+      text: 'Was bedeutet "die Straße"?', options: ['the river', 'the street', 'the bridge', 'the square'], correct: 1,
+      explain: 'die Straße = street or road. der Fluss = river, die Brücke = bridge, der Platz = square.',
+      fix: 'Name ten things on your own street in German.' },
+
+    { level: 'A1', type: 'mc', topic: 'Feelings and states', context: 'Adjectives',
+      text: 'Was bedeutet "müde"?', options: ['tired', 'hungry', 'angry', 'late'], correct: 0,
+      explain: 'müde = tired. hungrig = hungry, wütend = angry, spät = late.',
+      fix: 'Learn feeling adjectives with a gesture or a photo, not a translation list.' },
+
+    { level: 'A1', type: 'mc', topic: 'Daily routine', context: 'Time and routine',
+      text: 'Was bedeutet "frühstücken"?', options: ['to have breakfast', 'to go shopping', 'to sleep in', 'to cook dinner'], correct: 0,
+      explain: 'frühstücken = to have breakfast, from das Frühstück (breakfast).',
+      fix: 'Describe your morning routine in five sentences, using time words.' },
+
+    /* A2 */
+    { level: 'A2', type: 'mc', topic: 'Reflexive verbs', context: 'Common verbs',
+      text: 'Was bedeutet "sich beeilen"?', options: ['to relax', 'to hurry', 'to forget', 'to sleep'], correct: 1,
+      explain: 'sich beeilen = to hurry. Many A2 verbs are reflexive and must be learnt with the pronoun.',
+      fix: 'Learn verbs together with their reflexive pronoun and any fixed preposition.' },
+
+    { level: 'A2', type: 'mc', topic: 'Character adjectives', context: 'Adjectives',
+      text: '"Zuverlässig" bedeutet…', options: ['expensive', 'reliable', 'colourful', 'complicated'], correct: 1,
+      explain: 'zuverlässig = reliable. Useful in every Arbeitszeugnis and interview in Germany.',
+      fix: 'Learn adjective pairs (zuverlässig/unzuverlässig, pünktlich/unpünktlich) as blocks.' },
+
+    { level: 'A2', type: 'mc', topic: 'Appointments', context: 'Everyday appointments',
+      text: 'Was bedeutet "der Termin"?', options: ['an appointment', 'a train platform', 'a receipt', 'a holiday'], correct: 0,
+      explain: 'der Termin = appointment or scheduled date. der Bahnsteig = platform, die Quittung = receipt.',
+      fix: 'Practise the appointment vocabulary you will actually need: einen Termin machen, verschieben, absagen.' },
+
+    { level: 'A2', type: 'mc', topic: 'Daily routine', context: 'Travel and lateness',
+      text: 'Was bedeutet "die Verspätung"?', options: ['the delay', 'the distance', 'the change', 'the timetable'], correct: 0,
+      explain: 'die Verspätung = delay: "Der Zug hat 20 Minuten Verspätung."',
+      fix: 'Learn to read a German departure board: Verspätung, Gleis, Anschluss, Ausfall.' },
+
+    { level: 'A2', type: 'mc', topic: 'Officials and paperwork', context: 'Everyday forms',
+      text: 'Was bedeutet "das Formular"?', options: ['the form', 'the stamp', 'the fee', 'the envelope'], correct: 0,
+      explain: 'das Formular = form (to fill in): ein Formular ausfüllen. die Gebühr = fee.',
+      fix: 'Collect the words on any official form: ausfüllen, unterschreiben, ankreuzen, beifügen.' },
+
+    { level: 'A2', type: 'mc', topic: 'Character adjectives', context: 'Describing people',
+      text: '"Höflich" bedeutet…', options: ['polite', 'loud', 'careful', 'funny'], correct: 0,
+      explain: 'höflich = polite. laut = loud, vorsichtig = careful, lustig = funny.',
+      fix: 'Write five sentences describing people you know, using one adjective each.' },
+
+    /* B1 */
+    { level: 'B1', type: 'mc', topic: 'Abstract nouns', context: 'Abstract vocabulary',
+      text: 'Was bedeutet "die Voraussetzung"?', options: ['the result', 'the prerequisite', 'the exception', 'the mistake'], correct: 1,
+      explain: 'die Voraussetzung = prerequisite or requirement. Very common in job ads and official letters.',
+      fix: 'Read real Stellenanzeigen and note every requirement word (Voraussetzung, Kenntnisse, Erfahrung).' },
+
+    { level: 'B1', type: 'mc', topic: 'Officialese', context: 'Bureaucratic vocabulary',
+      text: '"Der Antrag" bezeichnet…', options: ['a contract', 'an application/formal request', 'an invoice', 'a warning'], correct: 1,
+      explain: 'der Antrag = written application or formal request: einen Antrag stellen. die Rechnung = invoice, der Vertrag = contract.',
+      fix: 'Learn the Antrag/Behörde word field — it is unavoidable for anything official in Germany.' },
+
+    { level: 'B1', type: 'mc', topic: 'Deadlines', context: 'Deadlines and formal letters',
+      text: '"Die Frist" bedeutet…', options: ['a deadline / time limit', 'a question', 'a receipt', 'a delay'], correct: 0,
+      explain: 'die Frist = deadline or time limit: eine Frist einhalten (meet) or versäumen (miss). die Verzögerung = delay.',
+      fix: 'Collect the Frist collocations: setzen, einhalten, verlängern, verpassen.' },
+
+    { level: 'B1', type: 'mc', topic: 'Applying for work', context: 'Job applications',
+      text: 'Was ist eine "Bewerbung"?', options: ['a resignation', 'an application for a job', 'a probation period', 'a payslip'], correct: 1,
+      explain: 'die Bewerbung = job application (die Bewerbungsunterlagen = application documents). die Kündigung = resignation or notice.',
+      fix: 'Learn the application chain: Bewerbung → Vorstellungsgespräch → Probezeit → Vertrag.' },
+
+    { level: 'B1', type: 'mc', topic: 'Working life', context: 'Employment vocabulary',
+      text: 'Was bedeutet "die Kündigung"?', options: ['a promotion', 'termination / notice', 'a salary increase', 'a training course'], correct: 1,
+      explain: 'die Kündigung = termination, either by the employer or the employee: die Kündigung einreichen (to hand in your notice).',
+      fix: 'Learn employment words in pairs: einstellen/kündigen, Vollzeit/Teilzeit, befristet/unbefristet.' },
+
+    { level: 'B1', type: 'mc', topic: 'Abstract nouns', context: 'Cause and effect',
+      text: '"Die Auswirkung" bedeutet…', options: ['the effort', 'the effect / impact', 'the intention', 'the condition'], correct: 1,
+      explain: 'die Auswirkung = effect or impact (usually plural: Auswirkungen auf etwas haben).',
+      fix: 'Learn the noun pairs: Ursache/Wirkung, Grund/Folge, Voraussetzung/Auswirkung.' },
+
+    /* B2 */
+    { level: 'B2', type: 'mc', topic: 'False friends', context: 'Nuanced meaning',
+      text: 'Was ist der Unterschied zwischen "scheinbar" und "anscheinend"?',
+      options: [
+        'There is no difference — they are interchangeable.',
+        '"scheinbar" = it only looks that way (but is not so); "anscheinend" = judging by the evidence, it probably is so.',
+        '"anscheinend" = it only looks that way; "scheinbar" = it probably is so.',
+        'Both mean "immediately".'
+      ], correct: 1,
+      explain: 'A classic trap. scheinbar is deceptive appearance ("die scheinbare Lösung" — the apparent/illusory solution); anscheinend is an evidence-based guess ("anscheinend ist er krank").',
+      fix: 'Keep a two-column false-friend list: scheinbar/anscheinend, aktuell/eigentlich, sensibel/sensitiv.' },
+
+    { level: 'B2', type: 'mc', topic: 'Modal shading', context: 'Nuanced meaning',
+      text: 'Welche Aussage über "vermutlich" und "wahrscheinlich" stimmt?',
+      options: [
+        'They are exact synonyms in every context.',
+        '"wahrscheinlich" is closer to "probable" (a reasoned likelihood); "vermutlich" is closer to "I suspect / I assume".',
+        '"vermutlich" is only used in writing.',
+        '"wahrscheinlich" expresses a certainty, not a probability.'
+      ], correct: 1,
+      explain: 'Both hedge, but wahrscheinlich leans on probability, while vermutlich flags the speaker\u2019s own assumption. Meinungen (meiner Meinung nach, vermutlich, ich gehe davon aus) let you grade how sure you are.',
+      fix: 'Practise hedging phrases in Meinungsäußerung tasks — examiners reward graded, not absolute, claims.' },
+
+    { level: 'B2', type: 'mc', topic: 'Technical register', context: 'Professional/technical register',
+      text: '"Die Schwachstelle" in an IT-security context means…', options: ['a firewall', 'a vulnerability', 'a password', 'a backup'], correct: 1,
+      explain: 'die Schwachstelle = weak point / vulnerability. die Schwäche = weakness, die Stelle = place or position.',
+      fix: 'Learn how compounds shift meaning in your professional field, not just in everyday German.' },
+
+    { level: 'B2', type: 'mc', topic: 'Idioms', context: 'Idiomatic expression',
+      text: 'Was bedeutet "das steht noch in den Sternen"?', options: ['it is settled', 'it is still completely uncertain', 'it took place at night', 'it is written down somewhere'], correct: 1,
+      explain: 'Literally "that is still written in the stars" — nobody knows how it will turn out. Compare: "das ist noch offen".',
+      fix: 'Collect ten idioms per month and use each one in a written sentence the same week.' },
+
+    { level: 'B2', type: 'mc', topic: 'Collocations', context: 'Which verb fits?',
+      text: 'Er hat eine schwierige Entscheidung ___.', options: ['gemacht', 'getroffen', 'genommen', 'getan'], correct: 1,
+      explain: 'eine Entscheidung treffen is the fixed collocation. "machen" is wrong here even though English says "make a decision".',
+      fix: 'Learn noun + verb pairs as one unit: eine Entscheidung treffen, Kritik üben, Rücksicht nehmen.' },
+
+    { level: 'B2', type: 'mc', topic: 'Idioms', context: 'Accepting a drawback',
+      text: '"Etwas in Kauf nehmen" bedeutet…', options: ['to accept a disadvantage as part of a deal', 'to pay in cash', 'to buy something cheaply', 'to return a purchase'], correct: 0,
+      explain: 'in Kauf nehmen = to accept a downside for the sake of something else: "Wir nehmen längere Wartezeiten in Kauf."',
+      fix: 'Fix idioms in whole sentences you could actually say at work or in an interview.' }
+  ],
+
+  /* ---------------- READING · 12 (6 passages × 2 items) ---------------- */
+  reading: [
+    /* A1 */
+    { level: 'A1', type: 'mc', topic: 'Reading: detail', passageId: 'R1', context: 'Read the message, then answer.',
+      passage: 'Hallo Sofia,\n\nich bin am Samstag nicht zu Hause. Ich besuche meine Eltern in Köln. Am Sonntag bin ich wieder da.\n\nBis dann, Mehmet',
+      text: 'Wo sind Mehmets Eltern?',
+      options: ['In Köln', 'In Mehmets Wohnung', 'Bei Sofia', 'Am Samstag'],
+      correct: 0,
+      explain: '"Ich besuche meine Eltern in Köln" — the place after in belongs to the parents\u2019 location.',
+      fix: 'At A1, find the one sentence that answers the question instead of translating everything.' },
+
+    { level: 'A1', type: 'mc', topic: 'Reading: detail', passageId: 'R1', context: 'The same message.',
+      passage: 'Hallo Sofia,\n\nich bin am Samstag nicht zu Hause. Ich besuche meine Eltern in Köln. Am Sonntag bin ich wieder da.\n\nBis dann, Mehmet',
+      text: 'Wann ist Mehmet wieder zu Hause?',
+      options: ['Am Samstag', 'Am Sonntag', 'Am Montag', 'Er kommt nicht zurück'],
+      correct: 1,
+      explain: '"Am Sonntag bin ich wieder da" — wieder da = back home again.',
+      fix: 'Match the day in the question to the same day name in the text before reading further.' },
+
+    { level: 'A1', type: 'mc', topic: 'Reading: notices', passageId: 'R7', context: 'Read the sign, then answer.',
+      passage: 'SUPERMARKT SONNE\n\nGeöffnet: Montag bis Freitag von 8 bis 20 Uhr. Samstag von 8 bis 18 Uhr. Sonntag geschlossen.',
+      text: 'Wann ist der Supermarkt am Sonntag geöffnet?',
+      options: ['Von 8 bis 18 Uhr', 'Von 8 bis 20 Uhr', 'Gar nicht', 'Nur vormittags'],
+      correct: 2,
+      explain: '"Sonntag geschlossen" = closed on Sunday. German shops are usually closed on Sundays.',
+      fix: 'Practise reading signs and opening hours: geöffnet, geschlossen, bis, von … bis.' },
+
+    { level: 'A1', type: 'mc', topic: 'Reading: notices', passageId: 'R7', context: 'The same sign.',
+      passage: 'SUPERMARKT SONNE\n\nGeöffnet: Montag bis Freitag von 8 bis 20 Uhr. Samstag von 8 bis 18 Uhr. Sonntag geschlossen.',
+      text: 'Bis wann ist der Supermarkt am Samstag geöffnet?',
+      options: ['Bis 8 Uhr', 'Bis 18 Uhr', 'Bis 20 Uhr', 'Am Samstag ist er geschlossen.'],
+      correct: 1,
+      explain: 'Each day has its own hours: Saturday ends at 18, weekdays at 20 — reading the line for the right day is the whole task.',
+      fix: 'Slow down on tables and timetables: find the row for the day in the question before reading the numbers.' },
+
+    /* A2 */
+    { level: 'A2', type: 'mc', topic: 'Reading: plans', passageId: 'R8', context: 'Read the message, then answer.',
+      passage: 'Hallo Nina,\n\nich habe zwei Karten für das Konzert am Freitag. Es beginnt um 20 Uhr im Stadtpark. Hast du Zeit? Wir könnten uns vorher um 19 Uhr in der Pizzeria neben dem Park treffen.\n\nLiebe Grüße\nJonas',
+      text: 'Wann beginnt das Konzert?',
+      options: ['Um 19 Uhr', 'Um 20 Uhr', 'Am Samstag', 'Es beginnt nicht.'],
+      correct: 1,
+      explain: 'Two times appear: 20 Uhr is the concert, 19 Uhr is when they meet beforehand. The question asks about the concert.',
+      fix: 'Separate the times in a text: one is the event, the others are getting there and meeting up.' },
+
+    { level: 'A2', type: 'mc', topic: 'Reading: plans', passageId: 'R8', context: 'The same message.',
+      passage: 'Hallo Nina,\n\nich habe zwei Karten für das Konzert am Freitag. Es beginnt um 20 Uhr im Stadtpark. Hast du Zeit? Wir könnten uns vorher um 19 Uhr in der Pizzeria neben dem Park treffen.\n\nLiebe Grüße\nJonas',
+      text: 'Wo wollen sie sich treffen?',
+      options: ['Im Stadtpark', 'In der Pizzeria neben dem Park', 'Bei Nina zu Hause', 'Am Bahnhof'],
+      correct: 1,
+      explain: 'sich treffen = to meet. The meeting place is the Pizzeria neben dem Park; the Stadtpark is where the concert happens.',
+      fix: 'Watch für/bei/in/neben — the preposition decides which place a sentence is about.' },
+
+    { level: 'A2', type: 'mc', topic: 'Reading: detail', passageId: 'R2', context: 'Read the email, then answer.',
+      passage: 'Liebe Frau Weber,\n\nich kann am Montag leider nicht zum Kurs kommen, weil ich einen Termin beim Arzt habe. Können Sie mir bitte die Hausaufgaben per E-Mail schicken?\n\nVielen Dank und viele Grüße\nAli Karim',
+      text: 'Warum kann Ali am Montag nicht kommen?',
+      options: ['Er hat einen Arzttermin.', 'Er ist im Urlaub.', 'Er muss arbeiten.', 'Der Kurs fällt aus.'],
+      correct: 0,
+      explain: 'The weil-clause gives the reason: "weil ich einen Termin beim Arzt habe".',
+      fix: 'In a weil-clause, the reason sits at the end of the clause — read to the end before choosing.' },
+
+    { level: 'A2', type: 'mc', topic: 'Reading: detail', passageId: 'R2', context: 'The same email.',
+      passage: 'Liebe Frau Weber,\n\nich kann am Montag leider nicht zum Kurs kommen, weil ich einen Termin beim Arzt habe. Können Sie mir bitte die Hausaufgaben per E-Mail schicken?\n\nVielen Dank und viele Grüße\nAli Karim',
+      text: 'Was möchte Ali?',
+      options: ['Einen neuen Arzttermin', 'Die Hausaufgaben per E-Mail', 'Einen anderen Kurs', 'Ein Gespräch mit Frau Weber'],
+      correct: 1,
+      explain: 'The request is the question in the middle: "Können Sie mir bitte die Hausaufgaben per E-Mail schicken?"',
+      fix: 'Circle the request verb (schicken, senden, geben) — it signals what the writer actually wants.' },
+
+    /* B1 */
+    { level: 'B1', type: 'mc', topic: 'Reading: detail', passageId: 'R3', context: 'Read the text, then answer.',
+      passage: 'Die Ausbildung in Deutschland dauert meistens zwischen zwei und dreieinhalb Jahren. Auszubildende arbeiten im Betrieb und besuchen zusätzlich die Berufsschule. Am Ende steht eine Abschlussprüfung, die von der zuständigen Kammer organisiert wird.',
+      text: 'Wer organisiert die Abschlussprüfung?',
+      options: ['Der Betrieb allein', 'Die Berufsschule allein', 'Die zuständige Kammer', 'Der Auszubildende selbst'],
+      correct: 2,
+      explain: '"…eine Abschlussprüfung, die von der zuständigen Kammer organisiert wird" — the relative clause carries the answer. The passive (wird organisiert) means the Kammer does the organising.',
+      fix: 'Read relative clauses as part of the sentence they hang off — that is where B1 details hide.' },
+
+    { level: 'B1', type: 'mc', topic: 'Reading: detail', passageId: 'R3', context: 'The same text.',
+      passage: 'Die Ausbildung in Deutschland dauert meistens zwischen zwei und dreieinhalb Jahren. Auszubildende arbeiten im Betrieb und besuchen zusätzlich die Berufsschule. Am Ende steht eine Abschlussprüfung, die von der zuständigen Kammer organisiert wird.',
+      text: 'Was machen Auszubildende zusätzlich zur Arbeit im Betrieb?',
+      options: ['Sie besuchen die Berufsschule.', 'Sie machen ein Praktikum im Ausland.', 'Sie arbeiten Teilzeit in einem zweiten Betrieb.', 'Sie studieren an einer Universität.'],
+      correct: 0,
+      explain: '"…arbeiten im Betrieb und besuchen zusätzlich die Berufsschule".',
+      fix: 'Watch for the words zusätzlich, außerdem, darüber hinaus — they flag extra information.' },
+
+    { level: 'B1', type: 'mc', topic: 'Reading: requirements', passageId: 'R4', context: 'Read the job ad, then answer.',
+      passage: 'Wir suchen ab September eine Auszubildende für den Bereich IT-Systemtechnik. Voraussetzung sind gute Noten in Mathematik und Informatik, Deutschkenntnisse auf Niveau B1 sowie die Bereitschaft, im Team zu arbeiten. Bewerbungen richten Sie bitte bis zum 15. Juli an die Personalabteilung.',
+      text: 'Welche Deutschkenntnisse werden verlangt?',
+      options: ['Niveau A2', 'Niveau B1', 'Niveau B2', 'Es werden keine Deutschkenntnisse verlangt.'],
+      correct: 1,
+      explain: '"Deutschkenntnisse auf Niveau B1" — the level is stated directly, though it hides inside a list.',
+      fix: 'In job ads, scan for a list of Voraussetzungen and read each requirement as a separate answer.' },
+
+    { level: 'B1', type: 'mc', topic: 'Reading: requirements', passageId: 'R4', context: 'The same job ad.',
+      passage: 'Wir suchen ab September eine Auszubildende für den Bereich IT-Systemtechnik. Voraussetzung sind gute Noten in Mathematik und Informatik, Deutschkenntnisse auf Niveau B1 sowie die Bereitschaft, im Team zu arbeiten. Bewerbungen richten Sie bitte bis zum 15. Juli an die Personalabteilung.',
+      text: 'Bis wann muss man sich bewerben?',
+      options: ['Bis September', 'Bis zum 15. Juli', 'Bis zum 15. September', 'Es gibt keine Frist.'],
+      correct: 1,
+      explain: '"Bewerbungen … bis zum 15. Juli" — note that September is when the job starts, not the deadline. Mixed-up dates are the standard trap here.',
+      fix: 'Separate the dates in an ad: application deadline vs. start date vs. interview date.' },
+
+    /* B2 */
+    { level: 'B2', type: 'mc', topic: 'Reading: argument', passageId: 'R5', context: 'Read the text, then answer.',
+      passage: 'Obwohl viele Unternehmen mittlerweile erhebliche Summen in ihre IT-Sicherheit investieren, zeigen aktuelle Studien, dass der menschliche Faktor nach wie vor die größte Schwachstelle darstellt. Phishing-Angriffe etwa setzen nicht auf technische Lücken, sondern auf die Unaufmerksamkeit oder Unwissenheit der Mitarbeitenden. Sicherheitsexperten betonen daher zunehmend, dass technische Maßnahmen allein nicht ausreichen, sondern durch regelmäßige Schulungen ergänzt werden müssen.',
+      text: 'Was ist laut Text der Hauptgrund, warum technische Investitionen allein nicht ausreichen?',
+      options: [
+        'Die Investitionen sind zu gering.',
+        'Phishing-Angriffe nutzen ausschließlich technische Sicherheitslücken.',
+        'Der menschliche Faktor bleibt die zentrale Schwachstelle.',
+        'Unternehmen schulen ihre Mitarbeitenden zu häufig.'
+      ], correct: 2,
+      explain: 'The concession (obwohl … investieren) sets the scene, but the main clause names the problem: "der menschliche Faktor … die größte Schwachstelle".',
+      fix: 'Separate concession from main claim — the obwohl-clause is never the answer to "what is the main argument".' },
+
+    { level: 'B2', type: 'mc', topic: 'Reading: inference', passageId: 'R5', context: 'The same text.',
+      passage: 'Obwohl viele Unternehmen mittlerweile erhebliche Summen in ihre IT-Sicherheit investieren, zeigen aktuelle Studien, dass der menschliche Faktor nach wie vor die größte Schwachstelle darstellt. Phishing-Angriffe etwa setzen nicht auf technische Lücken, sondern auf die Unaufmerksamkeit oder Unwissenheit der Mitarbeitenden. Sicherheitsexperten betonen daher zunehmend, dass technische Maßnahmen allein nicht ausreichen, sondern durch regelmäßige Schulungen ergänzt werden müssen.',
+      text: 'Was empfehlen Sicherheitsexperten zusätzlich zu technischen Maßnahmen?',
+      options: ['Weniger Investitionen in Software', 'Regelmäßige Schulungen der Mitarbeitenden', 'Die Abschaffung von E-Mails', 'Mehr Kontrollen der Belegschaft'],
+      correct: 1,
+      explain: '"…sondern durch regelmäßige Schulungen ergänzt werden müssen" — the nicht … sondern construction puts the recommendation after sondern.',
+      fix: 'When you see nicht … sondern, the real message is the half after sondern.' },
+
+    { level: 'B2', type: 'mc', topic: 'Reading: inference', passageId: 'R6', context: 'Read the text, then answer.',
+      passage: 'Wer nach Deutschland auswandern möchte, um eine Ausbildung zu absolvieren, sollte sich frühzeitig mit den Anerkennungsverfahren für ausländische Abschlüsse auseinandersetzen. Je nach Bundesland und Ausbildungsberuf können die Anforderungen erheblich variieren, weshalb eine pauschale Aussage über die Dauer des Verfahrens kaum möglich ist.',
+      text: 'Warum lässt sich laut Text keine allgemeine Aussage über die Dauer des Verfahrens machen?',
+      options: [
+        'Weil die Verfahren grundsätzlich sehr lange dauern.',
+        'Weil die Anforderungen je nach Bundesland und Beruf unterschiedlich sind.',
+        'Weil ausländische Abschlüsse nie anerkannt werden.',
+        'Weil das Verfahren nur online möglich ist.'
+      ], correct: 1,
+      explain: '"Je nach … können die Anforderungen erheblich variieren, weshalb …" — the weshalb-clause gives the reason, so the answer is the variability itself.',
+      fix: 'Follow the connector chain: weshalb/therefore and deshalb usually point straight at the answer.' },
+
+    { level: 'B2', type: 'mc', topic: 'Reading: inference', passageId: 'R6', context: 'The same text.',
+      passage: 'Wer nach Deutschland auswandern möchte, um eine Ausbildung zu absolvieren, sollte sich frühzeitig mit den Anerkennungsverfahren für ausländische Abschlüsse auseinandersetzen. Je nach Bundesland und Ausbildungsberuf können die Anforderungen erheblich variieren, weshalb eine pauschale Aussage über die Dauer des Verfahrens kaum möglich ist.',
+      text: 'Was empfiehlt der Text Auswanderungswilligen?',
+      options: [
+        'Erst nach der Ankunft mit dem Verfahren zu beginnen',
+        'Sich frühzeitig mit dem Anerkennungsverfahren zu beschäftigen',
+        'Nur in einem bestimmten Bundesland zu suchen',
+        'Auf die Anerkennung zu verzichten'
+      ], correct: 1,
+      explain: '"…sollte sich frühzeitig mit den Anerkennungsverfahren … auseinandersetzen" — frühzeitig is the recommendation.',
+      fix: 'Recommendations in German texts cluster around sollte, empfiehlt sich, es lohnt sich, ratsam.' }
+  ],
+
+  /* ---------------- LISTENING · 12 (one script each) ----------------
+     Played through the browser's German speech voice. Each script is
+     short on purpose: this measures comprehension of spoken German,
+     not memory length. */
+  listening: [
+    /* A1 — questions in English so this measures listening, not reading */
+    { level: 'A1', type: 'mc', topic: 'Listening: personal info', context: 'Listen, then answer.',
+      audio: 'Guten Tag, ich heiße Anna Berger. Ich wohne jetzt in Hamburg, aber ich komme aus Wien.',
+      text: 'Where is Anna from?',
+      options: ['Hamburg', 'Wien', 'Berlin', 'She does not say'],
+      correct: 1,
+      explain: '"…aber ich komme aus Wien" — kommen aus = to come from. jetzt wohnt sie in Hamburg is her current city, not her origin.',
+      fix: 'Practise the wohnen/kommen aus contrast: where you live now vs. where you are from.' },
+
+    { level: 'A1', type: 'mc', topic: 'Listening: travel', context: 'Listen to the announcement.',
+      audio: 'Der Zug nach Köln fährt heute um vierzehn Uhr dreißig von Gleis fünf ab.',
+      text: 'Which platform does the train leave from?',
+      options: ['Platform 3', 'Platform 5', 'Platform 13', 'Platform 30'],
+      correct: 1,
+      explain: '"…von Gleis fünf" — von Gleis X = from platform X. The time (14:30) and the platform number are easy to confuse.',
+      fix: 'Practise numbers 1–20 and German times (vierzehn Uhr dreißig = 14:30) with audio, not writing.' },
+
+    { level: 'A1', type: 'mc', topic: 'Listening: messages', context: 'Listen to the voicemail.',
+      audio: 'Hallo, hier ist Tom. Ich bin heute nicht im Büro, ich bin krank. Morgen bin ich wieder da.',
+      text: 'Why is Tom not at the office?',
+      options: ['He is on holiday', 'He is ill', 'He is late', 'He works from home'],
+      correct: 1,
+      explain: '"ich bin krank" = I am ill. The next sentence (morgen bin ich wieder da) tells you when he returns, not why he is away.',
+      fix: 'Train the small messages that carry real information: krank, unterwegs, im Urlaub, später.' },
+
+    /* A2 */
+    { level: 'A2', type: 'mc', topic: 'Listening: appointments', context: 'Listen to the message from the practice.',
+      audio: 'Guten Tag, hier ist die Praxis Doktor Weber. Ihren Termin am Donnerstag um zehn Uhr müssen wir leider verschieben. Wir können Ihnen einen neuen Termin am Freitag um neun Uhr anbieten. Bitte rufen Sie uns zurück.',
+      text: 'What does the caller want?',
+      options: ['To cancel the appointment completely', 'To move the appointment to Friday at nine', 'To confirm Thursday at ten', 'To book a first appointment'],
+      correct: 1,
+      explain: 'verschieben = to move/postpone. The new offer is Freitag um neun Uhr; the old Thursday slot is being given up.',
+      fix: 'Learn the appointment verbs: verschieben, absagen, bestätigen, vereinbaren — they change the whole meaning.' },
+
+    { level: 'A2', type: 'mc', topic: 'Listening: arrangements', context: 'Listen to the conversation.',
+      audio: 'Wann treffen wir uns am Samstag? Sagen wir um sieben vor dem Kino? — Sieben ist gut, dann können wir danach noch etwas essen.',
+      text: 'Where will they meet?',
+      options: ['In a restaurant', 'In front of the cinema', 'At seven o\u2019clock at home', 'Inside the cinema'],
+      correct: 1,
+      explain: '"um sieben vor dem Kino" gives time + place: seven o\u2019clock, in front of the cinema. The restaurant is the plan for afterwards.',
+      fix: 'Practise place prepositions with listening: vor, hinter, neben, gegenüber, in.' },
+
+    { level: 'A2', type: 'mc', topic: 'Listening: weather and plans', context: 'Listen to the forecast.',
+      audio: 'Am Samstag regnet es den ganzen Tag. Am Sonntag wird es sonnig und warm, perfekt für einen Ausflug.',
+      text: 'What is the weather like on Sunday?',
+      options: ['Rainy all day', 'Sunny and warm', 'Cold and windy', 'It does not say'],
+      correct: 1,
+      explain: '"Am Sonntag wird es sonnig und warm" — Sunday is the good day, which is why the speaker suggests an outing.',
+      fix: 'Learn weather phrases as fixed chunks: es regnet, es wird sonnig, es ist bewölkt.' },
+
+    /* B1 — questions now in German */
+    { level: 'B1', type: 'mc', topic: 'Listening: Ausbildung', context: 'Listen to the information.',
+      audio: 'Wer eine Ausbildung beginnt, bekommt in Deutschland eine Ausbildungsvergütung. Sie liegt je nach Beruf und Region meistens zwischen siebenhundert und eintausendzweihundert Euro im ersten Jahr und steigt in jedem Ausbildungsjahr an.',
+      text: 'Was passiert mit der Ausbildungsvergütung?',
+      options: ['Sie bleibt immer gleich.', 'Sie steigt in jedem Ausbildungsjahr.', 'Sie sinkt im zweiten Jahr.', 'Sie wird nur einmal ausgezahlt.'],
+      correct: 1,
+      explain: '"…und steigt in jedem Ausbildungsjahr an" — ansteigen = to rise. The range given applies to the first year only.',
+      fix: 'Train ansteigen/sinken, steigen/fallen with numbers — they decide the answer in most statistics passages.' },
+
+    { level: 'B1', type: 'mc', topic: 'Listening: at work', context: 'Listen to the exchange in the office.',
+      audio: 'Können Sie den Bericht bis Mittwoch fertigstellen? — Bis Mittwoch schaffe ich es nicht, aber Freitag ist kein Problem.',
+      text: 'Wann will der Mitarbeiter den Bericht abgeben?',
+      options: ['Am Mittwoch', 'Am Freitag', 'Er kann den Bericht nicht machen.', 'Er sagt nichts dazu.'],
+      correct: 1,
+      explain: 'Bis Mittwoch schaffe ich es nicht — he refuses Wednesday, then offers Friday. es schaffen = to manage to get something done.',
+      fix: 'Listen for the pivot words: aber, allerdings, trotzdem — the real answer usually comes after them.' },
+
+    { level: 'B1', type: 'mc', topic: 'Listening: rules and notices', context: 'Listen to the announcement.',
+      audio: 'Ab nächstem Monat gilt im ganzen Gebäude ein Rauchverbot. Das betrifft auch die Terrasse im dritten Stock. Für Raucher gibt es einen Bereich vor dem Haupteingang.',
+      text: 'Wo darf man ab nächstem Monat rauchen?',
+      options: ['Auf der Terrasse im dritten Stock', 'Vor dem Haupteingang', 'Nirgendwo', 'Im ganzen Gebäude'],
+      correct: 1,
+      explain: 'The ban covers the building and the terrace; the one permitted area is "vor dem Haupteingang".',
+      fix: 'When a text takes something away and then gives an exception, the exception is what gets tested.' },
+
+    /* B2 */
+    { level: 'B2', type: 'mc', topic: 'Listening: argument', context: 'Listen to the commentary.',
+      audio: 'Viele Firmen argumentieren, dass Präsenz die Zusammenarbeit verbessert. Studien zeigen allerdings, dass die Produktivität im Homeoffice nicht zwangsläufig sinkt. Entscheidend ist vielmehr, wie klar Aufgaben verteilt und wie verlässlich Ergebnisse zurückgemeldet werden.',
+      text: 'Was ist laut dem Sprecher entscheidend?',
+      options: [
+        'Dass alle Mitarbeitenden im Büro sind',
+        'Wie klar Aufgaben verteilt werden',
+        'Dass Homeoffice abgeschafft wird',
+        'Wie viele Stunden pro Woche gearbeitet wird'
+      ], correct: 1,
+      explain: 'The speaker concedes the firms\u2019 argument, reports the counter-evidence, then narrows it: "Entscheidend ist vielmehr, wie klar Aufgaben verteilt … werden." vielmehr signals the real point.',
+      fix: 'Track concession → counter-evidence → own position. In B2 talks, the answer is in the last move.' },
+
+    { level: 'B2', type: 'mc', topic: 'Listening: hedging', context: 'Listen to the interview answer.',
+      audio: 'Ich würde nicht behaupten, dass das Projekt gescheitert ist. Wir haben lediglich nicht alle Ziele erreicht, die wir uns gesetzt hatten. Manches ließ sich schlicht nicht so schnell umsetzen, wie wir gehofft hatten.',
+      text: 'Wie beschreibt der Sprecher das Projekt?',
+      options: [
+        'Als vollständigen Erfolg',
+        'Als Misserfolg, den er offen zugibt',
+        'Als Projekt, das seine Ziele nur teilweise erreicht hat',
+        'Er äußert sich nicht dazu.'
+      ], correct: 2,
+      explain: '"Ich würde nicht behaupten, dass … gescheitert ist" rejects the word failure, while "nicht alle Ziele erreicht" admits partial misses. lediglich softens it further.',
+      fix: 'Learn the hedging toolkit: nicht behaupten, lediglich, schlicht, sich nicht festlegen — they carry the speaker\u2019s real position.' },
+
+    { level: 'B2', type: 'mc', topic: 'Listening: official notices', context: 'Listen to the announcement.',
+      audio: 'Bitte beachten Sie, dass Anträge, die nach dem dreißigsten September eingehen, erst im nächsten Quartal bearbeitet werden können. Wir empfehlen daher, alle Unterlagen rechtzeitig einzureichen.',
+      text: 'Was passiert mit Anträgen, die nach dem 30. September eingehen?',
+      options: [
+        'Sie werden abgelehnt.',
+        'Sie werden erst im nächsten Quartal bearbeitet.',
+        'Sie werden sofort bearbeitet.',
+        'Sie müssen persönlich abgegeben werden.'
+      ], correct: 1,
+      explain: 'Der relative clause "die nach dem dreißigsten September eingehen" narrows which applications are affected; "bearbeitet" is the key verb (processed).',
+      fix: 'Practise official announcements: bearbeiten, einreichen, eingehen, fristgerecht — this vocabulary decides B2 tasks.' }
+  ],
+
+  /* ---------------- WRITTEN PRODUCTION · 12 ----------------
+     Objective translation items, machine-matched. Not human-rated:
+     see the trust panel on the results screen. */
+  production: [
+    /* A1 */
+    { level: 'A1', type: 'tc', topic: 'Writing: origin', context: 'Translate into German',
+      text: 'I come from Nigeria.',
+      accepts: ['ich komme aus nigeria', 'ich bin aus nigeria', 'ich stamme aus nigeria'],
+      explain: 'kommen aus + country, and most countries need no article: Ich komme aus Nigeria. (With an article: die Schweiz, die Türkei, der Iran.)',
+      fix: 'Write five sentences about yourself: name, origin, residence, job, language. Read them aloud.' },
+
+    { level: 'A1', type: 'tc', topic: 'Writing: introducing yourself', context: 'Translate into German',
+      text: 'My name is Lloyd.',
+      accepts: ['ich heiße lloyd', 'mein name ist lloyd', 'ich bin lloyd'],
+      explain: 'ich heiße … or mein Name ist … Both are correct; heißen is the more natural spoken form.',
+      fix: 'Practise the four A1 self-introduction sentence frames until they come out without thinking.' },
+
+    { level: 'A1', type: 'tc', topic: 'Writing: languages', context: 'Translate into German',
+      text: 'I speak English and German.',
+      accepts: ['ich spreche englisch und deutsch', 'ich spreche deutsch und englisch'],
+      explain: 'Languages take no article in German: Ich spreche Englisch und Deutsch. sprechen drops to sprich- in du sprichst, but ich spreche is regular.',
+      fix: 'Name five languages and your level: Ich spreche … ein bisschen / gut / fließend.' },
+
+    /* A2 */
+    { level: 'A2', type: 'tc', topic: 'Writing: modal + time', context: 'Translate into German',
+      text: 'I have to go to work tomorrow.',
+      accepts: [
+        'ich muss morgen zur arbeit gehen',
+        'ich muss morgen arbeiten gehen',
+        'ich muss morgen zur arbeit',
+        'morgen muss ich zur arbeit gehen',
+        'ich muss morgen in die arbeit gehen'
+      ],
+      explain: 'Modal + infinitive at the end: Ich muss morgen zur Arbeit gehen. If you front the time phrase (Morgen muss ich …), the verb still comes second — inversion.',
+      fix: 'Practise the "modal verb in position 2, infinitive at the end" bracket until it is automatic.' },
+
+    { level: 'A2', type: 'tc', topic: 'Writing: past tense', context: 'Translate into German',
+      text: 'Yesterday I was at home.',
+      accepts: ['gestern war ich zu hause', 'ich war gestern zu hause', 'gestern bin ich zu hause gewesen', 'ich bin gestern zu hause gewesen'],
+      explain: 'sein uses the simple past in speech: Ich war gestern zu Hause / Gestern war ich zu Hause. The Perfekt (bin … gewesen) exists but sounds heavy.',
+      fix: 'Learn war and hatte as vocabulary — they carry most A2 past-tense storytelling.' },
+
+    { level: 'A2', type: 'tc', topic: 'Writing: present tense', context: 'Translate into German',
+      text: 'My brother lives in Berlin.',
+      accepts: ['mein bruder wohnt in berlin', 'mein bruder lebt in berlin'],
+      explain: 'mein Bruder wohnt in Berlin — verb in second position, and wohnen (to live somewhere) is the everyday verb. leben is broader ("to be alive / to live a life").',
+      fix: 'Write five sentences about family members: where they live, what they do, when you last saw them.' },
+
+    /* B1 */
+    { level: 'B1', type: 'tc', topic: 'Writing: indirect question', context: 'Translate into German',
+      text: 'I would like to know if the office is open today.',
+      accepts: [
+        'ich möchte wissen ob das büro heute geöffnet ist',
+        'ich möchte wissen ob das büro heute offen ist',
+        'ich möchte wissen ob das büro heute offen hat',
+        'ich würde gern wissen ob das büro heute geöffnet ist',
+        'ich würde gerne wissen ob das büro heute geöffnet ist',
+        'ich würde gern wissen ob das büro heute offen ist'
+      ],
+      explain: 'An indirect yes/no question takes ob, and the verb moves to the end: ob das Büro heute geöffnet ist. No question mark, and not the word order of a direct question.',
+      fix: 'Convert ten direct questions into indirect ones with ob/wann/wo — this is a B1 exam favourite.' },
+
+    { level: 'B1', type: 'tc', topic: 'Writing: duration', context: 'Translate into German',
+      text: 'I have been learning German for six months.',
+      accepts: [
+        'ich lerne seit sechs monaten deutsch',
+        'ich lerne deutsch seit sechs monaten',
+        'seit sechs monaten lerne ich deutsch',
+        'ich lerne jetzt seit sechs monaten deutsch'
+      ],
+      explain: 'seit + dative means "for (a period still going on)" and German keeps the present tense: Ich lerne seit sechs Monaten Deutsch. Do not put it in the past.',
+      fix: 'Drill seit with present tense vs. vor with past: Seit sechs Monaten lerne ich … / Vor sechs Monaten habe ich angefangen.' },
+
+    { level: 'B1', type: 'tc', topic: 'Writing: conditional', context: 'Translate into German',
+      text: 'I would help you if I had time.',
+      accepts: [
+        'ich würde dir helfen wenn ich zeit hätte',
+        'wenn ich zeit hätte würde ich dir helfen',
+        'ich würde dir helfen wenn ich die zeit hätte',
+      ],
+      explain: 'würde + infinitive in the main clause, hätte (Konjunktiv II of haben) at the end of the wenn-clause: Ich würde dir helfen, wenn ich Zeit hätte.',
+      fix: 'Learn hätte/wäre/könnte/müsste/würde as a set and build unreal conditions with them.' },
+
+    /* B2 */
+    { level: 'B2', type: 'tc', topic: 'Writing: concession', context: 'Translate into German',
+      text: 'Although the process took longer than expected, we were ultimately able to complete it on time.',
+      accepts: [
+        'obwohl der prozess länger dauerte als erwartet konnten wir ihn schließlich pünktlich abschließen',
+        'obwohl der prozess länger als erwartet dauerte konnten wir ihn letztendlich pünktlich abschließen',
+        'obwohl der prozess länger dauerte als erwartet konnten wir ihn letztlich rechtzeitig abschließen',
+        'obwohl der prozess länger als erwartet gedauert hat konnten wir ihn schließlich pünktlich abschließen',
+        'obwohl der prozess länger als erwartet dauerte konnten wir ihn schließlich pünktlich abschließen'
+      ],
+      explain: 'obwohl sends the verb to the end of its clause (… länger dauerte), and the main clause then starts with the verb: konnten wir ihn schließlich pünktlich abschließen.',
+      fix: 'Practise the obwohl/verb-last pattern against trotz + genitive, which keeps normal word order.' },
+
+    { level: 'B2', type: 'tc', topic: 'Writing: passive with modal', context: 'Translate into German',
+      text: 'The application must be submitted by Friday.',
+      accepts: [
+        'der antrag muss bis freitag eingereicht werden',
+        'der antrag muss bis zum freitag eingereicht werden',
+        'der antrag muss bis freitag abgegeben werden',
+        'der antrag muss bis freitag eingereicht sein'
+      ],
+      explain: 'Modal + passive: muss … eingereicht werden. The participle comes before werden, and the modal stays in position two.',
+      fix: 'Build five passive sentences with modals about work you actually do (bearbeiten, prüfen, einreichen).' },
+
+    { level: 'B2', type: 'tc', topic: 'Writing: nominal style', context: 'Translate into German',
+      text: 'Despite the difficult situation, the company made a profit.',
+      accepts: [
+        'trotz der schwierigen situation erzielte das unternehmen einen gewinn',
+        'trotz der schwierigen situation machte das unternehmen einen gewinn',
+        'trotz der schwierigen lage erzielte das unternehmen einen gewinn',
+        'das unternehmen erzielte trotz der schwierigen situation einen gewinn',
+        'trotz der schwierigen situation hat das unternehmen einen gewinn erzielt'
+      ],
+      explain: 'trotz takes the genitive (trotz der schwierigen Situation) and, when it leads the sentence, the main clause verb comes immediately after it: erzielte das Unternehmen …',
+      fix: 'Practise sentence-initial prepositional phrases followed at once by the verb — the Vorfeld position decides your word order in every formal text.' }
+  ]
+};
+
+(function () {
+  'use strict';
+
+  /* ============================================================
+     1. CONFIG — edit these for your own situation
+     ============================================================ */
+  const CONFIG = {
+    candidate: '',          // optional first name, e.g. 'Lloyd' ('' = generic copy)
+    goal: 'an Ausbildung place in Germany',
+    targetLevel: 'B2',
+    timelineMonths: 4,
+    storageKey: 'sprachstand.test.v2',
+    replaysIncluded: 2,     // plays per listening item before it counts as an accommodation
+    cuts: { reach: 0.60, floor: 0.40 }
+  };
+
+  // Rough cumulative guided-learning hours to *reach* each level (adult learner,
+  // English speaker, classroom + self-study). Published benchmarks, not physics.
+  const HOURS_TO_REACH = { 'Below A1': 0, 'A1': 120, 'A2': 280, 'B1': 500, 'B2': 750, 'C1': 1000 };
+
+  const LEVEL_ORDER = ['A1', 'A2', 'B1', 'B2'];
+
+  const SKILL_META = {
+    grammar:    { label: 'Grammar',               short: 'Grammar' },
+    vocabulary: { label: 'Vocabulary',            short: 'Vocab' },
+    reading:    { label: 'Reading Comprehension', short: 'Reading' },
+    listening:  { label: 'Listening Comprehension', short: 'Listening' },
+    production: { label: 'Written Production',    short: 'Writing' }
+  };
+  const SKILL_ORDER = ['grammar', 'vocabulary', 'reading', 'listening', 'production'];
+
+  /* ============================================================
+     2. SPEECH — listening runs on the browser's German voice
+     If the browser has no German voice, the section is dropped
+     and listening is reported as "not assessed" rather than
+     silently scored zero.
+     ============================================================ */
+  const speech = {
+    supported: false,
+    voice: null,
+    speaking: false,
+    lastError: '',
+
+    init: function () {
+      if (!('speechSynthesis' in window) || typeof window.SpeechSynthesisUtterance !== 'function') {
+        this.supported = false;
+        return;
+      }
+      this.supported = true;
+      this.pick();
+      const self = this;
+      if (window.speechSynthesis.addEventListener) {
+        window.speechSynthesis.addEventListener('voiceschanged', function () { self.pick(); });
+      } else {
+        window.speechSynthesis.onvoiceschanged = function () { self.pick(); };
+      }
+    },
+
+    pick: function () {
+      let voices = [];
+      try { voices = window.speechSynthesis.getVoices() || []; } catch (e) { voices = []; }
+      this.voice = null;
+      for (let i = 0; i < voices.length; i++) {
+        const lang = String(voices[i].lang || '').replace('_', '-').toLowerCase();
+        if (lang.indexOf('de') === 0) {
+          // prefer a de-DE voice if one is available
+          if (!this.voice || lang === 'de-de') this.voice = voices[i];
+        }
+      }
+    },
+
+    ready: function () { return this.supported && !!this.voice; },
+
+    speak: function (text, rate, onEnd) {
+      const self = this;
+      if (!this.ready()) { if (onEnd) onEnd('unavailable'); return; }
+      try { window.speechSynthesis.cancel(); } catch (e) {}
+      const u = new window.SpeechSynthesisUtterance(text);
+      u.lang = this.voice.lang || 'de-DE';
+      u.voice = this.voice;
+      u.rate = rate || 1;
+      u.onend = function () { self.speaking = false; if (onEnd) onEnd('end'); };
+      u.onerror = function (ev) {
+        self.speaking = false;
+        self.lastError = (ev && ev.error) ? ev.error : 'error';
+        if (onEnd) onEnd('error');
+      };
+      this.speaking = true;
+      try { window.speechSynthesis.speak(u); } catch (e) {
+        this.speaking = false;
+        if (onEnd) onEnd('error');
+      }
+    },
+
+    stop: function () {
+      if (!this.supported) return;
+      try { window.speechSynthesis.cancel(); } catch (e) {}
+      this.speaking = false;
+    }
+  };
+
+  /* ============================================================
+     3. STATE
+     ============================================================ */
+  let seq = [];            // items for this attempt
+  let answers = [];        // answers[i] ↔ seq[i]
+  let screen = 'intro';    // intro | test | results
+  let idx = 0;
+  let selected = null;
+  let typed = '';
+  let sections = SKILL_ORDER.slice();
+  let startedAt = null;
+  let lastStamp = null;
+  let showReview = false;
+  let reviewFilter = 'all';
+  let listeningAssessed = false;
+  let acc = { transcript: 0, extraReplay: 0, slow: 0 };
+  let plays = {};          // plays[i] = number of replays used on item i
+
+  const $ = function (id) { return document.getElementById(id); };
+  const app = $('app');
+  const topbar = $('topbar');
+  const progressFill = $('progressFill');
+
+  /* ============================================================
+     4. HELPERS
+     ============================================================ */
+  function esc(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+  }
+  function escLines(s) { return esc(s).replace(/\n/g, '<br>'); }
+
+  function shuffle(arr) {
+    const a = arr.slice();
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      const t = a[i]; a[i] = a[j]; a[j] = t;
+    }
+    return a;
+  }
+
+  // Normalise an answer: case, punctuation, umlauts and ß, so "Geöffnet"
+  // and "geoeffnet" both count and curly apostrophes don't break a match.
+  function norm(s) {
+    return String(s == null ? '' : s)
+      .toLowerCase()
+      .replace(/\u2019|\u2018|\u00b4|`/g, "'")
+      .replace(/ß/g, 'ss')
+      .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue')
+      .replace(/[^a-z0-9äöüß'\s]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function editDistance(a, b) {
+    const m = a.length, n = b.length;
+    if (!m) return n;
+    if (!n) return m;
+    let prev = new Array(n + 1), cur = new Array(n + 1);
+    for (let j = 0; j <= n; j++) prev[j] = j;
+    for (let i = 1; i <= m; i++) {
+      cur[0] = i;
+      for (let j = 1; j <= n; j++) {
+        const cost = a[i - 1] === b[j - 1] ? 0 : 1;
+        cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + cost);
+      }
+      const t = prev; prev = cur; cur = t;
+    }
+    return prev[n];
+  }
+
+  // Identical, or one edit apart on a word of 4+ letters — so "kome" matches
+  // "komme" but "nigerien" does not match "nigeria".
+  function sameToken(a, b) {
+    if (a === b) return true;
+    if (a.length < 4 || b.length < 4) return false;
+    if (Math.abs(a.length - b.length) > 1) return false;
+    return editDistance(a, b) <= 1;
+  }
+
+  const NEGATORS = ['nicht', 'kein', 'keine', 'keinen', 'keiner', 'keinem', 'keines', 'nie', 'niemals', 'ohne'];
+
+  // 1 = correct, 0.5 = very close, 0 = wrong. Negation never earns credit.
+  function scoreTyped(input, q) {
+    const u = norm(input);
+    if (!u) return { credit: 0, partial: false };
+    const accepted = q.accepts.map(norm);
+    if (accepted.indexOf(u) !== -1) return { credit: 1, partial: false };
+
+    const uTokens = u.split(' ');
+    const uNegated = uTokens.some(function (t) { return NEGATORS.indexOf(t) !== -1; });
+
+    let best = 0;
+    accepted.forEach(function (a) {
+      const aTokens = a.split(' ');
+      const aNegated = aTokens.some(function (t) { return NEGATORS.indexOf(t) !== -1; });
+      if (uNegated !== aNegated) return;   // a negation flips the meaning: no credit
+
+      const pool = aTokens.slice();
+      let hits = 0;
+      uTokens.forEach(function (t) {
+        let at = pool.indexOf(t);
+        if (at === -1) at = pool.findIndex(function (p) { return sameToken(t, p); });
+        if (at !== -1) { hits++; pool.splice(at, 1); }
+      });
+      const ratio = hits / Math.max(uTokens.length, aTokens.length);
+      if (ratio > best) best = ratio;
+    });
+
+    if (uTokens.length >= 4 && best >= 0.85) return { credit: 0.5, partial: true };
+    return { credit: 0, partial: false };
+  }
+
+  /* ---------- statistics ---------- */
+  // Wilson score interval for a proportion — used here with fractional
+  // credit, which makes it slightly optimistic (the exact interval is
+  // wider). Disclosed in the trust panel.
+  function wilson(k, n, z) {
+    z = z || 1.96;
+    if (!n) return [0, 1];
+    const p = k / n;
+    const denom = 1 + (z * z) / n;
+    const centre = p + (z * z) / (2 * n);
+    const spread = z * Math.sqrt((p * (1 - p)) / n + (z * z) / (4 * n * n));
+    return [Math.max(0, (centre - spread) / denom), Math.min(1, (centre + spread) / denom)];
+  }
+
+  const LOG_FACT = [0];
+  function logFact(n) {
+    if (LOG_FACT[n] !== undefined) return LOG_FACT[n];
+    for (let i = LOG_FACT.length; i <= n; i++) LOG_FACT[i] = LOG_FACT[i - 1] + Math.log(i);
+    return LOG_FACT[n];
+  }
+  // P(X >= k) for X ~ Binomial(n, p) — the chance of scoring this well by guessing.
+  function binomTail(k, n, p) {
+    if (n <= 0) return 1;
+    if (k <= 0) return 1;
+    if (k > n) return 0;
+    let sum = 0;
+    for (let j = k; j <= n; j++) {
+      sum += Math.exp(logFact(n) - logFact(j) - logFact(n - j) + j * Math.log(p) + (n - j) * Math.log(1 - p));
+    }
+    return Math.min(1, sum);
+  }
+  function formatChance(p) {
+    if (p <= 0.0005) return 'less than 1 in 2,000';
+    if (p < 0.01) return 'about 1 in ' + Math.round(1 / p);
+    if (p < 0.10) return Math.round(p * 1000) / 10 + '%';
+    return Math.round(p * 100) + '%';
+  }
+
+  function fmtClock(ms) {
+    const total = Math.max(0, Math.floor(ms / 1000));
+    const m = Math.floor(total / 60), s = total % 60;
+    return m + ':' + (s < 10 ? '0' : '') + s;
+  }
+  function median(nums) {
+    if (!nums.length) return 0;
+    const a = nums.slice().sort(function (x, y) { return x - y; });
+    const mid = Math.floor(a.length / 2);
+    return a.length % 2 ? a[mid] : (a[mid - 1] + a[mid]) / 2;
+  }
+
+  function toast(msg) {
+    const t = $('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(function () { t.classList.remove('show'); }, 2400);
+  }
+
+  /* ---------- persistence (safe in sandboxed frames) ---------- */
+  function save() {
+    try {
+      if (screen === 'intro') { localStorage.removeItem(CONFIG.storageKey); return; }
+      localStorage.setItem(CONFIG.storageKey, JSON.stringify({
+        v: 2, screen: screen, seq: seq, answers: answers, idx: idx, startedAt: startedAt,
+        sections: sections, listeningAssessed: listeningAssessed, acc: acc, plays: plays
+      }));
+    } catch (e) { /* storage blocked: the test still runs, it just won't resume */ }
+  }
+  function load() {
+    try {
+      const raw = localStorage.getItem(CONFIG.storageKey);
+      if (!raw) return null;
+      const data = JSON.parse(raw);
+      if (!data || data.v !== 2 || !data.seq || !data.answers) return null;
+      return data;
+    } catch (e) { return null; }
+  }
+  function clearSaved() { try { localStorage.removeItem(CONFIG.storageKey); } catch (e) {} }
+
+  /* ============================================================
+     5. BUILDING AN ATTEMPT
+     ============================================================ */
+  function activeSections() {
+    // Listening is dropped entirely when the browser has no German voice.
+    return sections.filter(function (s) {
+      if (s === 'listening') return speech.ready();
+      return true;
+    });
+  }
+
+  function buildSequence(list) {
+    const out = [];
+    list.forEach(function (skill) {
+      (QUESTIONS[skill] || []).forEach(function (q) {
+        const item = Object.assign({}, q, { skill: skill });
+        if (q.type === 'mc') {
+          // Shuffle options per attempt: the bank's written positions are
+          // never a shortcut.
+          const pairs = q.options.map(function (text, i) { return { text: text, isRight: i === q.correct }; });
+          const mixed = shuffle(pairs);
+          item.options = mixed.map(function (p) { return p.text; });
+          item.correct = mixed.findIndex(function (p) { return p.isRight; });
+        }
+        out.push(item);
+      });
+    });
+    return out;
+  }
+
+  function countFor(skill) { return (QUESTIONS[skill] || []).length; }
+
+  function minutesFor(skill) {
+    let mins = 0;
+    (QUESTIONS[skill] || []).forEach(function (q) {
+      if (skill === 'production') mins += 1.25;
+      else if (skill === 'listening') mins += 1.0;
+      else mins += 0.5;
+    });
+    return Math.round(mins);
+  }
+
+  function startAttempt(list) {
+    sections = list.slice();
+    seq = buildSequence(activeSections());
+    listeningAssessed = activeSections().indexOf('listening') !== -1;
+    answers = []; idx = 0; selected = null; typed = '';
+    acc = { transcript: 0, extraReplay: 0, slow: 0 };
+    plays = {};
+    startedAt = Date.now(); lastStamp = Date.now();
+    showReview = false; reviewFilter = 'all';
+    screen = 'test';
+    save(); render();
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
+  function resumeAttempt(data) {
+    seq = data.seq; answers = data.answers || []; idx = data.idx || 0;
+    sections = data.sections || sections.slice();
+    listeningAssessed = !!data.listeningAssessed;
+    acc = data.acc || { transcript: 0, extraReplay: 0, slow: 0 };
+    plays = data.plays || {};
+    startedAt = data.startedAt || Date.now();
+    lastStamp = Date.now();
+    screen = data.screen === 'results' ? 'results' : 'test';
+    selected = null; typed = ''; showReview = false; reviewFilter = 'all';
+    render();
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }
+
+  /* ============================================================
+     6. RENDER — INTRO
+     ============================================================ */
+  function renderIntro() {
+    const saved = load();
+    const canResume = saved && saved.screen === 'test' && saved.answers && saved.answers.length;
+
+    const willRun = activeSections();
+    const totalQ = willRun.reduce(function (n, s) { return n + countFor(s); }, 0);
+    const totalMin = willRun.reduce(function (n, s) { return n + minutesFor(s); }, 0);
+
+    const picker = SKILL_ORDER.map(function (s) {
+      const on = sections.indexOf(s) !== -1;
+      const dropped = on && s === 'listening' && !speech.ready();
+      return '<label class="pick' + (on ? ' on' : '') + (dropped ? ' dropped' : '') + '">' +
+        '<input type="checkbox" data-act="pick" value="' + s + '"' + (on ? ' checked' : '') + '>' +
+        '<span>' + esc(SKILL_META[s].label) +
+        '<span class="pick-meta">' + countFor(s) + ' items · ' + minutesFor(s) + ' min · ' +
+          (s === 'production' ? 'typing' : (s === 'listening' ? 'audio' : (s === 'reading' ? 'passages' : 'multiple choice'))) +
+          (dropped ? '<br>not available — see below' : '') + '</span>' +
+        '</span></label>';
+    }).join('');
+
+    const voice = speech.ready()
+      ? '<div class="voice-check ok"><span class="vc-dot"></span><span><strong>Listening available.</strong> ' +
+          'Your browser has a German voice (' + esc(speech.voice.name || 'de') + '). ' +
+          'The section uses text-to-speech, not a human recording — listen to a sample before you decide.</span>' +
+          '<button class="btn-ghost btn-small" data-act="voice-sample">Play sample</button></div>'
+      : '<div class="voice-check bad"><span class="vc-dot"></span><span><strong>Listening not available in this browser.</strong> ' +
+          'No German speech voice was found, so that section will be skipped and listening will be reported as ' +
+          '<em>not assessed</em> — it will not be scored as zero. Chrome, Edge, Safari and most Android browsers normally have one.</span></div>';
+
+    app.innerHTML =
+      '<div class="card">' +
+        '<h2>Before we start</h2>' +
+        '<p>This is a <strong>self-administered diagnostic</strong>, not a certified exam. It measures four to five skills ' +
+          'separately, tags every item to a CEFR level, and then tells you how much the result can actually bear. ' +
+          'The level it reports is an estimate with an explicit range attached.</p>' +
+        '<ul class="intro-list">' +
+          '<li data-mark="01">' + totalQ + ' items across ' + willRun.length + ' sections — roughly ' + totalMin + ' minutes. You can pause: a half-finished attempt resumes after a reload.</li>' +
+          '<li data-mark="02">Answer honestly and without looking anything up. Checking or guessing shifts the estimate and hides the exact gaps worth fixing.</li>' +
+          '<li data-mark="03">Multiple choice and typing, plus ' + (speech.ready() ? 'a listening section' : 'a listening section that is unavailable in this browser') + '. Option positions and item order are the same for everyone; correct answers are shuffled every attempt.</li>' +
+          '<li data-mark="04">Results: a level per skill with a margin on the accuracy, the item distance to the next band, an explanation for every item, a study plan built from your own mistakes, and a panel on what the number cannot support.</li>' +
+        '</ul>' +
+        '<div class="picker">' +
+          '<div class="picker-title">Sections to include — unticked sections are reported as not assessed, never as zero</div>' +
+          '<div class="picker-grid">' + picker + '</div>' +
+        '</div>' +
+        voice +
+        '<div class="note"><strong>Two caveats up front.</strong> Typed answers are matched against a list of accepted phrasings, ' +
+          'so a correct sentence worded differently from all of them can be marked wrong — nearly-right answers score half credit. ' +
+          'And with ' + countFor('listening') + ' listening and ' + countFor('production') + ' writing items, those two skills rest on far fewer ' +
+          'items than grammar and vocabulary, which is exactly why the results screen reports a range rather than a single level.</div>' +
+        '<div class="nav-row" style="justify-content:flex-start; margin-top:24px;">' +
+          '<button class="btn-primary" data-act="start">Start' + (totalMin > 45 ? ' (' + totalMin + ' min, all sections)' : '') + '</button>' +
+          (canResume ? '<button class="btn-ghost" data-act="resume">Resume attempt (' + saved.answers.filter(Boolean).length + ' answered)</button>' : '') +
+        '</div>' +
+      '</div>';
+  }
+
+  /* ============================================================
+     7. RENDER — TEST
+     ============================================================ */
+  function renderTest() {
+    const q = seq[idx];
+    if (!q) { screen = 'results'; return render(); }
+
+    selected = null; typed = '';
+    lastStamp = Date.now();
+
+    const isLast = idx === seq.length - 1;
+    const pct = Math.round((idx / seq.length) * 100);
+
+    let answerArea = '';
+    if (q.type === 'mc') {
+      answerArea = '<div class="options" role="radiogroup" aria-label="Answer options">' +
+        q.options.map(function (opt, i) {
+          return '<button type="button" class="opt" role="radio" aria-checked="false" data-act="select" data-i="' + i + '">' +
+            '<span class="opt-letter">' + String.fromCharCode(65 + i) + '</span>' +
+            '<span>' + esc(opt) + '</span></button>';
+        }).join('') + '</div>';
+    } else {
+      answerArea =
+        '<div class="text-input-row">' +
+          '<input type="text" id="textAnswerInput" placeholder="Type the full German sentence…" ' +
+            'autocomplete="off" autocorrect="off" autocapitalize="sentences" spellcheck="false" aria-label="Your German sentence">' +
+        '</div>' +
+        '<div class="umlaut-row">' +
+          '<span class="lbl">ä ö ü ß →</span>' +
+          ['ä', 'ö', 'ü', 'ß', 'Ä', 'Ö', 'Ü'].map(function (ch) {
+            return '<button type="button" class="umlaut" data-act="umlaut" data-ch="' + ch + '">' + ch + '</button>';
+          }).join('') +
+        '</div>';
+    }
+
+    const isListening = !!q.audio;
+    const left = CONFIG.replaysIncluded - (plays[idx] || 0);
+    const audioArea = isListening
+      ? '<div class="listen-panel">' +
+          '<button type="button" class="play-btn" data-act="play" id="playBtn">' +
+            '<span class="play-icon">▶</span><span id="playLabel">' + (left > 0 ? 'Play' : 'Play again') + '</span>' +
+          '</button>' +
+          '<div class="listen-meta">' +
+            '<span id="playsLeft">' + (left > 0 ? left + ' play' + (left === 1 ? '' : 's') + ' left' : 'replay limit reached — further plays are logged as an accommodation') + '</span>' +
+            '<span class="rate-toggle">' +
+              '<button type="button" class="rate-btn on" data-act="rate" data-rate="1">Normal</button>' +
+              '<button type="button" class="rate-btn" data-act="rate" data-rate="0.8">Slow</button>' +
+            '</span>' +
+          '</div>' +
+          '<div class="listen-help">If you hear nothing, check your volume and silent mode first. ' +
+            'You can also <button type="button" class="linkish" data-act="transcript">reveal the transcript</button> — that makes the item easier, ' +
+            'and it gets logged as an accommodation on your results.</div>' +
+        '</div>'
+      : '';
+
+    app.innerHTML =
+      '<div class="section-tag">' + esc(SKILL_META[q.skill].label) + '</div>' +
+      '<div class="q-counter">Item ' + (idx + 1) + ' of ' + seq.length + '</div>' +
+      '<div class="q-card" id="qcard">' +
+        '<div class="q-top">' +
+          '<span class="q-level-chip" data-level="' + esc(q.level) + '">' + esc(q.level) + '</span>' +
+          '<span class="q-topic">' + esc(q.topic) + '</span>' +
+        '</div>' +
+        (q.context ? '<div class="q-context">' + esc(q.context) + '</div>' : '') +
+        (q.passage ? '<div class="q-passage">' + escLines(q.passage) + '</div>' : '') +
+        audioArea +
+        '<div class="q-text">' + esc(q.text) + '</div>' +
+        (q.type === 'tc' ? '<div class="q-hint">CHECKED FOR: ' + esc(q.topic.replace('Writing: ', '')) + '</div>' : '') +
+        answerArea +
+        '<div id="transcriptSlot"></div>' +
+      '</div>' +
+      '<div class="nav-row">' +
+        (idx > 0 ? '<button class="btn-ghost" data-act="back">Back</button>' : '') +
+        '<span class="spacer"></span>' +
+        '<button class="btn-ghost" data-act="skip">Skip</button>' +
+        '<button class="btn-primary" id="nextBtn" data-act="submit" disabled>' + (isLast ? 'See results' : 'Next') + '</button>' +
+      '</div>' +
+      (isListening ? '' : '<div class="keys-hint"><kbd>1</kbd>–<kbd>4</kbd> choose · <kbd>Enter</kbd> continue · <kbd>←</kbd> back</div>');
+
+    progressFill.style.width = pct + '%';
+    $('barSection').textContent = SKILL_META[q.skill].short + ' · ' + q.level;
+    updateBarCount();
+
+    if (q.type === 'tc') {
+      const input = $('textAnswerInput');
+      input.addEventListener('input', function () { typed = input.value; syncNext(); });
+      setTimeout(function () { input.focus(); }, 30);
+    }
+  }
+
+  function updateBarCount() {
+    const elapsed = startedAt ? fmtClock(Date.now() - startedAt) : '0:00';
+    $('barCount').textContent = (idx + 1) + '/' + seq.length + ' · ' + elapsed;
+  }
+
+  function syncNext() {
+    const btn = $('nextBtn');
+    if (!btn) return;
+    const q = seq[idx];
+    btn.disabled = q.type === 'mc' ? selected === null : typed.trim().length === 0;
+  }
+
+  function selectOption(i) {
+    selected = i;
+    app.querySelectorAll('.opt').forEach(function (el, n) {
+      const on = n === i;
+      el.classList.toggle('selected', on);
+      el.setAttribute('aria-checked', on ? 'true' : 'false');
+    });
+    syncNext();
+  }
+
+  /* ============================================================
+     8. LISTENING PLAYBACK
+     ============================================================ */
+  let currentRate = 1;
+
+  function playAudio() {
+    const q = seq[idx];
+    if (!q || !q.audio) return;
+    const used = plays[idx] || 0;
+    if (used >= CONFIG.replaysIncluded) acc.extraReplay++;
+    plays[idx] = used + 1;
+    if (currentRate !== 1) acc.slow++;
+
+    const btn = $('playBtn');
+    const label = $('playLabel');
+    if (btn) btn.classList.add('playing');
+    if (label) label.textContent = 'Playing…';
+
+    speech.speak(q.audio, currentRate, function (why) {
+      if (btn) btn.classList.remove('playing');
+      const usedNow = plays[idx] || 0;
+      const remaining = CONFIG.replaysIncluded - usedNow;
+      if (label) {
+        if (why === 'error' || why === 'unavailable') {
+          label.textContent = 'Playback failed';
+          toast('Playback failed — check your volume, or reveal the transcript.');
+        } else {
+          label.textContent = remaining > 0 ? 'Play again' : 'Replay';
+        }
+      }
+      const pl = $('playsLeft');
+      if (pl) {
+        pl.textContent = remaining > 0
+          ? remaining + ' play' + (remaining === 1 ? '' : 's') + ' left'
+          : 'replay limit reached — further plays are logged as an accommodation';
+      }
+      save();
+    });
+  }
+
+  function revealTranscript() {
+    const q = seq[idx];
+    if (!q || !q.audio) return;
+    acc.transcript++;
+    const slot = $('transcriptSlot');
+    if (slot) {
+      slot.innerHTML = '<div class="transcript-box"><span class="lab">Transcript — logged as an accommodation</span>' +
+        esc(q.audio) + '</div>';
+    }
+    save();
+  }
+
+  function setRate(rate) {
+    currentRate = rate;
+    app.querySelectorAll('.rate-btn').forEach(function (b) {
+      b.classList.toggle('on', String(b.getAttribute('data-rate')) === String(rate));
+    });
+  }
+
+  /* ============================================================
+     9. ANSWERING
+     ============================================================ */
+  function record(credit, userText, partial) {
+    const q = seq[idx];
+    const now = Date.now();
+    answers[idx] = {
+      skill: q.skill, level: q.level, topic: q.topic, type: q.type,
+      questionText: q.text, audio: q.audio || '',
+      passageId: q.passageId || '',
+      userText: userText,
+      correctText: q.type === 'mc' ? q.options[q.correct] : q.accepts[0],
+      credit: credit, partial: !!partial,
+      skipped: userText === '(skipped)',
+      ms: lastStamp ? now - lastStamp : null,
+      replays: q.audio ? (plays[idx] || 0) : 0
+    };
+  }
+
+  function submitAnswer() {
+    const q = seq[idx];
+    const btn = $('nextBtn');
+    if (btn && btn.disabled) return;
+    speech.stop();
+
+    if (q.type === 'mc') {
+      if (selected === null) return;
+      record(selected === q.correct ? 1 : 0, q.options[selected], false);
+    } else {
+      const res = scoreTyped(typed, q);
+      record(res.credit, typed.trim(), res.partial);
+    }
+    advance();
+  }
+
+  function skipQuestion() { speech.stop(); record(0, '(skipped)', false); advance(); }
+
+  function goBack() {
+    if (idx === 0) return;
+    speech.stop();
+    idx--;
+    render();
+    const prev = answers[idx];
+    if (prev && !prev.skipped && prev.type === 'mc') {
+      const at = seq[idx].options.indexOf(prev.userText);
+      if (at !== -1) selectOption(at);
+    } else if (prev && prev.type === 'tc' && !prev.skipped) {
+      const input = $('textAnswerInput');
+      if (input) { input.value = prev.userText; typed = prev.userText; syncNext(); }
+    }
+  }
+
+  function advance() {
+    selected = null; typed = '';
+    if (idx < seq.length - 1) { idx++; save(); render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+    else { screen = 'results'; save(); render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }
+  }
+
+  /* ============================================================
+     10. SCORING
+     ============================================================ */
+  function levelRank(label) {
+    const at = LEVEL_ORDER.indexOf(String(label).replace(' (shaky)', ''));
+    return at === -1 ? 0 : at + 1;
+  }
+  function labelFor(rank) { return rank === 0 ? 'Below A1' : LEVEL_ORDER[rank - 1]; }
+
+  function scoreSkill(skill) {
+    const list = answers.filter(function (a) { return a && a.skill === skill; });
+    const byLevel = {};
+    LEVEL_ORDER.forEach(function (l) { byLevel[l] = { earned: 0, total: 0, lo: 0, hi: 1 }; });
+
+    let earned = 0, mcCorrect = 0, mcTotal = 0;
+    list.forEach(function (a) {
+      const w = typeof a.credit === 'number' ? a.credit : 0;
+      earned += w;
+      if (byLevel[a.level]) {
+        byLevel[a.level].earned += w;
+        byLevel[a.level].total += 1;
+      }
+      if (a.type === 'mc') { mcTotal++; if (w >= 1) mcCorrect++; }
+    });
+
+    LEVEL_ORDER.forEach(function (l) {
+      const c = byLevel[l];
+      if (!c.total) return;
+      const iv = wilson(c.earned, c.total);
+      c.lo = iv[0]; c.hi = iv[1];
+      c.point = c.earned / c.total;
+    });
+
+    // Placement: walk the levels in order; a level counts if accuracy is at
+    // or above the cut, and the climb stops at the first level that misses.
+    let placed = 0;
+    for (let i = 0; i < LEVEL_ORDER.length; i++) {
+      const c = byLevel[LEVEL_ORDER[i]];
+      if (!c || !c.total) continue;               // cell not tested: skip, don't block
+      if (c.point >= CONFIG.cuts.reach && placed === i) { placed = i + 1; continue; }
+      break;
+    }
+
+    // "Shaky" = sitting on the boundary of the next level up.
+    let shaky = false;
+    if (placed < LEVEL_ORDER.length) {
+      const next = byLevel[LEVEL_ORDER[placed]];
+      if (next && next.total && next.point >= CONFIG.cuts.floor && next.point < CONFIG.cuts.reach) shaky = true;
+    }
+
+    /* ---- how fragile is this? Two concrete numbers instead of a pseudo-interval:
+       the size of the cell the placement rests on, and how many more items at the
+       next level it would take to move up a band. A 3-item cell cannot carry a
+       level with any confidence, and saying so in items is honest and readable.
+       (A Wilson band per cell was tried first. With 3 items even a perfect score
+       yields a lower bound near 0.44, i.e. "plausible range: Below A1–B2",
+       which is technically true and completely useless.) ---- */
+    const decidingLevel = placed === 0 ? 'A1' : LEVEL_ORDER[placed - 1];
+    const decidingCell = byLevel[decidingLevel] || { total: 0, earned: 0 };
+    const nextLevel = placed < LEVEL_ORDER.length ? LEVEL_ORDER[placed] : null;
+    const nextCell = nextLevel ? byLevel[nextLevel] : null;
+    const itemsToNext = (nextCell && nextCell.total)
+      ? Math.max(1, Math.ceil(CONFIG.cuts.reach * nextCell.total - nextCell.earned))
+      : null;
+
+    // Accuracy interval on the whole skill — an interpretable ±figure.
+    const skillIv = wilson(earned, list.length || 1);
+    const marginPts = Math.round(((skillIv[1] - skillIv[0]) / 2) * 100);
+
+    const total = list.length;
+    return {
+      skill: skill, byLevel: byLevel, earned: earned, total: total,
+      pct: total ? Math.round((earned / total) * 100) : 0,
+      marginPts: marginPts,
+      placed: labelFor(placed) + (shaky ? ' (shaky)' : ''),
+      rank: placed, shaky: shaky,
+      decidingLevel: decidingLevel,
+      decidingItems: decidingCell.total,
+      fragile: decidingCell.total <= 4,
+      nextLevel: nextLevel,
+      itemsToNext: itemsToNext,
+      nextPct: (nextCell && nextCell.total) ? Math.round(nextCell.point * 100) : null,
+      mcCorrect: mcCorrect, mcTotal: mcTotal,
+      answered: list.filter(function (a) { return !a.skipped; }).length,
+      skipped: list.filter(function (a) { return a.skipped; }).length
+    };
+  }
+
+  function overallFrom(skillResults) {
+    const lowest = skillResults.reduce(function (a, b) { return b.rank < a.rank ? b : a; }, skillResults[0]);
+    const atCeiling = skillResults.every(function (r) { return r.rank === LEVEL_ORDER.length; });
+    return {
+      atCeiling: atCeiling,
+      rank: lowest.rank,
+      label: labelFor(lowest.rank),
+      shaky: lowest.shaky,
+      bindingSkill: lowest.skill,
+      decidingLevel: lowest.decidingLevel,
+      decidingItems: lowest.decidingItems,
+      fragile: lowest.fragile,
+      itemsToNext: lowest.itemsToNext,
+      nextLevel: lowest.nextLevel
+    };
+  }
+
+  // Plain-language statement of how much weight the level can carry.
+  function fragilityLine(r) {
+    if (r.itemsToNext === null) {
+      return 'This is the top of the scale, so nothing above it was tested.';
+    }
+    const skillKey = r.skill || r.bindingSkill;
+    const who = SKILL_META[skillKey] ? SKILL_META[skillKey].short : 'this skill';
+    const move = r.itemsToNext === 1 ? 'one more correct item' : r.itemsToNext + ' more correct items';
+    const base = 'The ' + r.decidingLevel + ' placement rests on ' + r.decidingItems + ' item' +
+      (r.decidingItems === 1 ? '' : 's') + '; ' + move + ' at ' + r.nextLevel +
+      ' would lift ' + who + ' to ' + r.nextLevel + '.';
+    return r.fragile
+      ? base + ' With a cell this small, one answer genuinely moves a band — treat the level as a pointer, not a measurement.'
+      : base;
+  }
+
+  /* ============================================================
+     11. STUDY PLAN
+     ============================================================ */
+  function buildPlan() {
+    const groups = {};
+    answers.forEach(function (a) {
+      if (!a) return;
+      const lost = 1 - (typeof a.credit === 'number' ? a.credit : 0);
+      if (lost <= 0.001) return;
+      const key = a.skill + '|' + a.topic;
+      if (!groups[key]) groups[key] = { skill: a.skill, topic: a.topic, level: a.level, lost: 0, total: 0, fix: '' };
+      const g = groups[key];
+      g.lost += lost; g.total += 1;
+      if (LEVEL_ORDER.indexOf(a.level) < LEVEL_ORDER.indexOf(g.level)) g.level = a.level;
+      const q = seq.filter(function (x) { return x && x.topic === a.topic && x.skill === a.skill; })[0];
+      if (q && q.fix) g.fix = q.fix;
+    });
+    const arr = Object.keys(groups).map(function (k) { return groups[k]; });
+    arr.forEach(function (g) { g.accuracy = g.total ? 1 - (g.lost / g.total) : 0; });
+    arr.sort(function (a, b) {
+      if (a.accuracy !== b.accuracy) return a.accuracy - b.accuracy;
+      return LEVEL_ORDER.indexOf(a.level) - LEVEL_ORDER.indexOf(b.level);
+    });
+    return arr;
+  }
+
+  /* ============================================================
+     12. VERDICT
+     ============================================================ */
+  function verdictBlock(overall) {
+    const target = CONFIG.targetLevel;
+    const targetRank = levelRank(target);
+    const goalPhrase = CONFIG.goal || 'your target';
+
+    const currentHours = HOURS_TO_REACH[overall.label] || 0;
+    const targetHours = HOURS_TO_REACH[target] || 750;
+    const days = Math.max(1, CONFIG.timelineMonths * 30);
+    const gap = Math.max(0, targetHours - currentHours);
+    const perDay = gap / days;
+
+    let headline = '', body = '';
+
+    if (overall.rank >= targetRank) {
+      headline = 'You are already testing at or above your target.';
+      body = 'If that holds on a second attempt and in production under time pressure, the gap is not the level itself but exam technique, speed and consistency. Work on timed mock papers and get your written and spoken output corrected by a human — this test can only measure what it can match.';
+    } else if (perDay <= 2) {
+      headline = 'This looks achievable in ' + CONFIG.timelineMonths + ' months.';
+      body = 'The gap is real but the arithmetic works. Consistency beats intensity: short daily sessions with speaking built in will out-perform weekend binges.';
+    } else if (perDay <= 3) {
+      headline = 'This is tight but doable in ' + CONFIG.timelineMonths + ' months.';
+      body = 'It needs a disciplined daily routine, not just good intentions. If you sustain it, protect speaking practice above everything else — every exam at ' + target + ' tests production, and production is the slowest skill to build.';
+    } else if (perDay <= 4.5) {
+      headline = 'This is a heavy load for ' + CONFIG.timelineMonths + ' months.';
+      body = 'The hours exist on paper but they have to come out of somewhere, and burnout is the usual reason these plans fail rather than ability. Two honest options: stretch the timeline to 6–8 months, or keep ' + CONFIG.timelineMonths + ' months and redefine the goal as "strong ' + labelFor(Math.max(1, overall.rank)) + ' with ' + target + ' comprehension", then finish ' + target + ' in-country.';
+    } else {
+      headline = 'This timeline is not realistic from your current level.';
+      body = 'Not because you cannot get there, but because the hours do not fit inside ' + CONFIG.timelineMonths + ' months at a pace a person can hold. The productive move is to check whether ' + goalPhrase + ' actually requires ' + target + ' on day one — plenty of pathways let you arrive at B1 and finish the rest in Germany, where the language comes faster. If it truly requires ' + target + ', plan 12–18 months and work steadily instead of gambling on a sprint.';
+    }
+
+    let rangeNote = '';
+    if (overall.fragile) {
+      const oneDown = labelFor(Math.max(0, overall.rank - 1));
+      const downGap = Math.max(0, targetHours - (HOURS_TO_REACH[oneDown] || 0));
+      rangeNote = '<p class="range-note">The level above rests on only <strong>' + overall.decidingItems + ' item' +
+        (overall.decidingItems === 1 ? '' : 's') + '</strong>, so plan against the band below as well: ' +
+        'from <strong>' + esc(oneDown) + '</strong> the gap is <strong>' + Math.round(downGap) + ' hours ≈ ' +
+        (downGap / days).toFixed(1) + ' hours/day</strong>.</p>';
+    }
+
+    const mathHtml = (overall.rank >= targetRank || overall.atCeiling) ? '' :
+      '<div class="math">' +
+        'point estimate <b>' + esc(overall.label) + '</b> ≈ ' + currentHours + ' guided hours<br>' +
+        'target <b>' + esc(target) + '</b> ≈ ' + targetHours + ' guided hours<br>' +
+        'gap <b>' + Math.round(gap) + ' hours</b> ÷ ' + days + ' days = <b>' + perDay.toFixed(1) + ' hours/day</b>' +
+      '</div>';
+
+    return '<div class="verdict">' +
+      (CONFIG.candidate ? '<h3>' + esc(CONFIG.candidate) + ', what this means for ' + esc(goalPhrase) + '</h3>' : '<h3>What this means for ' + esc(goalPhrase) + '</h3>') +
+      mathHtml +
+      '<p><strong>' + esc(headline) + '</strong> ' + esc(body) + '</p>' +
+      rangeNote +
+      '<p class="fine">Hour figures are published CEFR benchmarks for adults learning German, not a measurement of you, and they assume the hours are guided or actively practised — passive listening counts for far less than it feels like it does.</p>' +
+    '</div>';
+  }
+
+  /* ============================================================
+     13. TRUST PANEL
+     ============================================================ */
+  function trustPanel(skillResults, overall) {
+    const answered = answers.filter(Boolean);
+    const willRun = activeSections();
+    const cellLine = willRun.map(function (s) {
+      const counts = LEVEL_ORDER.map(function (l) {
+        return (QUESTIONS[s] || []).filter(function (q) { return q.level === l; }).length;
+      });
+      return SKILL_META[s].short + ' ' + counts.join('/');
+    }).join(' · ');
+
+    const allMc = answered.filter(function (a) { return a.type === 'mc'; });
+    const mcCorrect = allMc.filter(function (a) { return a.credit >= 1; }).length;
+    const chance = binomTail(mcCorrect, allMc.length, 0.25);
+
+    const times = answered.map(function (a) { return a.ms; }).filter(function (m) { return typeof m === 'number' && m > 0; });
+    const medianMs = median(times);
+    const rushed = times.filter(function (m) { return m < 4000; }).length;
+    const elapsed = startedAt ? Date.now() - startedAt : 0;
+
+    const accBits = [];
+    if (acc.transcript) accBits.push('transcript revealed ×' + acc.transcript);
+    if (acc.slow) accBits.push('slow playback ×' + acc.slow);
+    if (acc.extraReplay) accBits.push('extra replays ×' + acc.extraReplay);
+    const skips = answered.filter(function (a) { return a.skipped; }).length;
+    if (skips) accBits.push(skips + ' item' + (skips === 1 ? '' : 's') + ' skipped');
+
+    const passages = {};
+    answered.forEach(function (a) { if (a.passageId) passages[a.passageId] = (passages[a.passageId] || 0) + 1; });
+    const sharedPassages = Object.keys(passages).filter(function (k) { return passages[k] > 1; }).length;
+
+    const rows = [
+      ['Evidence',
+        answered.length + ' items: ' + willRun.map(function (s) {
+          return SKILL_META[s].short.toLowerCase() + ' ' + answers.filter(function (a) { return a && a.skill === s; }).length;
+        }).join(', ') + '.'],
+      ['Items per CEFR level',
+        cellLine + '. The smallest cell decides how much a single answer can move a band — with 3 items, one answer is worth a third of that level.'],
+      ['Precision',
+        'Per-skill accuracy carries a 95% margin of roughly ±' + Math.round(skillResults[0].marginPts) + '–' +
+        Math.round(skillResults.reduce(function (m, r) { return Math.max(m, r.marginPts); }, 0)) + ' points, from item count alone. ' +
+        'This does not cover item quality, guessing, or shared passages, so treat it as a floor on the real uncertainty, not a ceiling.'],
+      ['Distance to the next band',
+        skillResults.filter(function (r) { return r.itemsToNext !== null; }).map(function (r) {
+          return SKILL_META[r.skill].short + ': ' + r.itemsToNext + ' more correct ' + r.nextLevel + ' item' + (r.itemsToNext === 1 ? '' : 's');
+        }).join(' · ') + '.'],
+      ['Shared passages', sharedPassages + ' reading passage' + (sharedPassages === 1 ? '' : 's') + ' carried two items each, so those answers are correlated — that alone makes the real interval wider than calculated.'],
+      ['Listening',
+        listeningAssessed
+          ? 'Assessed with your browser\u2019s German text-to-speech voice, not a human recording. Voice quality, accent and speed all differ from an exam, and nothing here tests speaking.'
+          : 'Not assessed — no German speech voice was available in this browser, so it was excluded from the placement rather than scored as zero.'],
+      ['Written production',
+        answered.some(function (a) { return a.skill === 'production'; })
+          ? 'Machine-matched against accepted phrasings, not rated by a human. No marks were given for coherence, range or register, which are exactly what a real CEFR writing band measures.'
+          : 'Not assessed in this attempt.'],
+      ['Random baseline',
+        'Across ' + allMc.length + ' multiple-choice items you scored ' + mcCorrect + '. If you had answered them at random (4 options, 25%), the chance of scoring at least this well is ' + formatChance(chance) + '. This keeps a lucky run from looking like knowledge — the lower end of your range is the sturdier half.'],
+      ['Timing',
+        fmtClock(elapsed) + ' total · median ' + (medianMs ? Math.round(medianMs / 1000) + ' s' : '—') + ' per item · ' +
+        rushed + ' item' + (rushed === 1 ? '' : 's') + ' answered in under 4 seconds' + (rushed ? ' (fast answers tend to be guesses)' : '') + '.'],
+      ['Accommodations',
+        accBits.length ? accBits.join(' · ') + ' — each of these makes an item easier than the level it is tagged with, so they land on the generous side of your range.' : 'None used.']
+    ];
+
+    return '<div class="card trust">' +
+      '<h3>How much to trust this result</h3>' +
+      '<table class="trust-table"><tbody>' +
+        rows.map(function (r) {
+          return '<tr><th>' + esc(r[0]) + '</th><td>' + r[1] + '</td></tr>';
+        }).join('') +
+      '</tbody></table>' +
+      '<p class="blunt"><strong>What this cannot bear:</strong> it is not a certificate and carries no weight with an employer, a consulate or an Ausbildung sponsor. ' +
+        'For anything official you need a recognised exam — Goethe-Zertifikat, telc, ÖSD or onSET. ' +
+        'Use this for what it is: a map of your own gaps, and an honest estimate of how far you have to walk.</p>' +
+    '</div>';
+  }
+
+  /* ============================================================
+     14. RENDER — RESULTS
+     ============================================================ */
+  function skillStatus(r) {
+    if (r.shaky) return { cls: 'shaky', text: 'shaky' };
+    if (r.rank === 0) return { cls: 'gap', text: 'gap' };
+    if (r.rank === LEVEL_ORDER.length) return { cls: 'top', text: 'top of scale' };
+    return { cls: 'solid', text: 'reached' };
+  }
+
+  function renderResults() {
+    const skills = SKILL_ORDER.filter(function (s) {
+      return answers.some(function (a) { return a && a.skill === s; });
+    });
+    const skillResults = skills.map(scoreSkill);
+    const overall = overallFrom(skillResults);
+    const plan = buildPlan();
+
+    const totalEarned = answers.reduce(function (n, a) { return n + (a && a.credit ? a.credit : 0); }, 0);
+    const totalQ = answers.filter(Boolean).length;
+    const totalPct = totalQ ? Math.round((totalEarned / totalQ) * 100) : 0;
+
+    const bandLine = overall.atCeiling
+      ? 'Every assessed skill reached <strong>' + LEVEL_ORDER[LEVEL_ORDER.length - 1] +
+        '</strong>, the top of what this test measures — so that is a floor, not a ceiling. ' +
+        'Nothing above ' + LEVEL_ORDER[LEVEL_ORDER.length - 1] + ' was tested here.'
+      : 'Decided by <strong>' + esc(SKILL_META[overall.bindingSkill].label) + '</strong> — ' + esc(fragilityLine(overall));
+
+    const skillBars = skillResults.map(function (r) {
+      const st = skillStatus(r);
+      const fillCls = r.pct >= 75 ? '' : (r.pct >= 55 ? 'shaky' : 'low');
+      const band = ' <span class="band-chip">±' + r.marginPts + ' pts</span>';
+      return '<div class="skill-row">' +
+        '<div class="skill-row-top">' +
+          '<span class="skill-name">' + esc(SKILL_META[r.skill].label) +
+            '<span class="status-chip ' + st.cls + '">' + st.text + '</span></span>' +
+          '<span class="skill-score">' + esc(r.placed) + band + ' · ' + r.earned + '/' + r.total + ' credit</span>' +
+        '</div>' +
+        '<div class="skill-bar-track"><div class="skill-bar-fill ' + fillCls + '" style="width:' + r.pct + '%"></div></div>' +
+      '</div>';
+    }).join('');
+
+    const matrixRows = LEVEL_ORDER.map(function (lvl) {
+      let earned = 0, total = 0;
+      skillResults.forEach(function (r) {
+        if (r.byLevel[lvl] && r.byLevel[lvl].total) { earned += r.byLevel[lvl].earned; total += r.byLevel[lvl].total; }
+      });
+      if (!total) return '';
+      const pct = Math.round((earned / total) * 100);
+      const cls = pct >= 75 ? '' : (pct >= 55 ? 'shaky' : 'low');
+      const verdictWord = pct >= 75 ? 'solid' : (pct >= 60 ? 'reached' : (pct >= 40 ? 'shaky' : 'not yet'));
+      return '<tr><td class="lvl">' + lvl + '</td>' +
+        '<td class="num">' + (Math.round(earned * 10) / 10) + ' / ' + total + ' · ' + pct + '%</td>' +
+        '<td class="bar"><div class="mini-track"><div class="mini-fill ' + cls + '" style="width:' + pct + '%"></div></div></td>' +
+        '<td class="num">' + verdictWord + '</td></tr>';
+    }).join('');
+
+    const planHtml = plan.length
+      ? '<div class="plan">' + plan.map(function (p) {
+          return '<div class="plan-item">' +
+            '<span class="lvl-tag">' + esc(p.level) + '</span>' +
+            '<span class="desc"><strong>' + esc(SKILL_META[p.skill].label) + ' · ' + esc(p.topic) + '</strong> — ' +
+              Math.round(p.accuracy * 100) + '% of the credit here' +
+              (p.fix ? '<span class="fix">' + esc(p.fix) + '</span>' : '') +
+            '</span></div>';
+        }).join('') + '</div>'
+      : '<p>Nothing dropped below full credit in this attempt. Move to timed practice at the next level up — and get written and spoken output corrected by a person, which is the one thing this test cannot do for you.</p>';
+
+    const reviewItems = answers.map(function (a, i) {
+      if (!a) return '';
+      const cls = a.credit >= 1 ? 'right' : (a.partial ? 'partial' : 'wrong');
+      if (reviewFilter === 'wrong' && cls === 'right') return '';
+      if (reviewFilter === 'right' && cls !== 'right') return '';
+      const q = seq[i] || {};
+      const label = a.credit >= 1 ? 'Correct' : (a.partial ? 'Half credit' : (a.skipped ? 'Skipped' : 'Incorrect'));
+      const secs = a.ms ? Math.round(a.ms / 1000) + 's' : '';
+      const flags = [];
+      if (a.replays > CONFIG.replaysIncluded) flags.push('extra replay');
+      if (a.type === 'mc' && a.ms && a.ms < 4000) flags.push('answered very fast');
+      return '<div class="review-item ' + cls + '">' +
+        '<div class="review-head"><span>' + esc(SKILL_META[a.skill].short) + ' · ' + esc(a.level) + ' · ' + esc(a.topic) + (secs ? ' · ' + secs : '') + '</span><span>' + label + '</span></div>' +
+        '<div class="review-q">' + esc(a.questionText) + '</div>' +
+        (a.audio ? '<div class="review-audio"><span class="lab">What was said</span>' + esc(a.audio) + '</div>' : '') +
+        '<div class="review-answers">' +
+          '<div class="yours">Your answer: ' + esc(a.userText || '—') + '</div>' +
+          (a.credit < 1 ? '<div class="correct-ans">Accepted: ' + esc(a.correctText) + '</div>' : '') +
+          (a.partial ? '<div class="correct-ans" style="color:#8a6a20;">Close enough for half credit — the wording is not the standard one.</div>' : '') +
+        '</div>' +
+        (q.explain ? '<div class="review-explain"><span class="lab">Why</span>' + esc(q.explain) + '</div>' : '') +
+        (flags.length ? '<div class="review-flags">' + flags.join(' · ') + '</div>' : '') +
+      '</div>';
+    }).join('');
+
+    const missed = answers.filter(function (a) { return a && a.credit < 1; }).length;
+    const notAssessed = SKILL_ORDER.filter(function (s) { return skills.indexOf(s) === -1; });
+
+    app.innerHTML =
+      '<div class="result-hero">' +
+        '<div class="result-eyebrow">Estimated level — not a certificate</div>' +
+        '<div class="result-level' + (overall.label.length > 4 ? ' long' : '') + '">' + esc(overall.label) + '</div>' +
+        '<div class="result-sub">' + Math.round(totalEarned * 10) / 10 + ' of ' + totalQ + ' credit · ' + totalPct + '%' +
+          (overall.shaky ? ' · sitting at the lower edge of this level' : '') + '</div>' +
+        '<div class="result-label">' + bandLine + '</div>' +
+      '</div>' +
+
+      '<div class="card">' +
+        '<h3>Skill breakdown</h3>' +
+        skillBars +
+        '<p class="fine" style="margin-top:20px; margin-bottom:0;">“Credit” counts half points for nearly-right typed answers. ' +
+          'The headline level is your weakest assessed skill, because that is what limits real-world German. ' +
+          'A ±pts chip is the 95% margin on that skill\u2019s accuracy at this item count, and a “shaky” chip means the next level up was partly reached.</p>' +
+      '</div>' +
+
+      '<div class="card">' +
+        '<h3>Credit by CEFR level</h3>' +
+        '<table class="matrix">' +
+          '<thead><tr><th>Level</th><th>Credit</th><th></th><th>Verdict</th></tr></thead>' +
+          '<tbody>' + matrixRows + '</tbody>' +
+        '</table>' +
+      '</div>' +
+
+      verdictBlock(overall) +
+
+      trustPanel(skillResults, overall) +
+
+      '<div class="card" style="margin-top:16px;">' +
+        '<h3>What to fix first</h3>' +
+        planHtml +
+      '</div>' +
+
+      (notAssessed.length ?
+        '<div class="card" style="margin-top:16px;"><h3>Not assessed</h3><p>' +
+          notAssessed.map(function (s) { return esc(SKILL_META[s].label); }).join(', ') +
+          ' — excluded from the level above rather than counted as zero. A CEFR level normally covers all four skills, so treat this as an estimate missing a limb.</p></div>'
+        : '') +
+
+      '<div class="review-toggle">' +
+        '<button data-act="toggle-review">' + (showReview ? 'Hide' : 'Show') + ' item review (' + answers.filter(Boolean).length + ' items, ' + missed + ' to look at)</button>' +
+      '</div>' +
+
+      (showReview ?
+        '<div class="filter-row">' +
+          ['all', 'wrong', 'right'].map(function (f) {
+            const text = f === 'all' ? 'All' : (f === 'wrong' ? 'Needs work' : 'Correct');
+            return '<button data-act="filter" data-f="' + f + '" class="' + (reviewFilter === f ? 'on' : '') + '">' + text + '</button>';
+          }).join('') +
+        '</div>' +
+        '<div>' + (reviewItems.trim() ? reviewItems : '<div class="card" style="text-align:center; color:#6b7a75; font-size:0.9rem;">Nothing in this column.</div>') + '</div>'
+        : '') +
+
+      '<div class="result-actions">' +
+        '<button class="btn-ghost btn-small" data-act="copy">Copy results as text</button>' +
+        '<button class="btn-ghost btn-small" data-act="print">Print / save as PDF</button>' +
+        '<button class="btn-primary btn-small" data-act="restart">Retake</button>' +
+      '</div>' +
+      '<div class="copy-area" id="copyArea" hidden><textarea id="copyBox" readonly></textarea></div>';
+
+    progressFill.style.width = '100%';
+    $('barSection').textContent = 'Result';
+    $('barCount').textContent = overall.label + ' · ' + SKILL_META[overall.bindingSkill].short;
+  }
+
+  function summaryText() {
+    const skills = SKILL_ORDER.filter(function (s) { return answers.some(function (a) { return a && a.skill === s; }); });
+    const skillResults = skills.map(scoreSkill);
+    const overall = overallFrom(skillResults);
+    const lines = [];
+    lines.push('SPRACHSTAND — German level self-check (not a certificate)');
+    lines.push('Date: ' + new Date().toLocaleDateString());
+    lines.push('Estimated level: ' + overall.label + (overall.shaky ? ' (shaky)' : ''));
+    lines.push('Basis: ' + fragilityLine(overall));
+    lines.push('Limited by: ' + SKILL_META[overall.bindingSkill].label);
+    lines.push('Goal used for the verdict: ' + CONFIG.targetLevel + ' in ' + CONFIG.timelineMonths + ' months (' + CONFIG.goal + ')');
+    lines.push('');
+    lines.push('SKILLS');
+    skillResults.forEach(function (r) {
+      lines.push('- ' + SKILL_META[r.skill].label + ': ' + r.placed + ' | ' +
+        (Math.round(r.earned * 10) / 10) + '/' + r.total + ' credit | ' + r.pct + '% ±' + r.marginPts +
+        ' | ' + r.decidingItems + ' items at ' + r.decidingLevel +
+        (r.itemsToNext !== null ? ' | ' + r.itemsToNext + ' more ' + r.nextLevel + ' item(s) to move up' : ''));
+    });
+    lines.push('');
+    lines.push('CREDIT BY LEVEL');
+    LEVEL_ORDER.forEach(function (lvl) {
+      let earned = 0, total = 0;
+      skillResults.forEach(function (r) {
+        if (r.byLevel[lvl] && r.byLevel[lvl].total) { earned += r.byLevel[lvl].earned; total += r.byLevel[lvl].total; }
+      });
+      if (total) lines.push('- ' + lvl + ': ' + (Math.round(earned * 10) / 10) + '/' + total + ' (' + Math.round((earned / total) * 100) + '%)');
+    });
+    lines.push('');
+    lines.push('WHAT TO FIX FIRST');
+    buildPlan().forEach(function (p) {
+      lines.push('- [' + p.level + '] ' + SKILL_META[p.skill].label + ': ' + p.topic + ' (' + Math.round(p.accuracy * 100) + '%)');
+      if (p.fix) lines.push('    -> ' + p.fix);
+    });
+    lines.push('');
+    lines.push('CAVEATS');
+    lines.push('- Levels are estimates from a short self-administered check; accuracy margins cover item count only.');
+    lines.push('- Listening used browser text-to-speech, not human recordings' + (listeningAssessed ? '' : ' (not assessed in this attempt)') + '.');
+    lines.push('- Written production was machine-matched, not human-rated.');
+    lines.push('- Nothing here assesses speaking.');
+    lines.push('- For anything official you need a recognised exam: Goethe-Zertifikat, telc, ÖSD or onSET.');
+    return lines.join('\n');
+  }
+
+  /* ============================================================
+     15. EVENT WIRING
+     ============================================================ */
+  function render() {
+    const foot = $('foot');
+    const mh = $('mastheadCount');
+    if (mh) {
+      const run = activeSections();
+      const items = run.reduce(function (n, s) { return n + countFor(s); }, 0);
+      mh.textContent = run.length + ' skills · ' + items + ' items';
+      const sub = $('mastheadSub');
+      if (sub && run.indexOf('listening') === -1) sub.classList.add('reduced');
+    }
+    if (screen === 'intro') {
+      topbar.hidden = true;
+      if (foot) foot.hidden = false;
+      renderIntro();
+    } else if (screen === 'test') {
+      topbar.hidden = false;
+      if (foot) foot.hidden = true;
+      renderTest();
+    } else {
+      topbar.hidden = false;
+      if (foot) foot.hidden = false;
+      renderResults();
+    }
+  }
+
+  app.addEventListener('click', function (e) {
+    const el = e.target.closest('[data-act]');
+    if (!el) return;
+    const act = el.getAttribute('data-act');
+
+    if (act === 'start') {
+      const list = sections.slice();
+      if (!list.length) { toast('Pick at least one section.'); return; }
+      if (!activeSections().length) { toast('Nothing can run: this browser has no German voice for the listening section.'); return; }
+      clearSaved();
+      startAttempt(list);
+    } else if (act === 'resume') {
+      const data = load();
+      if (data) resumeAttempt(data);
+    } else if (act === 'voice-sample') {
+      speech.speak('Guten Tag. Ich komme aus Nigeria und lerne seit sechs Monaten Deutsch.', 1, function (why) {
+        if (why !== 'end') toast('Playback did not finish — check your volume or silent mode.');
+      });
+    } else if (act === 'play') {
+      playAudio();
+    } else if (act === 'rate') {
+      setRate(parseFloat(el.getAttribute('data-rate')));
+    } else if (act === 'transcript') {
+      revealTranscript();
+    } else if (act === 'select') {
+      selectOption(parseInt(el.getAttribute('data-i'), 10));
+    } else if (act === 'submit') {
+      submitAnswer();
+    } else if (act === 'skip') {
+      skipQuestion();
+    } else if (act === 'back') {
+      goBack();
+    } else if (act === 'umlaut') {
+      insertChar(el.getAttribute('data-ch'));
+    } else if (act === 'toggle-review') {
+      showReview = !showReview;
+      renderResults();
+      if (showReview) {
+        const first = app.querySelector('.review-item');
+        if (first) first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    } else if (act === 'filter') {
+      reviewFilter = el.getAttribute('data-f');
+      renderResults();
+    } else if (act === 'copy') {
+      const box = $('copyBox'), area = $('copyArea');
+      box.value = summaryText();
+      area.hidden = false;
+      box.focus(); box.select();
+      try {
+        const done = document.execCommand && document.execCommand('copy');
+        toast(done ? 'Results copied to your clipboard.' : 'Results ready below — select and copy.');
+      } catch (err) { toast('Results ready below — select and copy.'); }
+    } else if (act === 'print') {
+      try { window.print(); } catch (err) { toast('Printing is blocked here — open the file directly instead.'); }
+    } else if (act === 'restart') {
+      clearSaved();
+      speech.stop();
+      screen = 'intro'; answers = []; seq = []; idx = 0; startedAt = null; plays = {};
+      acc = { transcript: 0, extraReplay: 0, slow: 0 };
+      render();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  });
+
+  app.addEventListener('change', function (e) {
+    const el = e.target.closest('[data-act="pick"]');
+    if (!el) return;
+    const skill = el.value, on = el.checked;
+    sections = sections.filter(function (s) { return s !== skill; });
+    if (on) {
+      sections.push(skill);
+      sections.sort(function (a, b) { return SKILL_ORDER.indexOf(a) - SKILL_ORDER.indexOf(b); });
+    }
+    if (screen === 'intro') renderIntro();
+  });
+
+  app.addEventListener('paste', function (e) {
+    const input = e.target.closest('#textAnswerInput');
+    if (!input) return;
+    e.preventDefault();
+    const text = (e.clipboardData || window.clipboardData).getData('text') || '';
+    insertText(input, text.replace(/\s+/g, ' '));
+  });
+
+  function insertText(input, text) {
+    const start = input.selectionStart == null ? input.value.length : input.selectionStart;
+    const end = input.selectionEnd == null ? input.value.length : input.selectionEnd;
+    input.value = input.value.slice(0, start) + text + input.value.slice(end);
+    const pos = start + text.length;
+    input.setSelectionRange(pos, pos);
+    input.focus();
+    typed = input.value;
+    syncNext();
+  }
+  function insertChar(ch) {
+    const input = $('textAnswerInput');
+    if (input) insertText(input, ch);
+  }
+
+  document.addEventListener('keydown', function (e) {
+    if (screen !== 'test') return;
+    const q = seq[idx];
+    if (!q) return;
+    const inField = document.activeElement === $('textAnswerInput');
+
+    if (e.key === 'Enter') {
+      if ((q.type === 'mc' && !q.audio) || inField) { e.preventDefault(); submitAnswer(); }
+      return;
+    }
+    if (q.type === 'mc' && !q.audio) {
+      const opts = app.querySelectorAll('.opt');
+      const key = e.key.toLowerCase();
+      let n = -1;
+      if (/^[1-9]$/.test(key)) n = parseInt(key, 10) - 1;
+      else if (/^[a-e]$/.test(key)) n = key.charCodeAt(0) - 97;
+      if (n >= 0 && n < opts.length) { e.preventDefault(); selectOption(n); }
+    }
+    if (q.audio && (e.key === 'p' || e.key === 'P')) { e.preventDefault(); playAudio(); }
+    if (e.key === 'ArrowLeft' && !inField) { e.preventDefault(); goBack(); }
+  });
+
+  setInterval(function () { if (screen === 'test' && startedAt) updateBarCount(); }, 1000);
+
+  /* ---------- BOOT ---------- */
+  speech.init();
+  const saved = load();
+  if (saved && saved.screen === 'results' && saved.answers && saved.answers.length) resumeAttempt(saved);
+  else render();
+
+  // Voices often load asynchronously — refresh the intro once they arrive so
+  // the listening section becomes available without a reload.
+  if (window.speechSynthesis && window.speechSynthesis.addEventListener) {
+    window.speechSynthesis.addEventListener('voiceschanged', function () {
+      if (screen === 'intro') renderIntro();
+    });
+  }
+})();
+</script>
+
+<script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"1954b47c125f43f8b4338b3c4f804e4f","spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
